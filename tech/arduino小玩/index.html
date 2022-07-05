@@ -1,0 +1,127 @@
+<!doctype html><html lang=en><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><meta charset=utf-8><meta name=generator content="Hugo 0.101.0"><meta name=theme-color content="#16171d"><meta name=color-scheme content="light dark"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=format-detection content="telephone=no, date=no, address=no, email=no"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><title>Arduino小玩 | 时间文本博客</title><link rel=stylesheet href=../../css/meme.min.css><script src=../../js/meme.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap" media=print onload='this.media="all"'><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap"></noscript><meta name=author content="TimeText"><meta name=description content="基础语法 程序结构 Void setup ( ) { //把你的安装代码放在这里，运行一次: } Void Loop ( ) { //把你"><link rel="shortcut icon" href=../../favicon.ico type=image/x-icon><link rel=mask-icon href=../../icons/safari-pinned-tab.svg color=#fff><link rel=apple-touch-icon sizes=180x180 href=../../icons/apple-touch-icon.png><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-title content="时间文本博客"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=mobile-web-app-capable content="yes"><meta name=application-name content="时间文本博客"><meta name=msapplication-starturl content="../../"><meta name=msapplication-TileColor content="#fff"><meta name=msapplication-TileImage content="../../icons/mstile-150x150.png"><link rel=manifest href=../../manifest.json><link rel=canonical href=https://timetext.github.io/tech/arduino%E5%B0%8F%E7%8E%A9/><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2020-12-01T19:20:54+00:00","dateModified":"2022-07-05T16:01:05+00:00","url":"https://timetext.github.io/tech/arduino%E5%B0%8F%E7%8E%A9/","headline":"Arduino小玩","description":"基础语法 程序结构 Void setup ( ) { //把你的安装代码放在这里，运行一次: } Void Loop ( ) { //把你","inLanguage":"en","articleSection":"tech","wordCount":1837,"image":"https://timetext.github.io/icons/apple-touch-icon.png","author":{"@type":"Person","url":"https://timetext.github.io/","name":"TimeText"},"license":"[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载","publisher":{"@type":"Organization","name":"时间文本博客","logo":{"@type":"ImageObject","url":"https://timetext.github.io/icons/apple-touch-icon.png"},"url":"https://timetext.github.io/"},"mainEntityOfPage":{"@type":"WebSite","@id":"https://timetext.github.io/"}}</script><meta name=twitter:card content="summary"><meta property="og:title" content="Arduino小玩"><meta property="og:description" content="基础语法 程序结构 Void setup ( ) { //把你的安装代码放在这里，运行一次: } Void Loop ( ) { //把你"><meta property="og:url" content="https://timetext.github.io/tech/arduino%E5%B0%8F%E7%8E%A9/"><meta property="og:site_name" content="时间文本博客"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="https://timetext.github.io/icons/apple-touch-icon.png"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-12-01T19:20:54+00:00"><meta property="article:modified_time" content="2022-07-05T16:01:05+00:00"><meta property="article:section" content="tech"></head><body><div class=container><header class=header><div class=header-wrapper><div class="header-inner single"><div class=site-brand><a href=../../ class=brand>时间文本博客</a></div><nav class=nav><ul class=menu id=menu><li class=menu-item><a href=../../life/><span class=menu-item-name>生活</span></a></li><li class="menu-item active"><a href=../../tech/><span class=menu-item-name>技术</span></a></li><li class=menu-item><a href=../../about/><span class=menu-item-name>关于</span></a></li><li class=menu-item><a id=theme-switcher href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5 242 7a18 18 0 0128 0l48.8 97.5L422.2 70A18 18 0 01442 89.8l-34.5 103.4L505 242a18 18 0 010 28l-97.5 48.8L442 422.2A18 18 0 01422.2 442l-103.4-34.5L270 505a18 18 0 01-28 0l-48.8-97.5L89.8 442A18 18 0 0170 422.2l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8L70 89.8A18 18 0 0189.8 70zM256 128a128 128 0 10.01.0M256 160a96 96 0 10.01.0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412A256 256 0 10181 5a11.5 11.5.0 00-5 20A201.5 201.5.0 0142 399a11.5 11.5.0 00-15 13"/></svg></a></li></ul></nav></div></div><input type=checkbox id=nav-toggle aria-hidden=true>
+<label for=nav-toggle class=nav-toggle></label>
+<label for=nav-toggle class=nav-curtain></label></header><main class="main single" id=main><div class=main-inner><article class="content post h-entry" data-align=default data-type=tech><h1 class="post-title p-name">Arduino小玩</h1><div class=post-meta><time datetime=2020-12-01T19:20:54+00:00 class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg>&nbsp;2020.12.1</time>
+<span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3.0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9.0l60.1 60.1c18.8 18.7 18.8 49.1.0 67.9zM284.2 99.8 21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3.0-17l-111-111c-4.8-4.7-12.4-4.7-17.1.0zM124.1 339.9c-5.5-5.5-5.5-14.3.0-19.8l154-154c5.5-5.5 14.3-5.5 19.8.0s5.5 14.3.0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8.0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;1837</span></div><nav class=contents><ol class=toc><li><ol><li><a id=contents:基础语法 href=#基础语法>基础语法</a></li><li><a id=contents:代码片段 href=#代码片段>代码片段</a><ol><li><a id=contents:闪烁led href=#闪烁led>闪烁LED</a></li><li><a id=contents:渐变led href=#渐变led>渐变LED</a></li><li><a id=contents:读取模拟电压 href=#读取模拟电压>读取模拟电压</a></li><li><a id=contents:超声波传感器 href=#超声波传感器>超声波传感器</a></li></ol></li></ol></li></ol></nav><div class="post-body e-content"><h2 id=基础语法><a href=#基础语法 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:基础语法 class=headings>基础语法</a></h2><ul><li><p>程序结构</p><pre tabindex=0><code>Void setup ( ) {
+//把你的安装代码放在这里，运行一次:
+}
+
+Void Loop ( ) {
+//把你的主代码放在这里，重复运行:
+}
+</code></pre></li><li><p>数据类型</p><div class=table-container><table><thead><tr><th>void</th><th>Boolean</th><th>char</th><th>Unsigned char</th><th>byte</th><th>int</th><th>Unsigned int</th><th>word</th></tr></thead><tbody><tr><td>long</td><td>Unsigned long</td><td>short</td><td>float</td><td>double</td><td>array</td><td>String-char array</td><td>String-object</td></tr></tbody></table></div></li><li><p>变量</p><ul><li>局部变量：在函数或代码块内部，称为<strong>局部变量</strong>。</li><li>全局变量：在所有函数之外，称为<strong>全局变量</strong>。</li></ul></li><li><p>函数：同C,函数定义在调用语句后需要进行声明</p><pre tabindex=0><code>int sum_func (int , int ) ; //函数声明
+int sum_func (int x, int y) // function declaration {
+   int z = 0;
+   z = x+y ;
+   return z; // return the value
+}
+
+void setup () {
+   Statements // group of statements
+}
+
+Void loop () {
+   int result = 0 ;
+   result = Sum_func (5,6) ; // function call
+}
+</code></pre></li><li><p>运算符</p><ul><li>算术运算符Arithmetic Operators：+、-、*、/、%、=</li><li>比较运算符 Comparison Operators：==、!=、&lt;、>、&lt;=、>=</li><li>布尔运算符 Boolean Operators：&&、||、！</li><li>位运算符 Bitwise Operators：&、|、^、~、&lt;&lt;、>></li><li>复合运算符Compound Operators：++、--、+=、-=、*=、/=、%=、|=、&=</li></ul></li><li><p>控制语句：if----else if----else；switch case；?:</p></li><li><p>循环语句：while、do...while、for</p></li><li></li><li><p>字符串：字符数组（同C）、Arduino字符串（字符串对象）</p><ul><li>字符串是一个特殊的数组，在字符串的末尾有一个额外的元素，其值总是为0（零）。这被称为“空终止字符串”。</li><li>Serial.begin(9600);设置电脑与Arduino进行串口通讯时的数据传输速率（每秒传输字节数）。可使用以下速率：300, 600, 1200, 2400, 4800, 9600, 14400, 19200, 28800, 38400, 57600, or 115200。，你也可以根据你所使用的设备而设置其他传输速率。</li><li>Serial.println() 可以将字符串打印到Arduino IDE串口监视器窗口</li><li>也可以使用其他c语言中的函数，例如 <code>num = strlen(out_str);</code> 求字符串长度；</li></ul><pre tabindex=0><code>void setup() {
+   char like[] = &#34;I like coffee and cake&#34;; // create a string
+   Serial.begin(9600);
+   // (1) print the string
+   Serial.println(like);
+   // (2) delete part of the string
+   like[13] = 0;
+   Serial.println(like);
+   // (3) substitute a word into the string
+   like[13] = &#39; &#39;; // replace the null terminator with a space
+   like[18] = &#39;t&#39;; // insert the new word
+   like[19] = &#39;e&#39;;
+   like[20] = &#39;a&#39;;
+   like[21] = 0; // terminate the string
+   Serial.println(like);
+
+   String oopstr=&#34;test&#34;;//使用字符对象
+   oopstr.toUpperCase();
+   Serial.println(oopstr);
+}
+
+void loop() {
+
+}
+</code></pre><ul><li>字符串对象比字符串字符数组更容易使用。该对象具有内置函数，可以对字符串执行多个操作。主要缺点是，它使用了大量的内存，可能会很快耗尽Arduino的RAM内存，这可能会导致Arduino挂起，崩溃或行为意外。</li><li>String，只要有足够的内存供它操作，就会照顾到你的字符串边界。在内存不足时，String对象可以尝试在不存在的内存中写入，但绝不会在超出其操作的字符串末尾的地方写入。</li></ul></li><li><p>时间函数：</p><ul><li>**delay()**函数的工作方式非常简单。它接受单个整数（或数字）参数。此数字表示时间（以毫秒为单位）。</li><li>**delayMicroseconds()**函数接受单个整数（或数字）参数。一毫秒内有一千微秒，一秒内有一百万微秒。</li><li>**millis()**此函数用于返回Arduino板开始运行当前程序时的毫秒数。</li><li>**micros()**函数返回Arduino板开始运行当前程序时的微秒数。该数字在大约70分钟后溢出，即回到零</li></ul></li><li><p>数组</p></li></ul><h2 id=代码片段><a href=#代码片段 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:代码片段 class=headings>代码片段</a></h2><h3 id=闪烁led><a href=#闪烁led class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:闪烁led class=headings>闪烁LED</a></h3><pre tabindex=0><code>void setup() {
+   pinMode(2, OUTPUT);// 在使用Arduino的引脚之前告诉开发板是INPUT还是OUTPUT。我们使用一个内置的“函数”pinMode()来做到这一点。
+}
+
+void loop() {
+   digitalWrite(2, HIGH); // 当使用引脚作为OUTPUT时，可以将其命令为HIGH（输出5伏）或LOW（输出0伏）。
+   delay(1000); 
+   digitalWrite(2, LOW); 
+   delay(1000); 
+}
+</code></pre><h3 id=渐变led><a href=#渐变led class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:渐变led class=headings>渐变LED</a></h3><pre tabindex=0><code>int led = 9; //初始化引脚
+int brightness = 0; //开始位置
+int fadeAmount = 20; //增量
+
+
+void setup() {
+   pinMode(led, OUTPUT);//声明
+}
+
+void loop() {
+   analogWrite(led, brightness);//改变状态
+   brightness = brightness + fadeAmount;//改变变量
+   if (brightness == 0 || brightness == 255) {//判断是否最大
+      fadeAmount = -fadeAmount ;
+   }
+   delay(300);//等待
+}
+</code></pre><h3 id=读取模拟电压><a href=#读取模拟电压 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:读取模拟电压 class=headings>读取模拟电压</a></h3><pre tabindex=0><code>void setup() {
+   // 初始化串行通信速率为9600bit/s：
+   Serial.begin(9600);
+}
+
+void loop() {
+   // 读取模拟引脚A0的输入数据,建立一个变量来存储来自电位器的电阻值（其范围在0到1023之间，非常适合int数据类型）：
+   int sensorValue = analogRead(A0);
+   
+   // 将模拟信号转换成电压,将值从0-1023更改为与引脚正在读取的电压相对应的范围，你需要创建另一个变量，一个浮点数并进行一些计算。要缩小0.0和5.0之间的数字，将5.0除以1023.0，再乘以sensorValue：
+   float voltage = sensorValue * (5.0 / 1023.0);
+   // 打印到串口监视器
+   Serial.println(voltage);
+}
+</code></pre><h3 id=超声波传感器><a href=#超声波传感器 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:超声波传感器 class=headings>超声波传感器</a></h3><pre tabindex=0><code>const int pingPin = 7; // Trigger Pin of Ultrasonic Sensor
+const int echoPin = 6; // Echo Pin of Ultrasonic Sensor
+
+void setup() {
+   Serial.begin(9600); // Starting Serial Terminal
+}
+
+void loop() {
+   long duration, inches, cm;
+   pinMode(pingPin, OUTPUT);
+   digitalWrite(pingPin, LOW);
+   delayMicroseconds(2);
+   digitalWrite(pingPin, HIGH);
+   delayMicroseconds(10);
+   digitalWrite(pingPin, LOW);
+   pinMode(echoPin, INPUT);
+   duration = pulseIn(echoPin, HIGH);
+   inches = microsecondsToInches(duration);
+   cm = microsecondsToCentimeters(duration);
+   Serial.print(inches);
+   Serial.print(&#34;in, &#34;);
+   Serial.print(cm);
+   Serial.print(&#34;cm&#34;);
+   Serial.println();
+   delay(100);
+}
+
+long microsecondsToInches(long microseconds) {
+   return microseconds / 74 / 2;
+}
+
+long microsecondsToCentimeters(long microseconds) {
+   return microseconds / 29 / 2;
+}
+</code></pre></div></article><footer class=minimal-footer><div class=post-tag><a href=../../programming/ rel=tag class=post-tag-link>#programming</a> <a href=../../arduino/ rel=tag class=post-tag-link>#arduino</a></div><div class=post-category><a href=../../tech/ class="post-category-link active">信息技术</a> | <a href=../../app/ class=post-category-link>站内软件</a> | <a href=../../life/ class=post-category-link>生活涂鸦</a></div></footer></div></main><div id=back-to-top class=back-to-top><a href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6.0-33.9L207 39c9.4-9.4 24.6-9.4 33.9.0l194.3 194.3c9.4 9.4 9.4 24.6.0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3.0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a></div></div><script src=//npm/medium-zoom@latest/dist/medium-zoom.min.js></script>
+<script>let imgNodes=document.querySelectorAll("div.post-body img");imgNodes=Array.from(imgNodes).filter(e=>e.parentNode.tagName!=="A"),mediumZoom(imgNodes,{background:"hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)"})</script></body></html>

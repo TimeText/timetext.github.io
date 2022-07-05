@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+	<script type="text/javascript">
+        alert("alert(\"alert弹出提示框\")")
+    </script>
+
+    <script type="text/javascript" src="js/hello.js"></script>
+</head>
+
+<body>
+
+    <h4>通过伪URL引入js</h4>
+    <form>
+        <input type="button" value="伪URL方式" onclick="javascript:alert('通过伪URL引入js')" />
+    </form>
+
+    <!-- 常用的输入输出 -->
+    <script>
+        //alert
+        
+        alert("alert警告对话框,没有返回值");
+        var name = "小明";
+        alert("输出变量.姓名：" + name);
+        alert("进行运算.5+12=" + (5 + 12));
+        
+
+        //prompt
+        
+        var sports = prompt("prompt弹出一个提示对话框，用于收集信息，具有返回值请输入.你最喜欢的运动：", "打羽毛球");
+        alert("输出取得的输入.你最喜欢的运动是：" + sports);
+        
+
+        //document.write
+        document.write("document.write可以实现向文档写文本、html、表达式或js代码等<br>")
+        ages = 18;
+        document.write("年龄是：" + ages + "<br>");
+        document.write("<h4>输出HTML标签</h4>")
+    </script>
+
+</body>
+
+</html>

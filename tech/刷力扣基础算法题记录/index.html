@@ -1,0 +1,1098 @@
+<!doctype html><html lang=en><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><meta charset=utf-8><meta name=generator content="Hugo 0.101.0"><meta name=theme-color content="#16171d"><meta name=color-scheme content="light dark"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=format-detection content="telephone=no, date=no, address=no, email=no"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><title>刷力扣基础算法题记录 | 时间文本博客</title><link rel=stylesheet href=../../css/meme.min.css><script src=../../js/meme.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap" media=print onload='this.media="all"'><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap"></noscript><meta name=author content="TimeText"><meta name=description content="015.三合一 20/08/06 三合一。描述如何只用一个数组来实现三个栈。 你应该实现push(sta"><link rel="shortcut icon" href=../../favicon.ico type=image/x-icon><link rel=mask-icon href=../../icons/safari-pinned-tab.svg color=#fff><link rel=apple-touch-icon sizes=180x180 href=../../icons/apple-touch-icon.png><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-title content="时间文本博客"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=mobile-web-app-capable content="yes"><meta name=application-name content="时间文本博客"><meta name=msapplication-starturl content="../../"><meta name=msapplication-TileColor content="#fff"><meta name=msapplication-TileImage content="../../icons/mstile-150x150.png"><link rel=manifest href=../../manifest.json><link rel=canonical href=https://timetext.github.io/tech/%E5%88%B7%E5%8A%9B%E6%89%A3%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2020-08-04T10:18:54+00:00","dateModified":"2022-07-05T16:01:05+00:00","url":"https://timetext.github.io/tech/%E5%88%B7%E5%8A%9B%E6%89%A3%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/","headline":"刷力扣基础算法题记录","description":"015.三合一 20/08/06 三合一。描述如何只用一个数组来实现三个栈。 你应该实现push(sta","inLanguage":"en","articleSection":"tech","wordCount":7757,"image":"https://timetext.github.io/icons/apple-touch-icon.png","author":{"@type":"Person","url":"https://timetext.github.io/","name":"TimeText"},"license":"[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载","publisher":{"@type":"Organization","name":"时间文本博客","logo":{"@type":"ImageObject","url":"https://timetext.github.io/icons/apple-touch-icon.png"},"url":"https://timetext.github.io/"},"mainEntityOfPage":{"@type":"WebSite","@id":"https://timetext.github.io/"}}</script><meta name=twitter:card content="summary"><meta property="og:title" content="刷力扣基础算法题记录"><meta property="og:description" content="015.三合一 20/08/06 三合一。描述如何只用一个数组来实现三个栈。 你应该实现push(sta"><meta property="og:url" content="https://timetext.github.io/tech/%E5%88%B7%E5%8A%9B%E6%89%A3%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95%E9%A2%98%E8%AE%B0%E5%BD%95/"><meta property="og:site_name" content="时间文本博客"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="https://timetext.github.io/icons/apple-touch-icon.png"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-08-04T10:18:54+00:00"><meta property="article:modified_time" content="2022-07-05T16:01:05+00:00"><meta property="article:section" content="tech"></head><body><div class=container><header class=header><div class=header-wrapper><div class="header-inner single"><div class=site-brand><a href=../../ class=brand>时间文本博客</a></div><nav class=nav><ul class=menu id=menu><li class=menu-item><a href=../../life/><span class=menu-item-name>生活</span></a></li><li class="menu-item active"><a href=../../tech/><span class=menu-item-name>技术</span></a></li><li class=menu-item><a href=../../about/><span class=menu-item-name>关于</span></a></li><li class=menu-item><a id=theme-switcher href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5 242 7a18 18 0 0128 0l48.8 97.5L422.2 70A18 18 0 01442 89.8l-34.5 103.4L505 242a18 18 0 010 28l-97.5 48.8L442 422.2A18 18 0 01422.2 442l-103.4-34.5L270 505a18 18 0 01-28 0l-48.8-97.5L89.8 442A18 18 0 0170 422.2l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8L70 89.8A18 18 0 0189.8 70zM256 128a128 128 0 10.01.0M256 160a96 96 0 10.01.0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412A256 256 0 10181 5a11.5 11.5.0 00-5 20A201.5 201.5.0 0142 399a11.5 11.5.0 00-15 13"/></svg></a></li></ul></nav></div></div><input type=checkbox id=nav-toggle aria-hidden=true>
+<label for=nav-toggle class=nav-toggle></label>
+<label for=nav-toggle class=nav-curtain></label></header><main class="main single" id=main><div class=main-inner><article class="content post h-entry" data-align=default data-type=tech><h1 class="post-title p-name">刷力扣基础算法题记录</h1><div class=post-meta><time datetime=2020-08-04T10:18:54+00:00 class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg>&nbsp;2020.8.4</time>
+<span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3.0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9.0l60.1 60.1c18.8 18.7 18.8 49.1.0 67.9zM284.2 99.8 21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3.0-17l-111-111c-4.8-4.7-12.4-4.7-17.1.0zM124.1 339.9c-5.5-5.5-5.5-14.3.0-19.8l154-154c5.5-5.5 14.3-5.5 19.8.0s5.5 14.3.0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8.0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;7757</span></div><nav class=contents><ol class=toc><li><ol><li><a id=contents:015三合一 href=#015三合一>015.三合一</a></li><li><a id=contents:014链表求和 href=#014链表求和>014.链表求和</a></li><li><a id=contents:013零矩阵 href=#013零矩阵>013.零矩阵</a></li><li><a id=contents:012url化 href=#012url化>012.URL化</a></li><li><a id=contents:011环路检测 href=#011环路检测>011.环路检测</a></li><li><a id=contents:010链表相交 href=#010链表相交>010.链表相交</a></li><li><a id=contents:009回文链表 href=#009回文链表>009.回文链表</a></li><li><a id=contents:008返回倒数第-k-个节点 href=#008返回倒数第-k-个节点>008.返回倒数第 k 个节点</a></li><li><a id=contents:007旋转矩阵 href=#007旋转矩阵>007.旋转矩阵</a></li><li><a id=contents:006移除重复节点 href=#006移除重复节点>006.移除重复节点</a></li><li><a id=contents:004删除中间节点 href=#004删除中间节点>004.删除中间节点</a></li><li><a id=contents:003两数之和 href=#003两数之和>003.两数之和</a></li><li><a id=contents:002打家劫舍dp href=#002打家劫舍dp>002.打家劫舍(DP)</a></li><li><a id=contents:001字符串压缩 href=#001字符串压缩>001.字符串压缩</a></li></ol></li></ol></nav><div class="post-body e-content"><h2 id=015三合一><a href=#015三合一 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:015三合一 class=headings>015.三合一</a></h2><p>20/08/06</p><pre tabindex=0><code class=language-code data-lang=code>三合一。描述如何只用一个数组来实现三个栈。
+
+你应该实现push(stackNum, value)、pop(stackNum)、isEmpty(stackNum)、peek(stackNum)方法。stackNum表示栈下标，value表示压入的值。
+
+构造函数会传入一个stackSize参数，代表每个栈的大小。
+
+示例1:
+
+ 输入：
+[&#34;TripleInOne&#34;, &#34;push&#34;, &#34;push&#34;, &#34;pop&#34;, &#34;pop&#34;, &#34;pop&#34;, &#34;isEmpty&#34;]
+[[1], [0, 1], [0, 2], [0], [0], [0], [0]]
+ 输出：
+[null, null, null, 1, -1, -1, true]
+说明：当栈为空时`pop, peek`返回-1，当栈满时`push`不压入元素。
+示例2:
+
+ 输入：
+[&#34;TripleInOne&#34;, &#34;push&#34;, &#34;push&#34;, &#34;push&#34;, &#34;pop&#34;, &#34;pop&#34;, &#34;pop&#34;, &#34;peek&#34;]
+[[2], [0, 1], [0, 2], [0, 3], [0], [0], [0], [0]]
+ 输出：
+[null, null, null, null, 2, 1, -1, -1]
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/three-in-one-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=k>typedef</span> <span class=k>struct</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span><span class=o>*</span> <span class=n>stack</span><span class=p>[</span><span class=mi>3</span><span class=p>];</span>  <span class=c1>//三个栈
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>size</span><span class=p>[</span><span class=mi>3</span><span class=p>];</span>    <span class=c1>//指针
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>capacity</span><span class=p>;</span>   <span class=c1>//栈容量
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=n>TripleInOne</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//创建 申请空间、初始化
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=n>TripleInOne</span><span class=o>*</span> <span class=nf>tripleInOneCreate</span><span class=p>(</span><span class=kt>int</span> <span class=n>stackSize</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>TripleInOne</span><span class=o>*</span> <span class=n>tristack</span><span class=o>=</span><span class=p>(</span><span class=n>TripleInOne</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=n>TripleInOne</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>3</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>tristack</span><span class=o>-&gt;</span><span class=n>stack</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=o>*</span><span class=n>stackSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=n>tristack</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>tristack</span><span class=o>-&gt;</span><span class=n>capacity</span><span class=o>=</span><span class=n>stackSize</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>tristack</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//入栈
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=nf>tripleInOnePush</span><span class=p>(</span><span class=n>TripleInOne</span><span class=o>*</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>int</span> <span class=n>stackNum</span><span class=p>,</span> <span class=kt>int</span> <span class=n>value</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//判空，没满则插入
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span><span class=p>((</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>&lt;</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>capacity</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>obj</span><span class=o>-&gt;</span><span class=n>stack</span><span class=p>[</span><span class=n>stackNum</span><span class=p>][(</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]]</span><span class=o>=</span><span class=n>value</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//出栈
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>int</span> <span class=nf>tripleInOnePop</span><span class=p>(</span><span class=n>TripleInOne</span><span class=o>*</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>int</span> <span class=n>stackNum</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//弹出
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>if</span><span class=p>((</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>==</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=p>(</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>obj</span><span class=o>-&gt;</span><span class=n>stack</span><span class=p>[</span><span class=n>stackNum</span><span class=p>][(</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//取栈顶
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>int</span> <span class=nf>tripleInOnePeek</span><span class=p>(</span><span class=n>TripleInOne</span><span class=o>*</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>int</span> <span class=n>stackNum</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>((</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>==</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=o>-</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>obj</span><span class=o>-&gt;</span><span class=n>stack</span><span class=p>[</span><span class=n>stackNum</span><span class=p>][(</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>-</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1>//判空
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>bool</span> <span class=nf>tripleInOneIsEmpty</span><span class=p>(</span><span class=n>TripleInOne</span><span class=o>*</span> <span class=n>obj</span><span class=p>,</span> <span class=kt>int</span> <span class=n>stackNum</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>((</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>size</span><span class=p>)[</span><span class=n>stackNum</span><span class=p>]</span><span class=o>==</span><span class=mi>0</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>else</span><span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>tripleInOneFree</span><span class=p>(</span><span class=n>TripleInOne</span><span class=o>*</span> <span class=n>obj</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>3</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>        <span class=n>free</span><span class=p>(</span><span class=n>obj</span><span class=o>-&gt;</span><span class=n>stack</span><span class=p>[</span><span class=n>i</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>free</span><span class=p>(</span><span class=n>obj</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Your TripleInOne struct will be instantiated and called as such:
+</span></span></span><span class=line><span class=cl><span class=cm> * TripleInOne* obj = tripleInOneCreate(stackSize);
+</span></span></span><span class=line><span class=cl><span class=cm> * tripleInOnePush(obj, stackNum, value);
+</span></span></span><span class=line><span class=cl><span class=cm> 
+</span></span></span><span class=line><span class=cl><span class=cm> * int param_2 = tripleInOnePop(obj, stackNum);
+</span></span></span><span class=line><span class=cl><span class=cm> 
+</span></span></span><span class=line><span class=cl><span class=cm> * int param_3 = tripleInOnePeek(obj, stackNum);
+</span></span></span><span class=line><span class=cl><span class=cm> 
+</span></span></span><span class=line><span class=cl><span class=cm> * bool param_4 = tripleInOneIsEmpty(obj, stackNum);
+</span></span></span><span class=line><span class=cl><span class=cm> 
+</span></span></span><span class=line><span class=cl><span class=cm> * tripleInOneFree(obj);
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span></code></pre></div><h2 id=014链表求和><a href=#014链表求和 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:014链表求和 class=headings>014.链表求和</a></h2><p>20/08/05</p><pre tabindex=0><code class=language-code data-lang=code>给定两个用链表表示的整数，每个节点包含一个数位。
+
+这些数位是反向存放的，也就是个位排在链表首部。
+
+编写函数对这两个整数求和，并用链表形式返回结果。
+
+ 
+
+示例：
+
+输入：(7 -&gt; 1 -&gt; 6) + (5 -&gt; 9 -&gt; 2)，即617 + 295
+输出：2 -&gt; 1 -&gt; 9，即912
+进阶：假设这些数位是正向存放的，请再做一遍。
+
+示例：
+
+输入：(6 -&gt; 1 -&gt; 7) + (2 -&gt; 9 -&gt; 5)，即617 + 295
+输出：9 -&gt; 1 -&gt; 2，即912
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/sum-lists-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Definition for singly-linked list.
+</span></span></span><span class=line><span class=cl><span class=cm> * struct ListNode {
+</span></span></span><span class=line><span class=cl><span class=cm> *     int val;
+</span></span></span><span class=line><span class=cl><span class=cm> *     struct ListNode *next;
+</span></span></span><span class=line><span class=cl><span class=cm> * };
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=nf>addTwoNumbers</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>l1</span><span class=p>,</span> <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>l2</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>sumhead</span><span class=o>=</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//申请头节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>sum</span><span class=o>=</span><span class=n>sumhead</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//申请游标
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>int</span> <span class=n>nowflag</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>preflag</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>add</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//定义标志和相加的和
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>l1</span> <span class=o>||</span> <span class=n>l2</span> <span class=o>||</span> <span class=n>preflag</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>l1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>add</span><span class=o>+=</span><span class=n>l1</span><span class=o>-&gt;</span><span class=n>val</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>l1</span><span class=o>=</span><span class=n>l1</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>l2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>add</span><span class=o>+=</span><span class=n>l2</span><span class=o>-&gt;</span><span class=n>val</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>l2</span><span class=o>=</span><span class=n>l2</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>add</span><span class=o>+=</span><span class=n>preflag</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//本次的和+上次是否超过10
+</span></span></span><span class=line><span class=cl><span class=c1></span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>((</span><span class=n>add</span><span class=p>)</span><span class=o>&gt;=</span><span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//判断本次是否超过10
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>nowflag</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>add</span><span class=o>=</span><span class=n>add</span><span class=o>%</span><span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span> <span class=n>newnode</span><span class=o>=</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//申请新节点
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>newnode</span><span class=o>-&gt;</span><span class=n>val</span><span class=o>=</span><span class=n>add</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>newnode</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>=</span><span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>sum</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>=</span><span class=n>newnode</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//新节点插入到游标后，游标后移
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=n>sum</span><span class=o>=</span><span class=n>sum</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        
+</span></span><span class=line><span class=cl>        <span class=n>preflag</span><span class=o>=</span><span class=n>nowflag</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>nowflag</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>add</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>sumhead</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=013零矩阵><a href=#013零矩阵 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:013零矩阵 class=headings>013.零矩阵</a></h2><p>20/06/18</p><pre tabindex=0><code class=language-code data-lang=code>编写一种算法，若M × N矩阵中某个元素为0，则将其所在的行与列清零。
+
+
+
+示例 1：
+
+输入：
+[
+[1,1,1],
+[1,0,1],
+[1,1,1]
+]
+输出：
+[
+[1,0,1],
+[0,0,0],
+[1,0,1]
+]
+示例 2：
+
+输入：
+[
+[0,1,2,0],
+[3,4,5,2],
+[1,3,1,5]
+]
+输出：
+[
+[0,0,0,0],
+[0,4,5,0],
+[0,3,1,0]
+]
+通过次数6,694提交次数10,395
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/zero-matrix-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>void</span> <span class=nf>setZeroes</span><span class=p>(</span><span class=kt>int</span><span class=o>**</span> <span class=n>matrix</span><span class=p>,</span> <span class=kt>int</span> <span class=n>matrixSize</span><span class=p>,</span> <span class=kt>int</span><span class=o>*</span> <span class=n>matrixColSize</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>hang</span><span class=o>=</span><span class=n>matrixSize</span><span class=p>,</span><span class=n>lie</span><span class=o>=*</span><span class=n>matrixColSize</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=o>*</span><span class=n>fhang</span><span class=o>=</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=o>*</span><span class=n>hang</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=o>*</span><span class=n>flie</span><span class=o>=</span><span class=p>(</span><span class=kt>int</span> <span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span><span class=o>*</span><span class=n>lie</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>hang</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span><span class=n>fhang</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>lie</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span><span class=n>flie</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>hang</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>j</span><span class=o>&lt;</span><span class=n>lie</span><span class=p>;</span><span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span><span class=o>==</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>fhang</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>                <span class=n>flie</span><span class=p>[</span><span class=n>j</span><span class=p>]</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>hang</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>fhang</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>j</span><span class=o>&lt;</span><span class=n>lie</span><span class=p>;</span><span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>lie</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>flie</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>j</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>j</span><span class=o>&lt;</span><span class=n>hang</span><span class=p>;</span><span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>j</span><span class=p>][</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>matrix</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=012url化><a href=#012url化 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:012url化 class=headings>012.URL化</a></h2><p>20/06/18</p><pre tabindex=0><code class=language-code data-lang=code>URL化。编写一种方法，将字符串中的空格全部替换为%20。假定该字符串尾部有足够的空间存放新增字符，并且知道字符串的“真实”长度。（注：用Java实现的话，请使用字符数组实现，以便直接在数组上操作。）
+
+示例1:
+
+输入：&#34;Mr John Smith    &#34;, 13
+输出：&#34;Mr%20John%20Smith&#34;
+示例2:
+
+输入：&#34;               &#34;, 5
+输出：&#34;%20%20%20%20%20&#34;
+提示：
+
+字符串长度在[0, 500000]范围内。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/string-to-url-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>char</span><span class=o>*</span> <span class=nf>replaceSpaces</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>S</span><span class=p>,</span> <span class=kt>int</span> <span class=n>length</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>spacenum</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=n>length</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=sc>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>spacenum</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>newspace</span><span class=o>=</span><span class=n>length</span><span class=o>+</span><span class=mi>2</span><span class=o>*</span><span class=n>spacenum</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>S</span><span class=p>[</span><span class=n>newspace</span><span class=p>]</span><span class=o>=</span><span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>newspace</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>length</span><span class=o>-</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&gt;=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>--</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=sc>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>S</span><span class=p>[</span><span class=n>newspace</span><span class=o>--</span><span class=p>]</span><span class=o>=</span><span class=sc>&#39;0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>S</span><span class=p>[</span><span class=n>newspace</span><span class=o>--</span><span class=p>]</span><span class=o>=</span><span class=sc>&#39;2&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>S</span><span class=p>[</span><span class=n>newspace</span><span class=o>--</span><span class=p>]</span><span class=o>=</span><span class=sc>&#39;%&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>S</span><span class=p>[</span><span class=n>newspace</span><span class=o>--</span><span class=p>]</span><span class=o>=</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>S</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=011环路检测><a href=#011环路检测 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:011环路检测 class=headings>011.环路检测</a></h2><p>20/06/12</p><pre tabindex=0><code class=language-code data-lang=code>给定一个有环链表，实现一个算法返回环路的开头节点。
+有环链表的定义：在链表中某个节点的next元素指向在它前面出现过的节点，则表明该链表存在环路。
+
+
+示例 1：
+
+输入：head = [3,2,0,-4], pos = 1
+输出：tail connects to node index 1
+解释：链表中有一个环，其尾部连接到第二个节点。
+
+示例 2：
+
+输入：head = [1,2], pos = 0
+输出：tail connects to node index 0
+解释：链表中有一个环，其尾部连接到第一个节点。
+
+示例 3：
+
+输入：head = [1], pos = -1
+输出：no cycle
+解释：链表中没有环。
+
+进阶：
+你是否可以不用额外空间解决此题？
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/linked-list-cycle-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>1.  先判断第一个是否构成循环
+</span></span></span><span class=line><span class=cl><span class=cm>2.  两个快慢指针找交点
+</span></span></span><span class=line><span class=cl><span class=cm>3.  重头开始与交点同步移动 直至相交
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Definition for singly-linked list.
+</span></span></span><span class=line><span class=cl><span class=cm> * struct ListNode {
+</span></span></span><span class=line><span class=cl><span class=cm> *     int val;
+</span></span></span><span class=line><span class=cl><span class=cm> *     struct ListNode *next;
+</span></span></span><span class=line><span class=cl><span class=cm> * };
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=nf>detectCycle</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=n>head</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>head</span><span class=o>==</span><span class=nb>NULL</span><span class=o>||</span><span class=n>head</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>==</span><span class=n>head</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=n>la</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=n>lb</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>la</span><span class=o>&amp;&amp;</span><span class=n>lb</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>la</span><span class=o>=</span><span class=n>la</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>lb</span><span class=o>=</span><span class=n>lb</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=c1>//if(lb-&gt;next!=NULL &amp;&amp; lb!=NULL)  报错
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=k>if</span><span class=p>(</span><span class=n>lb</span><span class=o>!=</span><span class=nb>NULL</span> <span class=o>&amp;&amp;</span> <span class=n>lb</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>lb</span><span class=o>=</span><span class=n>lb</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span>
+</span></span><span class=line><span class=cl>            <span class=k>return</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>la</span><span class=o>==</span><span class=n>lb</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>la</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>la</span><span class=o>!=</span><span class=n>lb</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>la</span><span class=o>=</span><span class=n>la</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>lb</span><span class=o>=</span><span class=n>lb</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>la</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=010链表相交><a href=#010链表相交 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:010链表相交 class=headings>010.链表相交</a></h2><p>20/06/12</p><pre tabindex=0><code class=language-code data-lang=code>给定两个（单向）链表，判定它们是否相交并返回交点。请注意相交的定义基于节点的引用，而不是基于节点的值。换句话说，如果一个链表的第k个节点与另一个链表的第j个节点是同一节点（引用完全相同），则这两个链表相交。
+
+
+示例 1：
+
+输入：intersectVal = 8, listA = [4,1,8,4,5], listB = [5,0,1,8,4,5], skipA = 2, skipB = 3
+输出：Reference of the node with value = 8
+输入解释：相交节点的值为 8 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [4,1,8,4,5]，链表 B 为 [5,0,1,8,4,5]。在 A 中，相交节点前有 2 个节点；在 B 中，相交节点前有 3 个节点。
+
+示例 2：
+
+输入：intersectVal = 2, listA = [0,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1
+输出：Reference of the node with value = 2
+输入解释：相交节点的值为 2 （注意，如果两个列表相交则不能为 0）。从各自的表头开始算起，链表 A 为 [0,9,1,2,4]，链表 B 为 [3,2,4]。在 A 中，相交节点前有 3 个节点；在 B 中，相交节点前有 1 个节点。
+
+示例 3：
+
+输入：intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2
+输出：null
+输入解释：从各自的表头开始算起，链表 A 为 [2,6,4]，链表 B 为 [1,5]。由于这两个链表不相交，所以 intersectVal 必须为 0，而 skipA 和 skipB 可以是任意值。
+解释：这两个链表不相交，因此返回 null。
+
+注意：
+
+如果两个链表没有交点，返回 null 。
+在返回结果后，两个链表仍须保持原有的结构。
+可假定整个链表结构中没有循环。
+程序尽量满足 O(n) 时间复杂度，且仅用 O(1) 内存。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Definition for singly-linked list.
+</span></span></span><span class=line><span class=cl><span class=cm> * struct ListNode {
+</span></span></span><span class=line><span class=cl><span class=cm> *     int val;
+</span></span></span><span class=line><span class=cl><span class=cm> *     struct ListNode *next;
+</span></span></span><span class=line><span class=cl><span class=cm> * };
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl><span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=nf>getIntersectionNode</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=n>headA</span><span class=p>,</span> <span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=n>headB</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>headA</span><span class=o>==</span><span class=nb>NULL</span><span class=o>||</span><span class=n>headB</span><span class=o>==</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span> <span class=o>*</span><span class=n>la</span><span class=o>=</span><span class=n>headA</span><span class=p>,</span><span class=o>*</span><span class=n>lb</span><span class=o>=</span><span class=n>headB</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>la</span><span class=o>!=</span><span class=n>lb</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>la</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span><span class=n>la</span><span class=o>=</span><span class=n>la</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span> <span class=n>la</span><span class=o>=</span><span class=n>headB</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>lb</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span><span class=n>lb</span><span class=o>=</span><span class=n>lb</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span> <span class=n>lb</span><span class=o>=</span><span class=n>headA</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>la</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=009回文链表><a href=#009回文链表 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:009回文链表 class=headings>009.回文链表</a></h2><p>20/06/06</p><pre tabindex=0><code class=language-code data-lang=code>编写一个函数，检查输入的链表是否是回文的。
+
+
+
+示例 1：
+
+输入： 1-&gt;2
+输出： false 
+示例 2：
+
+输入： 1-&gt;2-&gt;2-&gt;1
+输出： true 
+
+
+进阶：
+你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/palindrome-linked-list-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>快慢指针找中点
+</span></span></span><span class=line><span class=cl><span class=cm>
+</span></span></span><span class=line><span class=cl><span class=cm>后半段逆转
+</span></span></span><span class=line><span class=cl><span class=cm>
+</span></span></span><span class=line><span class=cl><span class=cm>逐个比较
+</span></span></span><span class=line><span class=cl><span class=cm>*/</span>
+</span></span><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Definition for singly-linked list.
+</span></span></span><span class=line><span class=cl><span class=cm> * struct ListNode {
+</span></span></span><span class=line><span class=cl><span class=cm> *     int val;
+</span></span></span><span class=line><span class=cl><span class=cm> *     struct ListNode *next;
+</span></span></span><span class=line><span class=cl><span class=cm> * };
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>bool</span> <span class=nf>isPalindrome</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>head</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>head</span><span class=o>==</span><span class=nb>NULL</span><span class=o>||</span><span class=n>head</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>==</span><span class=nb>NULL</span><span class=p>)</span><span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>l</span><span class=o>=</span><span class=n>head</span><span class=p>,</span><span class=o>*</span><span class=n>r</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>l</span><span class=o>&amp;&amp;</span><span class=n>l</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>r</span><span class=o>=</span><span class=n>r</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>l</span><span class=o>=</span><span class=n>l</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>pre</span><span class=o>=</span><span class=nb>NULL</span><span class=p>,</span><span class=o>*</span><span class=n>temp</span><span class=o>=</span><span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>r</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>pre</span><span class=o>=</span><span class=n>r</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>r</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>=</span><span class=n>temp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>temp</span><span class=o>=</span><span class=n>r</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>r</span><span class=o>=</span><span class=n>pre</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>l</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>temp</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>l</span><span class=o>-&gt;</span><span class=n>val</span><span class=o>==</span><span class=n>temp</span><span class=o>-&gt;</span><span class=n>val</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>l</span><span class=o>=</span><span class=n>l</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=n>temp</span><span class=o>=</span><span class=n>temp</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=k>else</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span>  <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=008返回倒数第-k-个节点><a href=#008返回倒数第-k-个节点 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:008返回倒数第-k-个节点 class=headings>008.返回倒数第 k 个节点</a></h2><p>20/06/05</p><pre tabindex=0><code class=language-code data-lang=code>实现一种算法，找出单向链表中倒数第 k 个节点。返回该节点的值。
+
+注意：本题相对原题稍作改动
+
+示例：
+
+输入： 1-&gt;2-&gt;3-&gt;4-&gt;5 和 k = 2
+输出： 4
+说明：
+
+给定的 k 保证是有效的。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Definition for singly-linked list.
+</span></span></span><span class=line><span class=cl><span class=cm> * struct ListNode {
+</span></span></span><span class=line><span class=cl><span class=cm> *     int val;
+</span></span></span><span class=line><span class=cl><span class=cm> *     struct ListNode *next;
+</span></span></span><span class=line><span class=cl><span class=cm> * };
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>kthToLast</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>head</span><span class=p>,</span> <span class=kt>int</span> <span class=n>k</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>l</span><span class=o>=</span><span class=n>head</span><span class=p>,</span><span class=o>*</span><span class=n>r</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=n>k</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>r</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>!=</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>r</span><span class=o>=</span><span class=n>r</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>i</span><span class=o>--</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span><span class=p>(</span><span class=n>i</span><span class=o>&lt;=</span><span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>l</span><span class=o>=</span><span class=n>l</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>l</span><span class=o>-&gt;</span><span class=n>val</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=007旋转矩阵><a href=#007旋转矩阵 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:007旋转矩阵 class=headings>007.旋转矩阵</a></h2><p>20/06/04</p><pre tabindex=0><code class=language-code data-lang=code>给你一幅由 N × N 矩阵表示的图像，其中每个像素的大小为 4 字节。请你设计一种算法，将图像旋转 90 度。
+
+不占用额外内存空间能否做到？
+
+
+
+示例 1:
+
+给定 matrix = 
+[
+[1,2,3],
+[4,5,6],
+[7,8,9]
+],
+
+原地旋转输入矩阵，使其变为:
+[
+[7,4,1],
+[8,5,2],
+[9,6,3]
+]
+示例 2:
+
+给定 matrix =
+[
+[ 5, 1, 9,11],
+[ 2, 4, 8,10],
+[13, 3, 6, 7],
+[15,14,12,16]
+], 
+
+原地旋转输入矩阵，使其变为:
+[
+[15,13, 2, 5],
+[14, 3, 4, 1],
+[12, 6, 8, 9],
+[16, 7,10,11]
+]
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/rotate-matrix-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=c1>//找规律
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kt>void</span> <span class=nf>rotate</span><span class=p>(</span><span class=kt>int</span><span class=o>**</span> <span class=n>matrix</span><span class=p>,</span> <span class=kt>int</span> <span class=n>matrixSize</span><span class=p>,</span> <span class=kt>int</span><span class=o>*</span> <span class=n>matrixColSize</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>l</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>r</span><span class=o>=</span><span class=n>matrixSize</span><span class=p>,</span><span class=n>i</span><span class=p>,</span><span class=n>j</span><span class=p>,</span><span class=n>t</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//l,r表示左右边界，i,j表示坐标,t是临时变量
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=k>while</span><span class=p>(</span><span class=n>l</span><span class=o>&lt;</span><span class=n>r</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>i</span><span class=o>=</span><span class=n>l</span><span class=p>;</span><span class=n>j</span><span class=o>=</span><span class=n>l</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>while</span><span class=p>(</span><span class=n>j</span><span class=o>&lt;</span><span class=n>r</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=n>t</span><span class=o>=</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span><span class=o>=</span><span class=n>matrix</span><span class=p>[</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=n>i</span><span class=p>]</span><span class=o>=</span><span class=n>matrix</span><span class=p>[</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>j</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>=</span><span class=n>matrix</span><span class=p>[</span><span class=n>j</span><span class=p>][</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>            <span class=n>matrix</span><span class=p>[</span><span class=n>j</span><span class=p>][</span><span class=n>matrixSize</span><span class=o>-</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span><span class=o>=</span><span class=n>t</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=o>++</span><span class=n>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=o>++</span><span class=n>l</span><span class=p>;</span><span class=o>--</span><span class=n>r</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=006移除重复节点><a href=#006移除重复节点 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:006移除重复节点 class=headings>006.移除重复节点</a></h2><p>20/06/02</p><pre tabindex=0><code class=language-code data-lang=code>编写代码，移除未排序链表中的重复节点。保留最开始出现的节点。
+
+示例1:
+
+输入：[1, 2, 3, 3, 2, 1]
+输出：[1, 2, 3]
+示例2:
+
+输入：[1, 1, 1, 1, 2]
+输出：[1, 2]
+提示：
+
+链表长度在[0, 20000]范围内。
+链表元素在[0, 20000]范围内。
+进阶：
+
+如果不得使用临时缓冲区，该怎么解决？
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/remove-duplicate-node-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=c1>//让重复出现的结点的前一个和后一个相连，以达到剔除的目的
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cm>/**
+</span></span></span><span class=line><span class=cl><span class=cm> * Definition for singly-linked list.
+</span></span></span><span class=line><span class=cl><span class=cm> * struct ListNode {
+</span></span></span><span class=line><span class=cl><span class=cm> *     int val;
+</span></span></span><span class=line><span class=cl><span class=cm> *     struct ListNode *next;
+</span></span></span><span class=line><span class=cl><span class=cm> * };
+</span></span></span><span class=line><span class=cl><span class=cm> */</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=nf>removeDuplicateNodes</span><span class=p>(</span><span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>head</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>head</span><span class=o>==</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span><span class=p>(</span><span class=n>head</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>==</span><span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>FirstHead</span><span class=o>=</span><span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>This</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>struct</span> <span class=n>ListNode</span><span class=o>*</span> <span class=n>AfterThis</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>while</span><span class=p>(</span><span class=n>FirstHead</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>This</span><span class=o>=</span><span class=n>FirstHead</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>AfterThis</span><span class=o>=</span><span class=n>This</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=k>while</span><span class=p>(</span><span class=n>AfterThis</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span><span class=p>(</span><span class=n>FirstHead</span><span class=o>-&gt;</span><span class=n>val</span><span class=o>==</span><span class=n>AfterThis</span><span class=o>-&gt;</span><span class=n>val</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>This</span><span class=o>-&gt;</span><span class=n>next</span><span class=o>=</span><span class=n>AfterThis</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=k>else</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=n>This</span><span class=o>=</span><span class=n>AfterThis</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>            <span class=n>AfterThis</span><span class=o>=</span><span class=n>AfterThis</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=n>FirstHead</span><span class=o>=</span><span class=n>FirstHead</span><span class=o>-&gt;</span><span class=n>next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>head</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>##　005.字符串轮转</p><p>20/06/01</p><pre tabindex=0><code class=language-code data-lang=code>字符串轮转。给定两个字符串s1和s2，请编写代码检查s2是否为s1旋转而成（比如，waterbottle是erbottlewat旋转后的字符串）。
+
+示例1:
+
+输入：s1 = &#34;waterbottle&#34;, s2 = &#34;erbottlewat&#34;
+输出：True
+示例2:
+
+输入：s1 = &#34;aa&#34;, s2 = &#34;aba&#34;
+输出：False
+提示：
+
+字符串长度在[0, 100000]范围内。
+说明:
+
+你能只调用一次检查子串的方法吗？
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/string-rotation-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>bool</span> <span class=nf>isFlipedString</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>s1</span><span class=p>,</span> <span class=kt>char</span><span class=o>*</span> <span class=n>s2</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>strlen</span><span class=p>(</span><span class=n>s1</span><span class=p>)</span> <span class=o>!=</span> <span class=n>strlen</span><span class=p>(</span><span class=n>s2</span><span class=p>))</span><span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kt>int</span> <span class=n>len</span> <span class=o>=</span> <span class=n>strlen</span><span class=p>(</span><span class=n>s1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//char* s = (char*)malloc(sizeof(char) * len * 2 + 1);
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kt>char</span> <span class=n>s</span><span class=p>[</span><span class=mi>2</span><span class=o>*</span><span class=n>len</span><span class=o>+</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=mi>2</span> <span class=o>*</span> <span class=n>len</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>s1</span><span class=p>[</span><span class=n>i</span> <span class=o>%</span> <span class=n>len</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=n>s</span><span class=p>[</span><span class=mi>2</span> <span class=o>*</span> <span class=n>len</span><span class=p>]</span> <span class=o>=</span> <span class=sc>&#39;\0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=n>strstr</span><span class=p>(</span><span class=n>s</span><span class=p>,</span> <span class=n>s2</span><span class=p>)</span> <span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span><span class=k>return</span> <span class=nb>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nb>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=004删除中间节点><a href=#004删除中间节点 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:004删除中间节点 class=headings>004.删除中间节点</a></h2><p>20/05/31</p><pre tabindex=0><code class=language-code data-lang=code>实现一种算法，删除单向链表中间的某个节点（即不是第一个或最后一个节点），假定你只能访问该节点。
+
+
+
+示例：
+
+输入：单向链表a-&gt;b-&gt;c-&gt;d-&gt;e-&gt;f中的节点c
+结果：不返回任何数据，但该链表变为a-&gt;b-&gt;d-&gt;e-&gt;f
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/delete-middle-node-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;malloc.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl> <span class=k>struct</span> <span class=n>linked</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>data</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>struct</span> <span class=n>linked</span><span class=o>*</span> <span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl> <span class=k>typedef</span> <span class=k>struct</span> <span class=n>linked</span> <span class=n>LINK</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=n>LINK</span><span class=o>*</span> <span class=nf>create</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>LINK</span><span class=o>*</span> <span class=n>list</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>list</span> <span class=o>=</span> <span class=p>(</span><span class=n>LINK</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=n>LINK</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=n>list</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;申请链表失败&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=n>list</span><span class=o>-&gt;</span><span class=n>Next</span> <span class=o>=</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>list</span><span class=o>-&gt;</span><span class=n>data</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>list</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>listADD</span><span class=p>(</span><span class=n>LINK</span><span class=o>*</span> <span class=n>list</span><span class=p>,</span> <span class=kt>int</span> <span class=n>data</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>LINK</span><span class=o>*</span> <span class=n>AtLast</span> <span class=o>=</span> <span class=n>list</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>while</span> <span class=p>(</span><span class=n>AtLast</span><span class=o>-&gt;</span><span class=n>Next</span><span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>AtLast</span> <span class=o>=</span> <span class=n>AtLast</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>LINK</span><span class=o>*</span> <span class=n>TemporaryList</span> <span class=o>=</span> <span class=n>create</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>	<span class=n>TemporaryList</span><span class=o>-&gt;</span><span class=n>data</span> <span class=o>=</span> <span class=n>data</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>TemporaryList</span><span class=o>-&gt;</span><span class=n>Next</span> <span class=o>=</span> <span class=n>AtLast</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>AtLast</span><span class=o>-&gt;</span><span class=n>Next</span> <span class=o>=</span> <span class=n>TemporaryList</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>listDELinHalf</span><span class=p>(</span><span class=n>LINK</span><span class=o>*</span> <span class=n>list</span><span class=p>)</span><span class=c1>//传入中间元素并删除
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=cm>/*
+</span></span></span><span class=line><span class=cl><span class=cm>	//方法一
+</span></span></span><span class=line><span class=cl><span class=cm>	LINK* TemporaryList = list-&gt;Next;
+</span></span></span><span class=line><span class=cl><span class=cm>	*list = *TemporaryList;
+</span></span></span><span class=line><span class=cl><span class=cm>	free(TemporaryList);
+</span></span></span><span class=line><span class=cl><span class=cm>	*/</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=c1>//方法二
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>list</span><span class=o>-&gt;</span><span class=n>data</span> <span class=o>=</span> <span class=n>list</span><span class=o>-&gt;</span><span class=n>Next</span><span class=o>-&gt;</span><span class=n>data</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>LINK</span><span class=o>*</span> <span class=n>newP</span> <span class=o>=</span> <span class=n>list</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>list</span><span class=o>-&gt;</span><span class=n>Next</span> <span class=o>=</span> <span class=n>newP</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>free</span><span class=p>(</span><span class=n>newP</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>void</span> <span class=nf>listTraverse</span><span class=p>(</span><span class=n>LINK</span><span class=o>*</span> <span class=n>list</span><span class=p>)</span><span class=c1>//遍历输出
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>LINK</span><span class=o>*</span> <span class=n>TemporaryList</span> <span class=o>=</span> <span class=n>list</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>while</span> <span class=p>(</span><span class=n>TemporaryList</span><span class=o>!=</span> <span class=nb>NULL</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d-&#34;</span><span class=p>,</span> <span class=n>TemporaryList</span><span class=o>-&gt;</span><span class=n>data</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>		<span class=n>TemporaryList</span> <span class=o>=</span> <span class=n>TemporaryList</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=n>LINK</span><span class=o>*</span> <span class=n>list</span> <span class=o>=</span> <span class=n>create</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>	<span class=n>listADD</span><span class=p>(</span><span class=n>list</span><span class=p>,</span> <span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>listADD</span><span class=p>(</span><span class=n>list</span><span class=p>,</span> <span class=mi>3</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>listADD</span><span class=p>(</span><span class=n>list</span><span class=p>,</span> <span class=mi>4</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>listADD</span><span class=p>(</span><span class=n>list</span><span class=p>,</span> <span class=mi>5</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=n>listTraverse</span><span class=p>(</span><span class=n>list</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>listDELinHalf</span><span class=p>(</span><span class=n>list</span><span class=o>-&gt;</span><span class=n>Next</span><span class=o>-&gt;</span><span class=n>Next</span><span class=o>-&gt;</span><span class=n>Next</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=c1>//printf(&#34;%d&#34;, list-&gt;Next-&gt;Next-&gt;data);
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>listTraverse</span><span class=p>(</span><span class=n>list</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=003两数之和><a href=#003两数之和 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:003两数之和 class=headings>003.两数之和</a></h2><p>20/05/30</p><pre tabindex=0><code class=language-code data-lang=code>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+
+
+
+示例:
+
+给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/two-sum
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><pre tabindex=0><code class=language-code data-lang=code>最初看题解是使用哈希,也不懂没了解哈希,臆测出了一种类似哈希的方法吧,但是在指针用法上力扣官网提交代码 和 本地VS调试运行 时候有所分歧(见&#34;代码一&#34;第5.6行)
+
+代码一思路:
+	1.建一维数组并初始化0
+	2.标志target遍历减去数组中的元素
+		3.每遍减去一个，在数组中寻找差值
+			4.没找到，将被减元素放入数组
+			5.找到了，返回被减元素下标 和 找到的元素下标
+
+代码二思路:循环暴力算法求解
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;malloc.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span><span class=o>*</span> <span class=nf>twoSum</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span> <span class=n>nums</span><span class=p>,</span> <span class=kt>int</span> <span class=n>numsSize</span><span class=p>,</span> <span class=kt>int</span> <span class=n>target</span><span class=p>,</span> <span class=kt>int</span><span class=o>*</span> <span class=n>returnSize</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span><span class=n>returnSize</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>k</span><span class=p>;</span><span class=c1>//力扣报错 vs可过
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>//*returnSize = 2;	//力扣可过  vs报错
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=p>(</span><span class=n>nums</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span><span class=k>return</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span><span class=o>*</span> <span class=n>temporary</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=n>numsSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span><span class=o>*</span> <span class=n>answer</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>numsSize</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span><span class=n>temporary</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>numsSize</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=kt>int</span> <span class=n>poor</span> <span class=o>=</span> <span class=n>target</span> <span class=o>-</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>i</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=p>(</span><span class=n>temporary</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>==</span> <span class=n>poor</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>answer</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=n>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=n>answer</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=k>return</span> <span class=n>answer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>		<span class=n>temporary</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>answer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>a</span><span class=p>[]</span> <span class=o>=</span> <span class=p>{</span> <span class=mi>2</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>11</span><span class=p>,</span><span class=mi>15</span> <span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span><span class=o>*</span> <span class=n>returnSize</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span><span class=o>*</span> <span class=n>answerr</span> <span class=o>=</span> <span class=n>twoSum</span><span class=p>(</span><span class=n>a</span><span class=p>,</span> <span class=k>sizeof</span><span class=p>(</span><span class=n>a</span><span class=p>),</span> <span class=mi>9</span><span class=p>,</span> <span class=n>returnSize</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d %d&#34;</span><span class=p>,</span> <span class=n>answerr</span><span class=p>[</span><span class=mi>0</span><span class=p>],</span> <span class=n>answerr</span><span class=p>[</span><span class=mi>1</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=kt>int</span><span class=o>*</span> <span class=nf>twoSum</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span> <span class=n>nums</span><span class=p>,</span> <span class=kt>int</span> <span class=n>numsSize</span><span class=p>,</span> <span class=kt>int</span> <span class=n>target</span><span class=p>,</span> <span class=kt>int</span><span class=o>*</span> <span class=n>returnSize</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>k</span> <span class=o>=</span> <span class=mi>2</span><span class=p>;</span> <span class=n>returnSize</span> <span class=o>=</span> <span class=o>&amp;</span><span class=n>k</span><span class=p>;</span><span class=c1>//力扣报错 vs可过
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=c1>//*returnSize = 2;	//力扣可过  vs报错
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=k>if</span> <span class=p>(</span><span class=n>nums</span> <span class=o>==</span> <span class=nb>NULL</span><span class=p>)</span><span class=k>return</span> <span class=nb>NULL</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span><span class=o>*</span> <span class=n>p</span> <span class=o>=</span> <span class=p>(</span><span class=kt>int</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)</span> <span class=o>*</span> <span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>numsSize</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kt>int</span> <span class=n>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>j</span> <span class=o>&lt;</span> <span class=n>numsSize</span><span class=p>;</span> <span class=n>j</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=p>((</span><span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>+</span> <span class=n>nums</span><span class=p>[</span><span class=n>j</span><span class=p>]</span> <span class=o>==</span> <span class=n>target</span><span class=p>)</span><span class=o>&amp;&amp;</span><span class=p>(</span><span class=n>i</span><span class=o>!=</span><span class=n>j</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>p</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>=</span> <span class=n>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=n>p</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=k>return</span> <span class=n>p</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=n>p</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=002打家劫舍dp><a href=#002打家劫舍dp class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:002打家劫舍dp class=headings>002.打家劫舍(DP)</a></h2><p>20/05/29</p><pre tabindex=0><code class=language-code data-lang=code>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。
+
+给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。
+
+示例 1:
+
+输入: [1,2,3,1]
+输出: 4
+解释: 偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。
+偷窃到的最高金额 = 1 + 3 = 4 。
+示例 2:
+
+输入: [2,7,9,3,1]
+输出: 12
+解释: 偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。
+偷窃到的最高金额 = 2 + 9 + 1 = 12 。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/house-robber
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><pre tabindex=0><code class=language-code data-lang=code>判断长度是否大于1，不大于1直接返回。
+
+最初以为是奇位求和与偶位求和取大，但发现可能会出现间距2个以上的位置才能够找出最大值的情况。例如[1,1,2,3,7,2,2,7,1,2]。奇位求和14；偶位求和13；实际最大和17。
+
+然后认为在第1个和第2个元素中取其大作为第一个值，游标MAX逐次+2，然后[MAX]和[MAX+1]比较取其大加到和sum里面，直到最后一个元素。可是发现在第1个和第2个元素中取大值就会忽略第3或第4个元素。
+
+最终方案：分别以第1个元素和第2个元素为开始游标求和，标MAX逐次+2，然后[MAX]和[MAX+1]比较取其大加到和sum里面，直到最后一个元素，然后比较大小。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int</span> <span class=nf>rob</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span> <span class=n>nums</span><span class=p>,</span> <span class=kt>int</span> <span class=n>numsSize</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>numsSize</span><span class=o>==</span><span class=mi>1</span><span class=p>)</span><span class=k>return</span> <span class=n>nums</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>sum0</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>sum1</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>max</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>max</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span> 
+</span></span><span class=line><span class=cl>	<span class=n>sum0</span><span class=o>=</span><span class=n>sum0</span><span class=o>+</span><span class=n>nums</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=n>max</span><span class=o>+=</span><span class=mi>2</span><span class=p>;</span><span class=n>max</span><span class=o>&lt;</span><span class=n>numsSize</span><span class=p>;</span><span class=n>max</span><span class=o>+=</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=o>==</span><span class=n>numsSize</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>sum0</span><span class=o>=</span><span class=n>sum0</span><span class=o>+</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>			<span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>		
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>]</span><span class=o>&lt;</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>max</span><span class=o>=</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>		
+</span></span><span class=line><span class=cl>		<span class=n>sum0</span><span class=o>=</span><span class=n>sum0</span><span class=o>+</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=n>max</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>sum1</span><span class=o>=</span><span class=n>sum1</span><span class=o>+</span><span class=n>nums</span><span class=p>[</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=n>max</span><span class=o>+=</span><span class=mi>2</span><span class=p>;</span><span class=n>max</span><span class=o>&lt;</span><span class=n>numsSize</span><span class=p>;</span><span class=n>max</span><span class=o>+=</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=o>==</span><span class=n>numsSize</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>sum1</span><span class=o>=</span><span class=n>sum1</span><span class=o>+</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>			<span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>		
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>]</span><span class=o>&lt;</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=n>max</span><span class=o>+=</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>		
+</span></span><span class=line><span class=cl>		<span class=n>sum1</span><span class=o>=</span><span class=n>sum1</span><span class=o>+</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>sum0</span><span class=o>&gt;</span><span class=n>sum1</span><span class=p>)</span><span class=k>return</span> <span class=n>sum0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=k>return</span> <span class=n>sum1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>a</span><span class=p>[]</span><span class=o>=</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>b</span><span class=p>[</span><span class=mi>5</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>1</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>c</span><span class=p>[</span><span class=mi>11</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>8</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>rob</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=k>sizeof</span><span class=p>(</span><span class=n>a</span><span class=p>)</span><span class=o>/</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>rob</span><span class=p>(</span><span class=n>b</span><span class=p>,</span><span class=k>sizeof</span><span class=p>(</span><span class=n>b</span><span class=p>)</span><span class=o>/</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>rob</span><span class=p>(</span><span class=n>c</span><span class=p>,</span><span class=k>sizeof</span><span class=p>(</span><span class=n>c</span><span class=p>)</span><span class=o>/</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>rob</span><span class=p>(</span><span class=kt>int</span><span class=o>*</span> <span class=n>nums</span><span class=p>,</span> <span class=kt>int</span> <span class=n>numsSize</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>numsSize</span><span class=o>==</span><span class=mi>1</span><span class=p>)</span><span class=k>return</span> <span class=n>nums</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>sum</span><span class=p>[</span><span class=mi>2</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>0</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>0</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;</span><span class=mi>2</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=n>sum</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>+=</span><span class=n>nums</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>		
+</span></span><span class=line><span class=cl>		<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>max</span><span class=o>=</span><span class=n>i</span><span class=o>+</span><span class=mi>2</span><span class=p>;</span><span class=n>max</span><span class=o>&lt;</span><span class=n>numsSize</span><span class=p>;</span><span class=n>max</span><span class=o>+=</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=k>if</span><span class=p>(</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=o>==</span><span class=n>numsSize</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>sum</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>+=</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>				<span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>			
+</span></span><span class=line><span class=cl>			<span class=k>if</span><span class=p>(</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>]</span><span class=o>&lt;</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>max</span><span class=o>=</span><span class=n>max</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>			<span class=n>sum</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>+=</span><span class=n>nums</span><span class=p>[</span><span class=n>max</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>sum</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>&gt;</span><span class=n>sum</span><span class=p>[</span><span class=mi>1</span><span class=p>])</span><span class=k>return</span> <span class=n>sum</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=k>return</span> <span class=n>sum</span><span class=p>[</span><span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>a</span><span class=p>[]</span><span class=o>=</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>2</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>b</span><span class=p>[</span><span class=mi>5</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>1</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>c</span><span class=p>[</span><span class=mi>11</span><span class=p>]</span><span class=o>=</span><span class=p>{</span><span class=mi>2</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>1</span><span class=p>,</span><span class=mi>6</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>8</span><span class=p>};</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>rob</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=k>sizeof</span><span class=p>(</span><span class=n>a</span><span class=p>)</span><span class=o>/</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>rob</span><span class=p>(</span><span class=n>b</span><span class=p>,</span><span class=k>sizeof</span><span class=p>(</span><span class=n>b</span><span class=p>)</span><span class=o>/</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%d</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>rob</span><span class=p>(</span><span class=n>c</span><span class=p>,</span><span class=k>sizeof</span><span class=p>(</span><span class=n>c</span><span class=p>)</span><span class=o>/</span><span class=k>sizeof</span><span class=p>(</span><span class=kt>int</span><span class=p>)));</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=001字符串压缩><a href=#001字符串压缩 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:001字符串压缩 class=headings>001.字符串压缩</a></h2><p>20/05/28</p><pre tabindex=0><code class=language-code data-lang=code>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串aabcccccaaa会变为a2b1c5a3。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。
+
+示例1:
+
+输入：&#34;aabcccccaaa&#34;
+输出：&#34;a2b1c5a3&#34;
+示例2:
+
+输入：&#34;abbccd&#34;
+输出：&#34;abbccd&#34;
+解释：&#34;abbccd&#34;压缩后为&#34;a1b2c2d1&#34;，比原字符串长度更长。
+提示：
+
+字符串长度在[0, 50000]范围内。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/compress-string-lcci
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre><pre tabindex=0><code class=language-code data-lang=code>首先要明确这道题的几个关键点：
+
+怎么知道长度溢出，退而选return S本身；
+重复字符的计数，需要从整型转为字符型；
+如果计数超过10,或100，甚至1000,10000，怎么确保我的转换不会出错，转换后的字符长度保持不变？（比如有11个a，就变成a11，其中“11”占了两个字符位）
+就上面这些问题来想出解决办法：
+
+一开始判断，凡是长度 &lt;=2 的 S 一定是返回本身。其余的在最后比较两者长度，相同或超过都视为返回 S 本身；（我把字符串末尾&#39;\0&#39;也计入）
+
+对于从整型转为字符型的办法，最蠢的就是每加一次count，就把对应字符改变一次新的count值。我们要思考，既然每次count增加，字符都要变化，而且变化的规律和整型本身是一致的，为何不先等count自己加到无法再加的时候，再来把它转给字符呢？
+
+鉴于2)中的思考，我们就不难发现，第三个关键点已经引刃而解了。因为对于整型本身而言，无需考虑进位等等麻烦事，我们只要count的最终结果，无论你多长，我的转换只要一次。转换采用while中每次对10取余的方法，从低位到高位依次赋值给字符串；结束这个过程后就立马跳到下一个字母的计数，此时就要先录入字母，并准备新一轮计数器（++index），重新把count赋值为1
+
+我的思路中有一个点要理解，就是我的循环从1开始，也把字符串结束符&#39;\0&#39;也考虑在循环过程。前者其实看个人做法，后者要注意是我用来让他确定最后需要结束count增长从而实现整型到字符的转换的，从而也实现了给压缩后的新字符串结尾赋&#39;\0&#39;，一举两得。不过这样的话结尾的两者比较时，要比较的应该是原字符串的长度+1，不要忘了哦
+
+作者：PonderYao
+链接：https://leetcode-cn.com/problems/compress-string-lcci/solution/cyu-yan-yi-dong-jie-fa-4msde-9211yu-61mde-100-by-b/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+</code></pre><div class=highlight><pre tabindex=0 class=chroma><code class=language-c data-lang=c><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;math.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;malloc.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;string.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span><span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=kt>char</span><span class=o>*</span> <span class=nf>compressString</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span> <span class=n>S</span><span class=p>){</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>oldlen</span><span class=o>=</span><span class=n>strlen</span><span class=p>(</span><span class=n>S</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>oldlen</span><span class=o>&lt;</span><span class=mi>2</span><span class=p>)</span><span class=k>return</span> <span class=n>S</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>	<span class=kt>char</span> <span class=o>*</span><span class=n>newS</span><span class=o>=</span><span class=p>(</span><span class=kt>char</span><span class=o>*</span><span class=p>)</span><span class=n>malloc</span><span class=p>(</span><span class=k>sizeof</span><span class=p>(</span><span class=n>S</span><span class=p>)</span><span class=o>*</span><span class=mi>2</span><span class=o>*</span><span class=n>oldlen</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>	<span class=kt>int</span> <span class=n>cursor</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>count</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=c1>//表示在新串中位置的游标cursor和出现次数count 
+</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=n>newS</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=o>=</span><span class=n>S</span><span class=p>[</span><span class=mi>0</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>	
+</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(</span><span class=kt>int</span> <span class=n>i</span><span class=o>=</span><span class=mi>1</span><span class=p>;</span><span class=n>i</span><span class=o>&lt;=</span><span class=n>oldlen</span><span class=p>;</span><span class=n>i</span><span class=o>++</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=p>{</span>
+</span></span><span class=line><span class=cl>		<span class=k>if</span><span class=p>(</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>]</span><span class=o>==</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=o>-</span><span class=mi>1</span><span class=p>])</span>
+</span></span><span class=line><span class=cl>			<span class=n>count</span><span class=o>++</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=k>else</span>
+</span></span><span class=line><span class=cl>		<span class=p>{</span>
+</span></span><span class=line><span class=cl>			<span class=kt>int</span> <span class=n>position</span><span class=o>=</span><span class=mi>0</span><span class=p>,</span><span class=n>j</span><span class=o>=</span><span class=n>count</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=k>while</span><span class=p>(</span><span class=n>j</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>position</span><span class=o>++</span><span class=p>;</span><span class=c1>//先用position表示出现次数的位数 
+</span></span></span><span class=line><span class=cl><span class=c1></span>				<span class=n>j</span><span class=o>=</span><span class=n>j</span><span class=o>/</span><span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>			<span class=n>position</span><span class=o>+=</span><span class=n>cursor</span><span class=p>;</span><span class=c1>//position表示最后的长度 
+</span></span></span><span class=line><span class=cl><span class=c1></span>			<span class=n>cursor</span><span class=o>=</span><span class=n>position</span><span class=o>+</span><span class=mi>1</span><span class=p>;</span><span class=c1>//表示下一个字母的位置 
+</span></span></span><span class=line><span class=cl><span class=c1></span>			
+</span></span><span class=line><span class=cl>			<span class=k>while</span><span class=p>(</span><span class=n>count</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=p>{</span>
+</span></span><span class=line><span class=cl>				<span class=n>newS</span><span class=p>[</span><span class=n>position</span><span class=o>--</span><span class=p>]</span><span class=o>=</span><span class=p>(</span><span class=kt>char</span><span class=p>)(</span><span class=n>count</span><span class=o>%</span><span class=mi>10</span><span class=p>)</span><span class=o>+</span><span class=sc>&#39;0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>				<span class=n>count</span><span class=o>=</span><span class=n>count</span><span class=o>/</span><span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>			<span class=p>}</span>
+</span></span><span class=line><span class=cl>			<span class=n>newS</span><span class=p>[</span><span class=n>cursor</span><span class=p>]</span><span class=o>=</span><span class=n>S</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>			<span class=n>count</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>		<span class=p>}</span> 
+</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span><span class=p>(</span><span class=n>cursor</span><span class=o>&lt;</span><span class=n>oldlen</span><span class=p>)</span><span class=k>return</span> <span class=n>newS</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=k>else</span> <span class=k>return</span> <span class=n>S</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>	<span class=kt>char</span> <span class=n>S</span><span class=p>[]</span><span class=o>=</span><span class=s>&#34;aaaaaaaaaaaa&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=kt>char</span> <span class=n>SS</span><span class=p>[]</span><span class=o>=</span><span class=s>&#34;a&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=kt>char</span> <span class=n>SSS</span><span class=p>[]</span><span class=o>=</span><span class=s>&#34;aabbccddd&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>compressString</span><span class=p>(</span><span class=n>S</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>compressString</span><span class=p>(</span><span class=n>SS</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=n>printf</span><span class=p>(</span><span class=s>&#34;%s</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>,</span><span class=n>compressString</span><span class=p>(</span><span class=n>SSS</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></div></article><footer class=minimal-footer><div class=post-tag><a href=../../programming/ rel=tag class=post-tag-link>#programming</a> <a href=../../leetcode/ rel=tag class=post-tag-link>#leetcode</a></div><div class=post-category><a href=../../tech/ class="post-category-link active">信息技术</a> | <a href=../../app/ class=post-category-link>站内软件</a> | <a href=../../life/ class=post-category-link>生活涂鸦</a></div></footer></div></main><div id=back-to-top class=back-to-top><a href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6.0-33.9L207 39c9.4-9.4 24.6-9.4 33.9.0l194.3 194.3c9.4 9.4 9.4 24.6.0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3.0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a></div></div><script src=//npm/medium-zoom@latest/dist/medium-zoom.min.js></script>
+<script>let imgNodes=document.querySelectorAll("div.post-body img");imgNodes=Array.from(imgNodes).filter(e=>e.parentNode.tagName!=="A"),mediumZoom(imgNodes,{background:"hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)"})</script></body></html>

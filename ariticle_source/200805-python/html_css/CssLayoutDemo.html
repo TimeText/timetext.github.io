@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CssLayout</title>
+<style>
+
+    .box1{
+        width: 200px; 
+        height: 200px; 
+        background:yellow; 
+        border: 1px solid black;
+    }
+
+    .box2{
+        /* 这里是注释内容 */
+        /* 设置宽度 */
+        width: 100px;
+        /* 设置高度 */
+        height: 100px;
+        /* 设置背景色 */
+        background: red;
+        /* 设置四边边框 */
+        /* border: 10px solid black; */
+        border-top: 10px solid black;
+        border-left: 10px solid black;
+        border-right: 10px solid black;
+        border-bottom: 10px solid black;
+        /* 设置内边距， 内容到边框的距离，如果设置四边是上右下左 */
+        /* padding: 10px;   */
+        padding-left: 10px;
+        padding-top: 10px;
+        /* 设置外边距，设置元素边框到外界元素边框的距离 */
+        margin: 10px;
+        /* margin-top: 10px;
+        margin-left: 10px; */
+        float: left;
+    }
+
+    .box3{
+        width: 48px; 
+        height: 48px; 
+        background:pink; 
+        border: 1px solid black;
+        float: left;
+    }
+
+</style>
+	</head>
+	<body>
+<div class="box1">
+    <div class="box2">
+        padding 设置元素包含的内容和元素边框的距离
+    </div>
+    <div class="box3">float浮动
+    </div>
+</div>
+	</body>
+</html>

@@ -1,0 +1,565 @@
+<!doctype html><html lang=en><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><meta charset=utf-8><meta name=generator content="Hugo 0.101.0"><meta name=theme-color content="#16171d"><meta name=color-scheme content="light dark"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=format-detection content="telephone=no, date=no, address=no, email=no"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><title>命令行终端工具WindowsTerminal配置使用笔记 | 时间文本博客</title><link rel=stylesheet href=../../css/meme.min.css><script src=../../js/meme.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap" media=print onload='this.media="all"'><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap"></noscript><meta name=author content="TimeText"><meta name=description content="Windows Terminal Windows终端官方中文文档 配色预览 UUID生成 WindowsTerminal"><link rel="shortcut icon" href=../../favicon.ico type=image/x-icon><link rel=mask-icon href=../../icons/safari-pinned-tab.svg color=#fff><link rel=apple-touch-icon sizes=180x180 href=../../icons/apple-touch-icon.png><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-title content="时间文本博客"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=mobile-web-app-capable content="yes"><meta name=application-name content="时间文本博客"><meta name=msapplication-starturl content="../../"><meta name=msapplication-TileColor content="#fff"><meta name=msapplication-TileImage content="../../icons/mstile-150x150.png"><link rel=manifest href=../../manifest.json><link rel=canonical href=https://timetext.github.io/tech/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7windowsterminal%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2020-12-15T02:31:01+00:00","dateModified":"2022-07-05T16:01:05+00:00","url":"https://timetext.github.io/tech/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7windowsterminal%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/","headline":"命令行终端工具WindowsTerminal配置使用笔记","description":"Windows Terminal Windows终端官方中文文档 配色预览 UUID生成 WindowsTerminal","inLanguage":"en","articleSection":"tech","wordCount":2232,"image":"https://timetext.github.io/icons/apple-touch-icon.png","author":{"@type":"Person","url":"https://timetext.github.io/","name":"TimeText"},"license":"[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载","publisher":{"@type":"Organization","name":"时间文本博客","logo":{"@type":"ImageObject","url":"https://timetext.github.io/icons/apple-touch-icon.png"},"url":"https://timetext.github.io/"},"mainEntityOfPage":{"@type":"WebSite","@id":"https://timetext.github.io/"}}</script><meta name=twitter:card content="summary"><meta property="og:title" content="命令行终端工具WindowsTerminal配置使用笔记"><meta property="og:description" content="Windows Terminal Windows终端官方中文文档 配色预览 UUID生成 WindowsTerminal"><meta property="og:url" content="https://timetext.github.io/tech/%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%BB%88%E7%AB%AF%E5%B7%A5%E5%85%B7windowsterminal%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0/"><meta property="og:site_name" content="时间文本博客"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="https://timetext.github.io/icons/apple-touch-icon.png"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-12-15T02:31:01+00:00"><meta property="article:modified_time" content="2022-07-05T16:01:05+00:00"><meta property="article:section" content="tech"></head><body><div class=container><header class=header><div class=header-wrapper><div class="header-inner single"><div class=site-brand><a href=../../ class=brand>时间文本博客</a></div><nav class=nav><ul class=menu id=menu><li class=menu-item><a href=../../life/><span class=menu-item-name>生活</span></a></li><li class="menu-item active"><a href=../../tech/><span class=menu-item-name>技术</span></a></li><li class=menu-item><a href=../../about/><span class=menu-item-name>关于</span></a></li><li class=menu-item><a id=theme-switcher href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5 242 7a18 18 0 0128 0l48.8 97.5L422.2 70A18 18 0 01442 89.8l-34.5 103.4L505 242a18 18 0 010 28l-97.5 48.8L442 422.2A18 18 0 01422.2 442l-103.4-34.5L270 505a18 18 0 01-28 0l-48.8-97.5L89.8 442A18 18 0 0170 422.2l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8L70 89.8A18 18 0 0189.8 70zM256 128a128 128 0 10.01.0M256 160a96 96 0 10.01.0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412A256 256 0 10181 5a11.5 11.5.0 00-5 20A201.5 201.5.0 0142 399a11.5 11.5.0 00-15 13"/></svg></a></li></ul></nav></div></div><input type=checkbox id=nav-toggle aria-hidden=true>
+<label for=nav-toggle class=nav-toggle></label>
+<label for=nav-toggle class=nav-curtain></label></header><main class="main single" id=main><div class=main-inner><article class="content post h-entry" data-align=default data-type=tech><h1 class="post-title p-name">命令行终端工具WindowsTerminal配置使用笔记</h1><div class=post-meta><time datetime=2020-12-15T02:31:01+00:00 class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg>&nbsp;2020.12.15</time>
+<span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3.0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9.0l60.1 60.1c18.8 18.7 18.8 49.1.0 67.9zM284.2 99.8 21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3.0-17l-111-111c-4.8-4.7-12.4-4.7-17.1.0zM124.1 339.9c-5.5-5.5-5.5-14.3.0-19.8l154-154c5.5-5.5 14.3-5.5 19.8.0s5.5 14.3.0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8.0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;2232</span></div><nav class=contents><ol class=toc><li><a id=contents:windows-terminal href=#windows-terminal>Windows Terminal</a></li><li><a id=contents:配置备份 href=#配置备份>配置备份</a></li></ol></nav><div class="post-body e-content"><h1 id=windows-terminal><a href=#windows-terminal class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:windows-terminal class=headings>Windows Terminal</a></h1><p><a href=https://docs.microsoft.com/zh-cn/windows/terminal/ target=_blank rel=noopener>Windows终端官方中文文档</a></p><p><a href=https://windowsterminalthemes.dev/ target=_blank rel=noopener>配色预览</a></p><p><a href=https://www.uuidgenerator.net/ target=_blank rel=noopener>UUID生成</a></p><p>WindowsTerminal配置文件路径：<code>C:\Users\[USERNAME]\AppData\Local\Packages\Microsoft.WindowsTerminal_8wek
+yb3d8bbwe\LocalState\settings.json</code></p><h1 id=配置备份><a href=#配置备份 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:配置备份 class=headings>配置备份</a></h1><ul><li><p>Windows Terminal</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;$schema&#34;</span><span class=p>:</span> <span class=s2>&#34;https://aka.ms/terminal-profiles-schema&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=c1>//{
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//name ：这个配色方案的 ID 。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//background ：背景颜色。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//foreground ：输出显示字体颜色，ssh 输入命令颜色。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//black ：箭头左边三角，git 目录的 .git 目录下提示箭头背景提示文字。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//red ：ssh 后 vim 打开文本文件已输入行普通字符显示文字。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//green ：git 目录的 .git 目录下提示箭头背景提示。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//yellow ：git 目录的分支箭头背景提示。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//blue ：目录箭头本体。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//purple ：ssh 后 vim 等工具打开文件后的 { 和 }等符号本体，git 更新完后显示的分支箭头背景提示。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//cyan ：引号及内部字符。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//white ：未知。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightBlack ：cd 等 命令后面的 .. 和 * 等特殊符号，以及命令参数字符颜色。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightRed ：系统提示字符颜色：错误的命令，git status 显示。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightGreen ：ssh 用户权限显示。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightYellow ：输入的命令字符。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightBlue ：ssh 文件夹等高亮显示，ssh 目录，vim 打开文本文件未输入行 ~ 字符显示。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightPurple ：未知。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightCyan ：ssh vim 等工具打开文件后的 { 和 } 等符号背景。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//brightWhite ：目录箭头左边和中间的提示文字。
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//}
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=c1>//在这里设置一些动作快捷键 
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nt>&#34;actions&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//切换配色
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;setColorScheme&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;colorScheme&#34;</span><span class=p>:</span> <span class=s2>&#34;MyTheme&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;f1&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///关闭页面：ctrl+shift+[q所有]/[z当前]/[o除当前]/[l当前后面]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//关闭所有窗口
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;closeWindow&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+q&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//关闭当前窗口
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;closeTab&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+z&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//关闭活动窗格。如果没有任何拆分窗格，将关闭当前选项卡。如果仅打开一个选项卡，则将关闭窗口。
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;closePane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+z&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//关闭所有其他标签
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;closeOtherTabs&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+o&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//关闭焦点后面的选项卡
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;closeTabsAfter&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+l&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///打开页面：[ctrl+shift+(1/2/3)指定序号]/ctrl+shift+[n/d][下拉栏/复制当前]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//打开下拉菜单
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;openNewTabDropdown&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+n&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//重复标签：复制当前选项卡并打开它。
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;duplicateTab&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+d&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///标签选择：[ctrl+tab下一个]/[ctrl+shift+tab上一个]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//下一个标签：打开当前选项卡右侧的选项卡。
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;nextTab&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+tab&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//上一个标签：打开当前选项卡左侧的选项卡。
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;prevTab&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+tab&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///搜索：shift+[c命令]/[t标签]/[f内容]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//搜索命令
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;commandPalette&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+c&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//搜索标签
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;tabSearch&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+t&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//搜索内容
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;find&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+shift+x&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///分屏方向：Alt   +Shift  +[s水平]/[v垂直]，split分离,vertical split垂直分割
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;splitPane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;split&#34;</span><span class=p>:</span> <span class=s2>&#34;horizontal&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+shift+s&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;splitPane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;split&#34;</span><span class=p>:</span> <span class=s2>&#34;vertical&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+shift+v&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//分屏调整：Alt   +Shift  +[h左]/[j下]/[k上]/[l右]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;resizePane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;down&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+shift+j&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;resizePane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;left&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+shift+h&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;resizePane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;right&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+shift+l&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;resizePane&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;up&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+shift+k&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//分屏焦点：Alt   +[h左]/[j下]/[k上]/[l右]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;moveFocus&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;down&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+j&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;moveFocus&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;left&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+h&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;moveFocus&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;right&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+l&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;moveFocus&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;direction&#34;</span><span class=p>:</span> <span class=s2>&#34;up&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+k&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//分屏其他：
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//当前窗格最大化
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;togglePaneZoom&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;f10&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///滚屏滑动：Shift +[f下翻]/[b上翻]/[e下滑]/[y上滑]，forword向前的,backward向后的
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//上滚一屏
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;scrollUpPage&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;shift+b&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//下滚一屏
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;scrollDownPage&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;shift+f&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//上滚一个滑轮
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;scrollUp&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;shift+y&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//下滚一个滑轮
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;scrollDown&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;shift+e&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=err>/*</span>  <span class=err>==========================</span>
+</span></span><span class=line><span class=cl>            <span class=err>=====念念不忘</span> <span class=err>必有回响=====</span>
+</span></span><span class=line><span class=cl>            <span class=err>==========================</span>  <span class=err>*</span><span class=c1>///其他：ctrl+[c复制]/[v粘贴]/[,配置]；alt+[s聚焦]/[t最前]/[enter全屏]
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=c1>//复制 
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;action&#34;</span><span class=p>:</span> <span class=s2>&#34;copy&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;copyFormatting&#34;</span><span class=p>:</span> <span class=s2>&#34;all&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;singleLine&#34;</span><span class=p>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+c&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//粘贴
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;paste&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+v&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//打开配置文件
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;openSettings&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;ctrl+,&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//全屏,在全屏和默认窗口大小之间切换。
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;toggleFullscreen&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+enter&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//聚焦，隐藏选项卡和标题栏。
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;toggleFocusMode&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+s&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=c1>//最前，窗口将显示在所有其他非最顶部窗口的顶部
+</span></span></span><span class=line><span class=cl><span class=c1></span>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;command&#34;</span><span class=p>:</span> <span class=s2>&#34;toggleAlwaysOnTop&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;keys&#34;</span><span class=p>:</span> <span class=s2>&#34;alt+t&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;copyFormatting&#34;</span><span class=p>:</span> <span class=s2>&#34;none&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;copyOnSelect&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;defaultProfile&#34;</span><span class=p>:</span> <span class=s2>&#34;{61c54bbd-c2c6-5271-96e7-009a87ff44bf}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;initialCols&#34;</span><span class=p>:</span> <span class=mi>40</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;initialPosition&#34;</span><span class=p>:</span> <span class=s2>&#34;10,10&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;initialRows&#34;</span><span class=p>:</span> <span class=mi>15</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;launchMode&#34;</span><span class=p>:</span> <span class=s2>&#34;default&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>   <span class=nt>&#34;profiles&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;defaults&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;acrylicOpacity&#34;</span><span class=p>:</span> <span class=mf>1.0</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;backgroundImage&#34;</span><span class=p>:</span> <span class=kc>null</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;backgroundImageAlignment&#34;</span><span class=p>:</span> <span class=s2>&#34;center&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>              <span class=nt>&#34;backgroundImageOpacity&#34;</span><span class=p>:</span> <span class=mf>0.40000000000000002</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;backgroundImageStretchMode&#34;</span><span class=p>:</span> <span class=s2>&#34;uniformToFill&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;colorScheme&#34;</span><span class=p>:</span> <span class=s2>&#34;MyTheme&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;fontFace&#34;</span><span class=p>:</span> <span class=s2>&#34;Consolas&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;fontSize&#34;</span><span class=p>:</span> <span class=mi>14</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;fontWeight&#34;</span><span class=p>:</span> <span class=s2>&#34;normal&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;historySize&#34;</span><span class=p>:</span> <span class=mi>1000</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;padding&#34;</span><span class=p>:</span> <span class=s2>&#34;10,10,10,10&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;useAcrylic&#34;</span><span class=p>:</span> <span class=kc>false</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;list&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>        <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;colorScheme&#34;</span><span class=p>:</span> <span class=s2>&#34;MyTheme&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;commandline&#34;</span><span class=p>:</span> <span class=s2>&#34;powershell.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;fontSize&#34;</span><span class=p>:</span> <span class=mi>16</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;guid&#34;</span><span class=p>:</span> <span class=s2>&#34;{61c54bbd-c2c6-5271-96e7-009a87ff44bf}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;hidden&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;icon&#34;</span><span class=p>:</span> <span class=s2>&#34;E://path/favorite/powershell.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;PowerShell&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;suppressApplicationTitle&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;tabTitle&#34;</span><span class=p>:</span> <span class=s2>&#34;PS&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;commandline&#34;</span><span class=p>:</span> <span class=s2>&#34;cmd.exe&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;guid&#34;</span><span class=p>:</span> <span class=s2>&#34;{0caa0dad-35be-5f56-a8ff-afceeeaa6101}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;hidden&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;icon&#34;</span><span class=p>:</span> <span class=s2>&#34;E://path/favorite/cmd.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;CMD&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;commandline&#34;</span><span class=p>:</span> <span class=s2>&#34;powershell.exe ssh cloudserver@ipaddr&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;guid&#34;</span><span class=p>:</span> <span class=s2>&#34;{91242994-a5d9-490c-8288-688b6b6dcdf4}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;icon&#34;</span><span class=p>:</span> <span class=s2>&#34;E://path/favorite/腾讯云.png&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;\u817e\u8baf\u4e91&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;suppressApplicationTitle&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;tabTitle&#34;</span><span class=p>:</span> <span class=s2>&#34;\u817e\u8baf\u4e91&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>},</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;guid&#34;</span><span class=p>:</span> <span class=s2>&#34;{b453ae62-4e3d-5e58-b989-0a998ec441b8}&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;hidden&#34;</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Azure Cloud Shell&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=nt>&#34;source&#34;</span><span class=p>:</span> <span class=s2>&#34;Windows.Terminal.Azure&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;schemes&#34;</span><span class=p>:</span> 
+</span></span><span class=line><span class=cl>    <span class=p>[</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#0C0C0C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#0C0C0C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#0037DA&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#767676&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#3B78FF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#61D6D6&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#16C60C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#B4009E&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#E74856&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#F2F2F2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#F9F1A5&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#3A96DD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#CCCCCC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#13A10E&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Campbell&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#881798&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#C50F1F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#CCCCCC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#C19C00&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#012456&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#0C0C0C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#0037DA&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#767676&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#3B78FF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#61D6D6&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#16C60C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#B4009E&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#E74856&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#F2F2F2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#F9F1A5&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#3A96DD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#CCCCCC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#13A10E&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Campbell Powershell&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#881798&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#C50F1F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#CCCCCC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#C19C00&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#0C0C0C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#0C0C0C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#0037DA&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#767676&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#3B78FF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#61D6D6&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#16C60C&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#B4009E&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#E74856&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#F2F2F2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#F9F1A5&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#3A96DD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#13A10E&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;MyTheme&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#881798&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#C50F1F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#CCCCCC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#C19C00&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#282C34&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#282C34&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#61AFEF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#5A6374&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#61AFEF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#56B6C2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#98C379&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#C678DD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#E06C75&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#DCDFE4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#E5C07B&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#56B6C2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#DCDFE4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#98C379&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;One Half Dark&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#C678DD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#E06C75&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#DCDFE4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#E5C07B&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#FAFAFA&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#383A42&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#0184BC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#4F525D&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#61AFEF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#56B5C1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#98C379&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#C577DD&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#DF6C75&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#E4C07A&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#4F525D&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#0997B3&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#383A42&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#50A14F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;One Half Light&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#A626A4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#E45649&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#FAFAFA&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#C18301&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#002B36&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#002B36&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#268BD2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#073642&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#839496&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#93A1A1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#586E75&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#6C71C4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#CB4B16&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#FDF6E3&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#657B83&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#2AA198&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#839496&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#859900&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Solarized Dark&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#D33682&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#DC322F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#EEE8D5&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#B58900&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#FDF6E3&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#002B36&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#268BD2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#073642&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#839496&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#93A1A1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#586E75&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#6C71C4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#CB4B16&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#FDF6E3&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#657B83&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#002B36&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#2AA198&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#657B83&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#859900&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Solarized Light&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#D33682&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#DC322F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#EEE8D5&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#B58900&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#000000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#000000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#3465A4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#555753&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#729FCF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#34E2E2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#8AE234&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#AD7FA8&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#EF2929&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#EEEEEC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#FCE94F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#06989A&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#D3D7CF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#4E9A06&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Tango Dark&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#75507B&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#CC0000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#D3D7CF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#C4A000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#000000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#3465A4&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#555753&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#729FCF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#34E2E2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#8AE234&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#AD7FA8&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#EF2929&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#EEEEEC&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#FCE94F&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#000000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#06989A&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#555753&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#4E9A06&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Tango Light&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#75507B&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#CC0000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#D3D7CF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#C4A000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;background&#34;</span><span class=p>:</span> <span class=s2>&#34;#000000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;black&#34;</span><span class=p>:</span> <span class=s2>&#34;#000000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;blue&#34;</span><span class=p>:</span> <span class=s2>&#34;#000080&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlack&#34;</span><span class=p>:</span> <span class=s2>&#34;#808080&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightBlue&#34;</span><span class=p>:</span> <span class=s2>&#34;#0000FF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightCyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#00FFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightGreen&#34;</span><span class=p>:</span> <span class=s2>&#34;#00FF00&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightPurple&#34;</span><span class=p>:</span> <span class=s2>&#34;#FF00FF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightRed&#34;</span><span class=p>:</span> <span class=s2>&#34;#FF0000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightWhite&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;brightYellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFF00&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cursorColor&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;cyan&#34;</span><span class=p>:</span> <span class=s2>&#34;#008080&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;foreground&#34;</span><span class=p>:</span> <span class=s2>&#34;#C0C0C0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;green&#34;</span><span class=p>:</span> <span class=s2>&#34;#008000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;Vintage&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;purple&#34;</span><span class=p>:</span> <span class=s2>&#34;#800080&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;red&#34;</span><span class=p>:</span> <span class=s2>&#34;#800000&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;selectionBackground&#34;</span><span class=p>:</span> <span class=s2>&#34;#FFFFFF&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;white&#34;</span><span class=p>:</span> <span class=s2>&#34;#C0C0C0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;yellow&#34;</span><span class=p>:</span> <span class=s2>&#34;#808000&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;startOnUserLogin&#34;</span><span class=p>:</span> <span class=kc>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;tabWidthMode&#34;</span><span class=p>:</span> <span class=s2>&#34;titleLength&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nt>&#34;theme&#34;</span><span class=p>:</span> <span class=s2>&#34;dark&#34;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div></li></ul></div></article><footer class=minimal-footer><div class=post-tag><a href=../../windows/ rel=tag class=post-tag-link>#windows</a> <a href=../../tool/ rel=tag class=post-tag-link>#tool</a></div><div class=post-category><a href=../../tech/ class="post-category-link active">信息技术</a> | <a href=../../app/ class=post-category-link>站内软件</a> | <a href=../../life/ class=post-category-link>生活涂鸦</a></div></footer></div></main><div id=back-to-top class=back-to-top><a href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6.0-33.9L207 39c9.4-9.4 24.6-9.4 33.9.0l194.3 194.3c9.4 9.4 9.4 24.6.0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3.0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a></div></div><script src=//npm/medium-zoom@latest/dist/medium-zoom.min.js></script>
+<script>let imgNodes=document.querySelectorAll("div.post-body img");imgNodes=Array.from(imgNodes).filter(e=>e.parentNode.tagName!=="A"),mediumZoom(imgNodes,{background:"hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)"})</script></body></html>

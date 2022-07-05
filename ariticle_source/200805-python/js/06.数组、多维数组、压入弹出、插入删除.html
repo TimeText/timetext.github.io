@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 遍历函数
+        function FOR(array) {
+            for (i in array) {
+                document.write("&nbsp;&nbsp;" + array[i]);
+            }
+        }
+
+        // 实例化对象方式创建
+        var aList1 = new Array(1, 2, 3, "abc");
+        FOR(aList1);
+
+        //获得数组长度
+        document.write("&nbsp;&nbsp;数组长度aList1.length：" + aList1.length);
+        document.write("<hr>");
+
+        // 字面量方式创建
+        var aList2 = [1, 2, 3, 4, "abc"];
+        FOR(aList2);
+
+        //获得数组长度
+        document.write("&nbsp;&nbsp;数组长度aList2.length：" + aList2.length);
+        document.write("<hr>");
+
+        //多维数组
+        var aList3 = [
+            [1, 2, 3],
+            ['a', 'b', 'c']
+        ];
+        FOR(aList3);
+
+        //获得数组长度
+        document.write("&nbsp;&nbsp;数组长度aList3.length：" + aList3.length);
+        document.write("<hr>");
+
+        //追加数据与弹出
+        document.write("<h4>追加数据与弹出</h4>");
+        var aList4 = [1, 2, 3, 4, 5];
+
+        FOR(aList4);
+        document.write("<hr>");
+
+        aList4.push(6, 7);
+        FOR(aList4);
+        document.write("<hr>");
+
+        aList4.pop()
+        aList4.pop()
+        aList4.pop()
+        aList4.pop()
+        FOR(aList4);
+        document.write("<hr>");
+
+        //根据下表添加删除元素
+        /*
+        arr.splice(start,num,element1,.....,elementN)
+        start：必需，开始删除的索引。
+        num：可选，删除数组元素的个数。
+        elementN：可选，在start索引位置要插入的新元素。
+        此方法会删除从start索引开始的num个元素，并将elementN参数插入到start索引位置。
+        */
+        aList5 = ["sea", "sky", "apple", "banana"];
+        FOR(aList5);
+        document.write("<hr>");
+
+        aList5.splice(0, 2);
+        FOR(aList5);
+        document.write("<hr>");
+
+        aList5.splice(1, 0, "iphone", "PC");
+        FOR(aList5);
+        document.write("<hr>");
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

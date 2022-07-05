@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        demofun2();
+
+        function demofun1() {
+            document.write("<h3>函数1调用成功</h3>");
+        }
+
+        function demofun2() {
+            document.write("<h3>函数2调用成功</h3>");
+        }
+
+        function demofun3() {
+            document.write("<h3>函数3调用成功</h3>");
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>函数的调用</h3>
+        <ul>
+            <li>函数调用和元素事件结合：事件名="函数名()";</li>
+            <li>JS中直接调用：函数名();</li>
+            <li>JS中通过元素事件调用：事件名=函数名;</li>
+        </ul>
+    </div>
+
+    <input type="button" name="btn" id="btn" value="调用函数1" onclick="demofun1()" />
+
+    <hr>
+    <hr>
+    <hr>
+
+
+    <div>
+        <h3>匿名函数</h3>
+        <ul>
+            <li>匿名函数就是没有函数名的函数</li>
+            <li>定义函数的语句可以像赋值一样赋值给一个变量，也可以赋值给一个时间触发，因此可以使用变量名或事件名来调用匿名函数</li>
+            <li>赋值给某一变量后，该变量可以作为函数的参数进行传递</li>
+        </ul>
+
+    </div>
+    <script>
+        var sayhello = function(count) {
+            for (var i = 0; i < count; i++) {
+                document.write("<h3>hello world</h3>");
+            };
+        };
+
+        window.onload = function() {
+            document.getElementById("btn3").onclick = function() {
+                document.write("<h3>hello Hi</h3>");
+            }
+        }
+    </script>
+    <input type="button" name="btn2" id="btn2" value="sayhello" onclick="sayhello(prompt('输入次数：','') )" />
+
+    <input type="button" name="btn3" id="btn3" value="事件：sayHi" />
+
+
+
+</body>
+
+</html>

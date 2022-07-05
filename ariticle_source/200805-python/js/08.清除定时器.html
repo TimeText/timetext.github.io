@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	<script>
+document.write("  由于定时器在调用时，都会返回一个整形的数字，该数字代表定时器的序号，即第多少个定时器，所以定时器的清除要借助于这个返回的数字。");
+function setTimeoutDemo(){
+	alert("setTimeout调用一次");
+}
+
+var t1=setTimeout(setTimeoutDemo,2000);
+clearTimeout(t1)
+
+function setIntervalDemo(){
+	alert("setInterval重复调用")
+}
+
+var t2=setInterval(setIntervalDemo,3000);
+	
+function STOPsetIntervalDemo(){
+	clearInterval(t2);
+}
+</script>
+<input type="button" value="STOP" onclick="STOPsetIntervalDemo();"
+
+</body>
+</html>

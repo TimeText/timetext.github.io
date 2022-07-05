@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script>
+        function GetHref() {
+            var oHref = document.getElementById("link1");
+            var oHrefLink = oHref.href;
+            var oHrefClassName = oHref.className;
+            alert("指向的链接是：" + oHrefLink);
+            alert("样式类是：" + oHrefClassName);
+        }
+
+        function WriteHref() {
+            var oHref = document.getElementById("link1");
+            oHref.href = "https://cn.bing.com/"
+            oHref.style.color = 'red'
+            oHref.style.fontSize = '40px'
+        }
+
+        function WriteDemo() {
+            var oDemo = document.getElementById("demo")
+            oDemo.style.color = 'green'
+            oDemo.style.fontSize = "35px"
+        }
+
+        function ChangeDiv() {
+            var oDiv = document.getElementById('div1');
+            var sTxt = oDiv.innerHTML;
+            oDiv.innerHTML = '<a href="http://www.itcast.cn">传智播客<a/>';
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <h3>获取标签元素</h3>
+        <ul>
+            <li>使用内置对象document上的getElementById方法获取页面上设置了id属性的标签元素</li>
+            <li>页面代码从上往下加载执行，所有JS获取的元素要在JS代码上方，解决方法有两个</li>
+            <ul>
+                <li>将JS代码放在最下边</li>
+                <li>设置页面加载完成执行的函数[window.onload = function()]，在执行函数内获取标签元素</li>
+                <ul>
+                    <li>onload是页面所有元素加载完成的事件，给onload设置函数时，当事件触发就会执行设置的函数。</li>
+                </ul>
+            </ul>
+        </ul>
+
+        <h3>属性的操作</h3>
+        <ul>
+            <li>获取页面标签元素，然后对标签元素的属性进行操作</li>
+            <li>属性的读取和设置</li>
+            <li>属性名在js中的写法
+                <ul>
+                    <li>html属性和js属性大多一样，但是"class"属性写成"className"</li>
+                    <li>"style"属性里面的属性，有斜杠的改成驼峰式，比如"font-size"改成"style.fontSize"</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>innerHTML</h3>
+        <p>innerHTML可以读取或者设置标签包裹的内容</p>
+    </div>
+
+    <br><br>
+
+    <a href="#" id="link1" style="color:yellow; font-size: 20PX;">这是一个链接</a>
+    <input type="button" name="btn" id="btn" value="属性读取" onclick="GetHref()" />
+    <input type="button" name="btn" id="btn" value="属性修改" onclick="WriteHref()" />
+
+    <h1 id="demo" style="font-size: 20px; columns: #f0f0f0;;">hello world</h1>
+    <input type="button" name="btn" id="btn" value="属性修改" onclick="WriteDemo()" />
+
+    <div id="div1">innerHTML可以读取或者设置标签包裹的内容</div>
+    <input type="button" name="btn" id="btn" value="内容修改" onclick="ChangeDiv()" />
+
+</body>
+
+</html>

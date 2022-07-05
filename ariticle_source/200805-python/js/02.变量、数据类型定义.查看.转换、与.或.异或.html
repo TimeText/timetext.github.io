@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <h2>变量</h2>
+        <h3>变量命名规则：</h3>
+        <ul>
+            <li>首字母必须是字母、下划线或美元符号</li>
+            <li>不能是关键字、保留字</li>
+            <li>变量名除首字母外可以是任意字符</li>
+			<li>var name="张三";</li>
+        </ul>
+    </div>
+
+    <script>
+        var name = "张三";
+        var ages;
+        agrs = 20;
+        var sex = "male",
+            email = "abc@abc.com";
+        add = "Chian"
+        document.write("姓名：" + name + "<br>年龄：" + ages + "<br>性别：" + sex + "<br>邮箱：" + email + "<br>地址：" + add + "<hr><hr><hr>");
+    </script>
+
+
+
+
+    <div>
+        <h2>数据类型</h2>
+        <h3>基本数据类型，查看数据类型：typedef(value)</h3>
+        <ul>
+            <li>字符串类型string</li>
+            <li>数值数据类型number</li>
+            <li>布尔类型boolean</li>
+            <li>未定义类型undefined</li>
+            <li>空类型null</li>
+            <li>对象类型object</li>
+        </ul>
+
+        <h3>数据类型转换</h3>
+        <ul>
+            <li>将值转换成boolean：boolean(value)</li>
+            <li>将值转换成数字：
+                <ul>
+                    <li>转换整个值：Number(value)</li>
+                    <li>转整型：parseInt(value)</li>
+                    <li>浮点型：parseFloat(value)</li>
+                </ul>
+            </li>
+            <li>将值转换成字符串：String(value)</li>
+        </ul>
+
+        <h3>运算符号</h3>
+        <ul>
+            <li>-x:返回x的相反数</li>
+            <li>x&y:按位与</li>
+            <li>x|y:按位或</li>
+            <li>x^y:位异或：有且只有一个为0时返回0，否则返回1</li>
+        </ul>
+    </div>
+    <script>
+        var str1 = "123.45"
+        var str2 = "987.654.321"
+        document.write("str1 = \"123.45\":" + "<br>")
+        document.write("str2 = \"987.654.321\":" + "<br>")
+        document.write("typeof(str1):" + typeof(str1) + "&nbsp;&nbsp;str1:" + str1 + "<br>")
+        document.write("typeof(str2):" + typeof(str2) + "&nbsp;&nbsp;str2:" + str2 + "<br>")
+        document.write("typeof(Number(str1)):" + typeof(Number(str1)) + "&nbsp;&nbsp;Number(str1):" + Number(str1) + "<br>")
+        document.write("typeof(Number(str2)):" + typeof(Number(str2)) + "&nbsp;&nbsp;Number(str2):" + Number(str2) + "<br>")
+        document.write("typeof(parseInt(str1)):" + typeof(parseInt(str1)) + "&nbsp;&nbsp;parseInt(str1):" + parseInt(str1) + "<br>")
+        document.write("typeof(parseInt(str2)):" + typeof(parseInt(str2)) + "&nbsp;&nbsp;parseInt(str2):" + parseInt(str2) + "<br>")
+        document.write("typeof(parseFloat(str1)):" + typeof(parseFloat(str1)) + "&nbsp;&nbsp;parseFloat(str1):" + parseFloat(str1) + "<br>")
+        document.write("typeof(parseFloat(str2)):" + typeof(parseFloat(str2)) + "&nbsp;&nbsp;parseFloat(str2):" + parseFloat(str2) + "<br>")
+    </script>
+</body>
+
+</html>

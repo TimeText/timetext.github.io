@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式布局</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        .con div{
+            width: 23%;
+            border: 2px solid #000000;
+            background-color: #ff8800;
+            height: 200px;
+            margin: 1%;
+
+            float: left;
+            /*边框算在内*/
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 800px) {
+            .con div{
+                width: 46%;
+                margin: 2%;
+            }
+        @media (max-width: 600px) {
+            .con div{
+                width: 94%;
+                margin: 3%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <div>1111</div>
+        <div>2222</div>
+        <div>3333</div>
+        <div>4444</div>
+    </div>
+</body>
+</html>

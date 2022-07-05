@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CssText</title>
+<style>
+    .box{
+        /* 将块元素转化为行内元素 */
+        display:inline;
+    } 
+
+    .link01{
+        /* 将行内元素转化为块元素 */
+        display:block;
+        background: red;
+
+    }
+
+    .con{
+        width:200px;
+        height:200px;
+        background:gold;
+
+        /* 将元素隐藏 */
+        display:none;
+    }
+
+</style>
+
+	</head>
+	<body>
+<div class="con"></div>
+<div class="box">这是第一个div</div>
+<div class="box">这是第二个div</div>
+<a href="#" class="link01">这是第一个链接</a>
+<a href="#" class="link01">这是第二个链接</a>
+	</body>
+</html>

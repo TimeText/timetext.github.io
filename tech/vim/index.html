@@ -1,0 +1,400 @@
+<!doctype html><html lang=en><head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article#"><meta charset=utf-8><meta name=generator content="Hugo 0.101.0"><meta name=theme-color content="#16171d"><meta name=color-scheme content="light dark"><meta name=viewport content="width=device-width,initial-scale=1"><meta name=format-detection content="telephone=no, date=no, address=no, email=no"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><title>文本编辑器中的上古神器VIM学习使用笔记 | 时间文本博客</title><link rel=stylesheet href=../../css/meme.min.css><script src=../../js/meme.min.js></script>
+<link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap" media=print onload='this.media="all"'><noscript><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Cinzel+Decorative:wght@700&display=swap"></noscript><meta name=author content="TimeText"><meta name=description content="vim官网 菜鸟vim教程 vim教程网 W3Cschool教程VIM Use 翻页: 翻一页：ct"><link rel="shortcut icon" href=../../favicon.ico type=image/x-icon><link rel=mask-icon href=../../icons/safari-pinned-tab.svg color=#fff><link rel=apple-touch-icon sizes=180x180 href=../../icons/apple-touch-icon.png><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-title content="时间文本博客"><meta name=apple-mobile-web-app-status-bar-style content="black"><meta name=mobile-web-app-capable content="yes"><meta name=application-name content="时间文本博客"><meta name=msapplication-starturl content="../../"><meta name=msapplication-TileColor content="#fff"><meta name=msapplication-TileImage content="../../icons/mstile-150x150.png"><link rel=manifest href=../../manifest.json><link rel=canonical href=https://timetext.github.io/tech/vim/><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","datePublished":"2020-10-18T11:20:54+00:00","dateModified":"2022-07-05T16:01:05+00:00","url":"https://timetext.github.io/tech/vim/","headline":"文本编辑器中的上古神器VIM学习使用笔记","description":"vim官网 菜鸟vim教程 vim教程网 W3Cschool教程VIM Use 翻页: 翻一页：ct","inLanguage":"en","articleSection":"tech","wordCount":6084,"image":"https://timetext.github.io/icons/apple-touch-icon.png","author":{"@type":"Person","url":"https://timetext.github.io/","name":"TimeText"},"license":"[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载","publisher":{"@type":"Organization","name":"时间文本博客","logo":{"@type":"ImageObject","url":"https://timetext.github.io/icons/apple-touch-icon.png"},"url":"https://timetext.github.io/"},"mainEntityOfPage":{"@type":"WebSite","@id":"https://timetext.github.io/"}}</script><meta name=twitter:card content="summary"><meta property="og:title" content="文本编辑器中的上古神器VIM学习使用笔记"><meta property="og:description" content="vim官网 菜鸟vim教程 vim教程网 W3Cschool教程VIM Use 翻页: 翻一页：ct"><meta property="og:url" content="https://timetext.github.io/tech/vim/"><meta property="og:site_name" content="时间文本博客"><meta property="og:locale" content="zh-cn"><meta property="og:image" content="https://timetext.github.io/icons/apple-touch-icon.png"><meta property="og:type" content="article"><meta property="article:published_time" content="2020-10-18T11:20:54+00:00"><meta property="article:modified_time" content="2022-07-05T16:01:05+00:00"><meta property="article:section" content="tech"></head><body><div class=container><header class=header><div class=header-wrapper><div class="header-inner single"><div class=site-brand><a href=../../ class=brand>时间文本博客</a></div><nav class=nav><ul class=menu id=menu><li class=menu-item><a href=../../life/><span class=menu-item-name>生活</span></a></li><li class="menu-item active"><a href=../../tech/><span class=menu-item-name>技术</span></a></li><li class=menu-item><a href=../../about/><span class=menu-item-name>关于</span></a></li><li class=menu-item><a id=theme-switcher href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-light"><path d="M193.2 104.5 242 7a18 18 0 0128 0l48.8 97.5L422.2 70A18 18 0 01442 89.8l-34.5 103.4L505 242a18 18 0 010 28l-97.5 48.8L442 422.2A18 18 0 01422.2 442l-103.4-34.5L270 505a18 18 0 01-28 0l-48.8-97.5L89.8 442A18 18 0 0170 422.2l34.5-103.4-97.5-48.8a18 18 0 010-28l97.5-48.8L70 89.8A18 18 0 0189.8 70zM256 128a128 128 0 10.01.0M256 160a96 96 0 10.01.0"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon theme-icon-dark"><path d="M27 412A256 256 0 10181 5a11.5 11.5.0 00-5 20A201.5 201.5.0 0142 399a11.5 11.5.0 00-15 13"/></svg></a></li></ul></nav></div></div><input type=checkbox id=nav-toggle aria-hidden=true>
+<label for=nav-toggle class=nav-toggle></label>
+<label for=nav-toggle class=nav-curtain></label></header><main class="main single" id=main><div class=main-inner><article class="content post h-entry" data-align=default data-type=tech><h1 class="post-title p-name">文本编辑器中的上古神器VIM学习使用笔记</h1><div class=post-meta><time datetime=2020-10-18T11:20:54+00:00 class="post-meta-item published dt-published"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon post-meta-icon"><path d="M148 288h-40c-6.6.0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6.0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6.0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5.0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6.0 12 5.4 12 12v52h48c26.5.0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3.0 6-2.7 6-6z"/></svg>&nbsp;2020.10.18</time>
+<span class="post-meta-item wordcount"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon post-meta-icon"><path d="M497.9 142.1l-46.1 46.1c-4.7 4.7-12.3 4.7-17 0l-111-111c-4.7-4.7-4.7-12.3.0-17l46.1-46.1c18.7-18.7 49.1-18.7 67.9.0l60.1 60.1c18.8 18.7 18.8 49.1.0 67.9zM284.2 99.8 21.6 362.4.4 483.9c-2.9 16.4 11.4 30.6 27.8 27.8l121.5-21.3 262.6-262.6c4.7-4.7 4.7-12.3.0-17l-111-111c-4.8-4.7-12.4-4.7-17.1.0zM124.1 339.9c-5.5-5.5-5.5-14.3.0-19.8l154-154c5.5-5.5 14.3-5.5 19.8.0s5.5 14.3.0 19.8l-154 154c-5.5 5.5-14.3 5.5-19.8.0zM88 424h48v36.3l-64.5 11.3-31.1-31.1L51.7 376H88v48z"/></svg>&nbsp;6084</span></div><nav class=contents><ol class=toc><li><ol><li><a id=contents:use href=#use>Use</a></li><li><a id=contents:get href=#get>Get</a></li><li><a id=contents:分屏 href=#分屏>分屏</a></li><li><a id=contents:vimrc href=#vimrc>.VIMRC</a></li><li><a id=contents:vundle href=#vundle>Vundle</a></li><li><a id=contents:neoclidecocnvim href=#neoclidecocnvim>neoclide/coc.nvim</a><ol><li><a id=contents:配置cpp补全 href=#配置cpp补全>配置CPP补全</a></li></ol></li><li><a id=contents:scrooloosenerdtree href=#scrooloosenerdtree>scrooloose/nerdtree</a><ol><li><a id=contents:使用 href=#使用>使用</a></li><li><a id=contents:配置 href=#配置>配置</a></li></ol></li><li><a id=contents:preservimtagbar href=#preservimtagbar>preservim/tagbar</a></li><li><a id=contents:xuyuanpnerdtree-git-plugin href=#xuyuanpnerdtree-git-plugin>Xuyuanp/nerdtree-git-plugin</a></li><li><a id=contents:airbladevim-gitgutter href=#airbladevim-gitgutter>airblade/vim-gitgutter</a><ol><li><a id=contents:激活 href=#激活>激活</a></li><li><a id=contents:光标 href=#光标>光标</a></li></ol></li><li><a id=contents:preservimnerdcommenter href=#preservimnerdcommenter>preservim/nerdcommenter</a><ol><li><a id=contents:使用-1 href=#使用-1>使用</a></li></ol></li><li><a id=contents:jiangmiaoauto-pairs href=#jiangmiaoauto-pairs>jiangmiao/auto-pairs</a></li><li><a id=contents:mattnemmet-vim href=#mattnemmet-vim>mattn/emmet-vim</a></li><li><a id=contents:rkullapydiction href=#rkullapydiction>rkulla/pydiction</a><ol><li><a id=contents:使用-2 href=#使用-2>使用</a></li></ol></li><li><a id=contents:godlygeektabular href=#godlygeektabular>godlygeek/tabular</a></li><li><a id=contents:plasticboyvim-markdown href=#plasticboyvim-markdown>plasticboy/vim-markdown</a><ol><li><a id=contents:折叠 href=#折叠>折叠</a></li><li><a id=contents:光标-1 href=#光标-1>光标</a></li></ol></li><li><a id=contents:iamccomarkdown-previewvim href=#iamccomarkdown-previewvim>iamcco/markdown-preview.vim</a><ol><li><a id=contents:使用和设置 href=#使用和设置>使用和设置</a></li><li><a id=contents:按键 href=#按键>按键</a></li></ol></li><li><a id=contents:altercationvim-colors-solarized href=#altercationvim-colors-solarized>altercation/vim-colors-solarized</a></li></ol></li></ol></nav><div class="post-body e-content"><blockquote><p><a href=https://www.vim.org/ target=_blank rel=noopener>vim官网</a></p><p><a href=https://www.runoob.com/linux/linux-vim.html target=_blank rel=noopener>菜鸟vim教程</a></p><p><a href=https://vimjc.com/ target=_blank rel=noopener>vim教程网</a></p><p><a href=https://www.w3cschool.cn/vim/ target=_blank rel=noopener>W3Cschool教程VIM</a></p></blockquote><h2 id=use><a href=#use class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:use class=headings>Use</a></h2><ul><li>翻页:<ul><li>翻一页：<code>ctrl-f</code> 和 <code>ctrl-b</code>，f=forword b=backward</li><li>翻半页：<code>ctrl-d</code> 和 <code>ctlr-u </code>，d=down u=up</li><li>翻一行 <code>ctrl-e</code> 和 <code>ctrl-y</code></li></ul></li></ul><h2 id=get><a href=#get class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:get class=headings>Get</a></h2><ul><li><p>非root权限vim编辑后强制保存：<code>:w !sudo tee %</code></p></li><li><p>键盘映射：<code>map &lt;F3> :命令&lt;CR> </code>（F3和:之间有空格）</p></li><li><p>插入模式中不能删除换行问题： <code>set backspace=indent,eol,start</code></p></li><li><p>批量注释：先按v再选行，Ctrl + v进入块模式，输入注释符号，连按两次Esc；</p><ul><li>取消注释：先按v再选行，Ctrl + v进入块模式，选择注释符号，按d删除。</li></ul></li><li><p>vim打开是doc格式，报错：<code>Not an editor command: ^M</code> 替换“^M”提示：<code>Pattern not found: ^M</code></p><ul><li>解决方法：vim 将文件从dos格式转换到unix格式，编辑vim时候按：进入命令模式，输入 <code>set fileformat=unix</code>，然后保存重新进入。</li></ul></li></ul><h2 id=分屏><a href=#分屏 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:分屏 class=headings>分屏</a></h2><ol><li>打开文件并且分屏
+<code>vim -o[n] file1 [file2 ...]</code>
+<code>vim -O[n] file1 [file2 ...]</code>
+小写o是水平分屏,大写O是垂直分屏;中括号表示可有可无,n分屏的个数</li><li>在vim中的命令模式下分屏<ul><li>垂直分屏：<ul><li>命令：<code>:vs [file2]</code> 后面不跟文件名是将当前文件垂直分屏;(也可用 vsp或者vsplit代替vs)</li><li>快捷键：<code>ctrl+w</code> + <code>v</code> (同时按下ctrl和w键后,松开再按v键:快捷键操作只可将当前文件分屏)</li></ul></li><li>水平分屏<ul><li>命令： <code>:sv [file2]</code> 后面不跟文件名是将当前文件水平分屏;跟文件名是将新文件在水平分屏中打开(也可用 sp或者split代替sv)</li><li>快捷键：<code>ctrl+w</code> + <code>s</code> (同时按下ctrl和w键后,松开再按s键:快捷键操作只可将当前文件分屏)</li></ul></li><li>新建文件水平分屏<ul><li>命令：<code>:new [newfile]</code> 如果跟有文件名则会新建一个文件,当写入内容并且保存退出后会新建该文件(如果没有写入内容保存退出也不会新建该文件)；</li><li>快捷键：<code>ctrl+w</code> + <code>n</code> (同时按下ctrl和w键后,松开再按n键:如果没有跟文件名,在写入内容后保存时命令模式下输入:<code>:w filename</code>会新建一个名字为filename的文件</li><li></li></ul></li></ul></li><li>移动光标<ul><li>把光标移到右边的屏中：<code>ctrl+w l</code></li><li>把光标移到左边的屏中 ：<code>ctrl+w h</code></li><li>把光标移到上边的屏中：<code>ctrl+w k</code></li><li>把光标移到下边的屏中：<code>ctrl+w j</code></li><li>把光标移到下一个屏中：<code>ctrl+w w</code></li><li>把光标移到上一个屏中：<code>ctrl+w p</code></li></ul></li><li>移动分屏<ul><li>向右移动：<code>ctrl+w L</code></li><li>向左移动：<code>ctrl+w H</code></li><li>向上移动：<code>ctrl+w K</code></li><li>向下移动：<code>ctrl+w J</code></li><li>向下旋转窗口：<code>ctrl+w r</code></li><li>向上旋转窗口：<code>ctrl+w R</code></li><li>当前窗口与下一个窗口对调：<code>ctrl+w x</code></li></ul></li><li>控制分屏的尺寸<ul><li>减少当前窗口高度（对上下分屏才有用）
+<code>ctrl+w -</code> <code>按完ctrl w 后松开,同时按下shift -</code></li><li>增加当前窗口高度（对上下分屏才有用）
+<code>ctrl+w +</code> <code>按完ctrl w 后松开,同时按下shift +</code></li><li>增加当前窗口宽度（对左右分屏才有用）
+<code>ctrl+w ></code> <code>按完ctrl w 后松开,同时按下shift ></code></li><li>减少当前窗口宽度（对左右分屏才有用）
+<code>ctrl+w &lt;</code> <code>按完ctrl w 后松开,同时按下shift &lt;</code></li><li>使所有窗口恢复均等
+<code>ctrl+w =</code></li></ul></li><li>关闭分屏：<ul><li>关闭除当前分屏外的其他分屏<ul><li>命令：<code>:only</code></li><li>快捷键:<code>ctrl+w o</code> (最后一个分屏不能用此快捷键关闭)</li></ul></li><li>关闭当前分屏<ul><li>快捷键:<code>ctrl+w c</code> (最后一个分屏不能用此快捷键关闭)</li></ul></li><li>关闭当前分屏<ul><li>快捷键:<code>ctrl+w q</code> (可用来关闭最后一个分屏)</li></ul></li><li>关闭所有分屏<ul><li>命令:<code>:qa</code></li></ul></li></ul></li></ol><h2 id=vimrc><a href=#vimrc class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:vimrc class=headings>.VIMRC</a></h2><pre tabindex=0><code>&#34;	Vundle插件
+&#34;	插件配置
+&#34;	Vim设置
+&#34;	新建指定类型文件自动添加文件头
+&#34;	大块间隔10行
+&#34;	小块间隔3行
+
+
+
+
+&#34; Vundle&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
+
+set nocompatible &#34; 去除vi一致性
+filetype off &#34;文件类型检测
+set rtp+=~/.vim/bundle/Vundle.vim &#34;设置vundle路径
+call vundle#begin() &#34; 初始化
+Plugin &#39;VundleVim/Vundle.vim&#39; &#34; 让Vundle管理插件
+
+Plugin &#39;neoclide/coc.nvim&#39;
+&#34; Coc补全
+let g:coc_disable_startup_warning = 1
+&#34; 设置Coc的报错等级
+
+
+Plugin &#39;scrooloose/nerdtree&#39;
+&#34; 目录侧边栏
+
+Plugin &#39;preservim/tagbar&#39;
+&#34; 标签侧边栏
+
+Plugin &#39;Xuyuanp/nerdtree-git-plugin&#39;
+&#34; 配合nerdtree的Git侧边栏
+
+Plugin &#39;airblade/vim-gitgutter&#39;
+&#34; Git侧边栏
+
+Plugin &#39;preservim/nerdcommenter&#39;
+&#34; 快速注释
+
+Plugin &#39;jiangmiao/auto-pairs&#39;
+&#34; 括号自动补全
+
+Plugin &#39;mattn/emmet-vim&#39;
+&#34; HTML补全 html:5 Ctrl y ,
+
+Plugin &#39;rkulla/pydiction&#39;
+&#34; python 补全
+
+Plugin &#39;godlygeek/tabular&#39;
+Plugin &#39;plasticboy/vim-markdown&#39;
+&#34; md格式化、折叠
+
+&#34; Plugin &#39;iamcco/markdown-preview.vim&#39;
+&#34; md通过浏览器预览
+
+&#34; 配色↓
+&#34;Plugin &#39;nanotech/jellybeans.vim&#39;
+&#34;Plugin &#39;mhinz/vim-janah&#39;
+&#34;Plugin &#39;whatyouhide/vim-gotham&#39;
+Plugin &#39;altercation/vim-colors-solarized&#39;
+&#34;Plugin &#39;chriskempson/base16-vim&#39;
+&#34;colorscheme solarized
+&#34; 配色↑
+
+call vundle#end()
+
+
+
+
+
+
+
+
+
+
+
+&#34; 插件配置&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
+
+&#34; scrooloose/nerdtree目录侧边栏
+let g:NERDTreeHighlightCursorline = 1
+&#34; 高亮当前行
+let g:NERDTreeShowLineNumbers = 1
+&#34; 显示行号
+let g:NERDTreeWinSize = 30
+&#34; 设置窗口大小
+&#34;autocmd vimenter * NERDTree
+&#34; 启动 vim 时打开 NERDTree
+&#34;map &lt;F3&gt; :NERDTreeMirror&lt;CR&gt;
+map &lt;F2&gt; :NERDTreeToggle&lt;CR&gt;
+&#34; 键盘映射开-关
+
+
+&#34; preservim/tagbar标签侧边栏
+let g:tagbar_ctags_bin=&#39;/usr/bin/ctags&#39;
+&#34; 指定ctags路径
+let g:tagbar_width=30
+&#34; 设置窗口大小
+let g:tagbar_right=1
+&#34; 在右侧展开
+map &lt;F3&gt; :TagbarToggle&lt;CR&gt;
+&#34; 键盘映射开-关
+
+
+
+&#34; preservim/nerdcommenter快速注释
+let g:NERDSpaceDelims=1
+&#34; 注释后添加一个空格
+
+
+
+&#34; emmet-vim html补全
+let g:user_emmet_mode=&#39;a&#39;
+&#34;所有模式下启用
+map &lt;F4&gt; :call emmet#expandAbbr(3,&#34;&#34;)&lt;CR&gt;
+&#34; 按键映射
+
+
+&#34; pydiction python补全
+filetype plugin on
+let g:pydiction_location = &#39;/home/USER/.vim/bundle/pydiction/complete-dict&#39;
+let g:pydiction_menu_height = 4
+&#34; 待选数目
+
+
+
+&#34; plasticboy/vim-markdown 折叠md
+let g:vim_markdown_folding_level = 3
+&#34; 设置折叠等级
+
+
+
+&#34; markdown-preview 预览MD
+&#34; let g:mkdp_path_to_chrome = &#34;chrome&#34;
+&#34; 浏览器的路径
+&#34;let g:mkdp_browserfunc = &#39;MKDP_browserfunc_default&#39;
+&#34; vim 回调函数, 参数为要打开的 url
+&#34; let g:mkdp_auto_start = 0
+&#34; 设置为 1 可在打开md文件的时候自动打开浏览器预览，只在打开md 文件的时候打开一次
+&#34;let g:mkdp_auto_open = 1
+&#34; 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，否则自动打开预览窗口
+&#34;let g:mkdp_auto_close = 1
+&#34; 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不自动关闭预览窗口
+&#34;let g:mkdp_refresh_slow = 0
+&#34; 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，默认为 0，实时更新预览
+&#34;let g:mkdp_command_for_global = 0
+&#34; 设置为 1 则所有文件都可以使用 MarkdownPreview 进行预览，默认只有 markdown文件可以使用改命令
+
+
+
+
+
+
+
+
+
+
+
+&#34; VIM设置&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
+
+&#34; 功能
+filetype plugin indent on
+&#34; 开启文件类型、缩进检测
+set nocompatible
+&#34; 去除VI一致性,必须要添加,设置为vim自己的操作命令
+
+
+
+&#34; 编码
+set langmenu=zh_CN.UTF-8
+&#34; 菜单显示为中文
+set helplang=cn
+&#34; 显示中文帮助
+set termencoding=utf-8
+&#34; 输出到客户终端（Term）采用的编码类型
+set encoding=utf8
+&#34; Vim 内部使用的字符编码方式
+set fileencodings=utf8,ucs-bom,gbk,cp936,gb2312,gb18030
+&#34; 按照它所列出的字符编码方式逐一探测即将打开的文件的字符编码方式
+
+
+
+&#34; 编辑
+&#34; set paste
+&#34; 粘贴模式,可能会和补全功能冲突
+set autoindent
+&#34; 按下回车键后，下一行的缩进会自动跟上一行的缩进保持一致
+set backspace=indent,eol,start
+&#34; 解决插入模式下不能删除换行问题
+&#34; set mouse=a
+&#34; 支持使用鼠标
+set shiftwidth=4
+&#34; 设置自动缩进长度为4空格
+set tabstop=4
+&#34; 设置Tab长度为4空格
+
+
+
+&#34; 显示
+set background=dark
+&#34; 设置背景
+set list
+set listchars=tab:&gt;-,trail:-
+&#34; 显示空格和换行
+set cursorline
+&#34; 光标所在的当前行高亮
+&#34; set cursorcolumn
+&#34; 光标所在列高亮
+set number
+&#34; 左侧显示行号
+&#34;set relativenumber
+&#34; 显示光标所在的当前行的行号，其他行都为相对于该行的相对行号。
+set showmatch
+&#34; 高亮显示匹配的括号
+set laststatus=2
+&#34; 底部是否显示状态栏。0 表示不显示，1 表示只在多窗口时显示，2 总是显示
+set statusline=\ [名称%t]\ [ASCII=%b]\ [HEX=%B]\ [总行%L]\ [进度=%p%%]\ [行%l,列%v] 
+&#34; 设置状态行内容
+set t_Co=256
+&#34; 启用256色
+syntax on
+&#34; 打开语法高亮，自动识别代码，多种颜色显示
+&#34;
+&#34;
+&#34;
+&#34;
+&#34;
+&#34;
+&#34;
+&#34;
+&#34;新文件标题
+&#34;新建.c,.h,.sh,.java文件，自动插入文件头 
+
+autocmd BufNewFile *.cpp,*.[ch],*.sh,*.java exec &#34;:call SetTitle()&#34; 
+&#34;&#34;定义函数SetTitle，自动插入文件头 
+func SetTitle() 
+    &#34;如果文件类型为.sh文件 
+    if &amp;filetype == &#39;sh&#39; 
+        call setline(1,&#34;\#########################################################################&#34;) 
+        call append(line(&#34;.&#34;), &#34;\# File Name: &#34;.expand(&#34;%&#34;)) 
+        call append(line(&#34;.&#34;)+1, &#34;\# Author: &#34;) 
+        call append(line(&#34;.&#34;)+2, &#34;\# mail: &#34;) 
+        call append(line(&#34;.&#34;)+3, &#34;\# Created Time: &#34;.strftime(&#34;%c&#34;)) 
+        call append(line(&#34;.&#34;)+4, &#34;\#########################################################################&#34;) 
+        call append(line(&#34;.&#34;)+5, &#34;\#!/bin/bash&#34;) 
+        call append(line(&#34;.&#34;)+6, &#34;&#34;) 
+    else 
+        call setline(1, &#34;/*************************************************************************&#34;) 
+        call append(line(&#34;.&#34;), &#34;    &gt; File Name: &#34;.expand(&#34;%&#34;)) 
+        call append(line(&#34;.&#34;)+1, &#34;    &gt; Author: &#34;) 
+        call append(line(&#34;.&#34;)+2, &#34;    &gt; Mail:  &#34;) 
+        call append(line(&#34;.&#34;)+3, &#34;    &gt; Created Time: &#34;.strftime(&#34;%c&#34;)) 
+        call append(line(&#34;.&#34;)+4, &#34; ************************************************************************/&#34;) 
+        call append(line(&#34;.&#34;)+5, &#34;&#34;)
+    endif
+    if &amp;filetype == &#39;cpp&#39;
+        call append(line(&#34;.&#34;)+6, &#34;#include&lt;iostream&gt;&#34;)
+        call append(line(&#34;.&#34;)+7, &#34;using namespace std;&#34;)
+        call append(line(&#34;.&#34;)+8, &#34;&#34;)
+    endif
+    if &amp;filetype == &#39;c&#39;
+        call append(line(&#34;.&#34;)+6, &#34;#include&lt;stdio.h&gt;&#34;)
+        call append(line(&#34;.&#34;)+7, &#34;&#34;)
+    endif
+    &#34;新建文件后，自动定位到文件末尾
+    autocmd BufNewFile * normal G
+endfunc 
+&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;&#34;
+</code></pre><h2 id=vundle><a href=#vundle class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:vundle class=headings>Vundle</a></h2><ul><li><p>安装：<code>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim</code></p></li><li><p>基本配置：</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=s2>&#34; ----vundle Start---------------------------
+</span></span></span><span class=line><span class=cl><span class=s2>set nocompatible
+</span></span></span><span class=line><span class=cl><span class=s2>filetype off
+</span></span></span><span class=line><span class=cl><span class=s2>set rtp+=~/.vim/bundle/Vundle.vim
+</span></span></span><span class=line><span class=cl><span class=s2>call vundle#begin()
+</span></span></span><span class=line><span class=cl><span class=s2>Plugin &#39;VundleVim/Vundle.vim&#39;
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>
+</span></span></span><span class=line><span class=cl><span class=s2>call vundle#end()
+</span></span></span><span class=line><span class=cl><span class=s2>filetype plugin indent on
+</span></span></span><span class=line><span class=cl><span class=s2>&#34;</span> ---vundle End------------------------------
+</span></span></code></pre></div></li></ul><h2 id=neoclidecocnvim><a href=#neoclidecocnvim class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:neoclidecocnvim class=headings>neoclide/coc.nvim</a></h2><p>coc项目Github地址：https://github.com/neoclide/coc.nvim</p><p>Coc Language servers：https://github.com/neoclide/coc.nvim/wiki/Language-servers#ccobjective-c</p><h3 id=配置cpp补全><a href=#配置cpp补全 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:配置cpp补全 class=headings>配置CPP补全</a></h3><ol><li>下载clangd：https://github.com/clangd/clangd/releases/tag/11.0.0</li><li>解压clangd：<code>unzip clangd-linux-11.0.0.zip</code></li><li>将解压后的bin目录加入到系统环境变量中，或者将其中的clangd软连接到/usr/bin/clangd：<code>sudo ln -sf ~/Downloads/clangd_11.0.0/bin/clangd /usr/bin/clangd</code></li><li>安装coc-clangd，在vim中输入以下命令即可安装它：<code>:CocInstall coc-clangd</code></li><li>打开C++文件时就会自动补全</li></ol><h2 id=scrooloosenerdtree><a href=#scrooloosenerdtree class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:scrooloosenerdtree class=headings>scrooloose/nerdtree</a></h2><h3 id=使用><a href=#使用 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:使用 class=headings>使用</a></h3><ul><li><p>窗口光标跳转：</p><ul><li>跳到左侧：<code>ctrl + w + h</code></li><li>跳到右侧：<code>ctrl + w + l</code></li><li>左右跳转：<code>ctrl + w + w</code></li></ul></li><li><p>移动窗口位置：<code>ctrl + w + r</code></p></li><li><p>打开操作：</p><pre tabindex=0><code>o       在已有窗口中打开文件、目录或书签，并跳到该窗口
+go      在已有窗口 中打开文件、目录或书签，但不跳到该窗口
+t       在新 Tab 中打开选中文件/书签，并跳到新 Tab
+T       在新 Tab 中打开选中文件/书签，但不跳到新 Tab
+i       split 一个新窗口打开选中文件，并跳到该窗口
+gi      split 一个新窗口打开选中文件，但不跳到该窗口
+s       vsplit 一个新窗口打开选中文件，并跳到该窗口
+gs      vsplit 一个新 窗口打开选中文件，但不跳到该窗口
+!       执行当前文件
+O       递归打开选中 结点下的所有目录
+x       合拢选中结点的父目录
+X       递归 合拢选中结点下的所有目录
+e       Edit the current dif
+
+双击    相当于 NERDTree-o
+中键    对文件相当于 NERDTree-i，对目录相当于 NERDTree-e
+
+D       删除当前书签
+
+P       跳到根结点
+p       跳到父结点
+K       跳到当前目录下同级的第一个结点
+J       跳到当前目录下同级的最后一个结点
+k       跳到当前目录下同级的前一个结点
+j       跳到当前目录下同级的后一个结点
+
+C       将选中目录或选中文件的父目录设为根结点
+u       将当前根结点的父目录设为根目录，并变成合拢原根结点
+U       将当前根结点的父目录设为根目录，但保持展开原根结点
+r       递归刷新选中目录
+R       递归刷新根结点
+m       显示文件系统菜单 #！！！然后根据提示进行文件的操作如新建，重命名等
+cd      将 CWD 设为选中目录
+
+I       切换是否显示隐藏文件
+f       切换是否使用文件过滤器
+F       切换是否显示文件
+B       切换是否显示书签
+
+q       关闭 NerdTree 窗口
+?       切换是否显示 Quick Help
+</code></pre></li><li><p>标签操作</p><pre tabindex=0><code>:tabnew [++opt选项] ［＋cmd］ 文件      建立对指定文件新的tab
+:tabc   关闭当前的 tab
+:tabo   关闭所有其他的 tab
+:tabs   查看所有打开的 tab
+:tabp   前一个 tab
+:tabn   后一个 tab
+
+标准模式下：
+gT      前一个 tab
+gt      后一个 tab
+
+MacVim 还可以借助快捷键来完成 tab 的关闭、切换
+cmd+w   关闭当前的 tab
+cmd+{   前一个 tab
+cmd+}   后一个 tab
+</code></pre></li></ul><h3 id=配置><a href=#配置 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:配置 class=headings>配置</a></h3><ul><li>键盘映射：<ul><li>关闭：<code>map &lt;F3> :NERDTreeMirror&lt;CR></code></li><li>打开：<code>map &lt;F3> :NERDTreeToggle&lt;CR></code></li></ul></li><li>高亮当前行：<code>let NERDTreeHighlightCursorline = 1</code></li><li>显示行号：<code>let NERDTreeShowLineNumbers = 1</code></li><li>自动打开：<code>autocmd vimenter * NERDTree</code></li></ul><h2 id=preservimtagbar><a href=#preservimtagbar class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:preservimtagbar class=headings>preservim/tagbar</a></h2><p>报错：<code>Tagbar: Exuberant ctags not found at '/usr/bin/ctags'</code></p><p>解决：</p><ol><li>通过 brew 安装 ctags <code>brew install ctags</code></li><li>将此别名添加到您的 bash 配置文件<code>alias ctags=/usr/local/bin/ctags</code>或<code>alias ctags=</code>brew --prefix<code>/bin/ctags</code></li><li>将此添加到您的 .vimrc <code>let g:tagbar_ctags_bin = "/usr/local/bin/ctags"</code></li></ol><h2 id=xuyuanpnerdtree-git-plugin><a href=#xuyuanpnerdtree-git-plugin class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:xuyuanpnerdtree-git-plugin class=headings>Xuyuanp/nerdtree-git-plugin</a></h2><h2 id=airbladevim-gitgutter><a href=#airbladevim-gitgutter class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:airbladevim-gitgutter class=headings>airblade/vim-gitgutter</a></h2><h3 id=激活><a href=#激活 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:激活 class=headings>激活</a></h3><p>您可以显式关闭和打开vim-gitgutter（默认为on）：</p><ul><li>与关闭 <code>:GitGutterDisable</code></li><li>用打开 <code>:GitGutterEnable</code></li><li>用切换<code>:GitGutterToggle</code>。</li></ul><p>要为每个缓冲区切换vim-gitgutter：</p><ul><li>与关闭 <code>:GitGutterBufferDisable</code></li><li>用打开 <code>:GitGutterBufferEnable</code></li><li>切换 <code>:GitGutterBufferToggle</code></li></ul><p>您可以打开和关闭标志（默认为打开）：</p><ul><li>用打开 <code>:GitGutterSignsEnable</code></li><li>与关闭 <code>:GitGutterSignsDisable</code></li><li>用切换<code>:GitGutterSignsToggle</code>。</li></ul><p>您可以打开和关闭行高亮显示（默认为关闭）：</p><ul><li>用打开 <code>:GitGutterLineHighlightsEnable</code></li><li>与关闭 <code>:GitGutterLineHighlightsDisable</code></li><li>用切换<code>:GitGutterLineHighlightsToggle</code>。</li></ul><p>请注意，如果打开并突出显示了行，则您将有一个空的符号列-更准确地说，是带有不可见符号的符号列。这是因为行高亮显示需要符号，并且即使有符号可见，Vim / NeoVim总是在有符号时显示符号列。</p><p>使用Neovim 0.3.2或更高版本，您可以打开和关闭行号高亮显示（默认为关闭）：</p><ul><li>用打开 <code>:GitGutterLineNrHighlightsEnable</code></li><li>与关闭 <code>:GitGutterLineNrHighlightsDisable</code></li><li>用切换<code>:GitGutterLineNrHighlightsToggle</code>。</li></ul><p>相同的警告适用于行号突出显示和上方的行突出显示。</p><p>如果您同时关闭了行高亮显示和标志，则看不到标志列。</p><h3 id=光标><a href=#光标 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:光标 class=headings>光标</a></h3><ul><li><p>跳到下一个大块（更改）： <code>]c</code></p></li><li><p>跳转到上一个大块（更改）： <code>[c</code>。</p></li><li></li></ul><h2 id=preservimnerdcommenter><a href=#preservimnerdcommenter class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:preservimnerdcommenter class=headings>preservim/nerdcommenter</a></h2><h3 id=使用-1><a href=#使用-1 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:使用-1 class=headings>使用</a></h3><ul><li><p><code>&lt;leader></code> 表示斜杠<code>\</code></p></li><li><p><code>[count]&lt;leader>cc</code> ：注释从当前行往下数的 <strong>count</strong> 行，<strong>count</strong> 可省略，默认值为 1 (<code>cc</code> 是 <em>NERD<strong>C</strong>ommenter<strong>C</strong>omment</em> 的缩写)。</p></li><li><p><code>[count]&lt;leader>cu</code>：取消注释从当前行往下数的 <strong>count</strong> 行，<strong>count</strong> 可省略，默认值为 1(<code>cu</code> 是 <em>NERD<strong>C</strong>ommenter<strong>U</strong>ncomment</em> 的缩写)。</p></li><li><p><code>[count]&lt;leader>ci</code>：切换从当前行往下数的 <strong>count</strong> 行的注释状态(<code>ci</code> 是 <em>NERD<strong>C</strong>ommenter<strong>I</strong>nvert</em> 的缩写)。</p></li><li><p><code>&lt;leader>c$</code>：注释掉从当前光标所在位置到行尾的剩下内容，等价于在光标当前所在位置插入注释符 ( <code>c$</code> 表示 <em>NERDCommenterToEOL</em> 的缩写)。</p></li><li><p><code>&lt;leader>cA</code>：在光标所在当前行行尾添加注释符号并进入 Vim 的插入模式 ( <code>cA</code> 是 <em>NERDCommenterAppend</em> 的缩写)。</p></li><li><p><code>&lt;leader>c&lt;space></code> 加上/解开注释, 智能判断</p></li><li><p><code>&lt;leader>cy</code> 先复制, 再注解(p可以进行黏贴)</p></li></ul><h2 id=jiangmiaoauto-pairs><a href=#jiangmiaoauto-pairs class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:jiangmiaoauto-pairs class=headings>jiangmiao/auto-pairs</a></h2><h2 id=mattnemmet-vim><a href=#mattnemmet-vim class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:mattnemmet-vim class=headings>mattn/emmet-vim</a></h2><ul><li><p>键盘映射：<code>map &lt;F2> :call emmet#expandAbbr(3,"")&lt;CR></code></p></li><li><p>快速生成：<code>(li>a[href="#"])*6</code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-html data-lang=html><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;#&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;#&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;#&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;#&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;#&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span><span class=line><span class=cl><span class=p>&lt;</span><span class=nt>li</span><span class=p>&gt;&lt;</span><span class=nt>a</span> <span class=na>href</span><span class=o>=</span><span class=s>&#34;#&#34;</span><span class=p>&gt;&lt;/</span><span class=nt>a</span><span class=p>&gt;&lt;/</span><span class=nt>li</span><span class=p>&gt;</span>
+</span></span></code></pre></div></li></ul><h2 id=rkullapydiction><a href=#rkullapydiction class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:rkullapydiction class=headings>rkulla/pydiction</a></h2><h3 id=使用-2><a href=#使用-2 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:使用-2 class=headings>使用</a></h3><pre tabindex=0><code>&lt;Space&gt;		接受当前匹配并插入一个空格。
+CTRL-Y		接受当前匹配，不要插入空格。
+&lt;Enter&gt;		接受当前匹配并插入一个换行符。
+&lt;ESC&gt; or CTRL-E 	关闭菜单，不接受任何匹配。
+:help popupmenu-keys	更多选项见“:帮助弹出菜单键”。
+</code></pre><h2 id=godlygeektabular><a href=#godlygeektabular class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:godlygeektabular class=headings>godlygeek/tabular</a></h2><h2 id=plasticboyvim-markdown><a href=#plasticboyvim-markdown class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:plasticboyvim-markdown class=headings>plasticboy/vim-markdown</a></h2><h3 id=折叠><a href=#折叠 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:折叠 class=headings>折叠</a></h3><ul><li><code>zr</code>：降低整个缓冲区的折叠级别</li><li><code>zR</code>：打开所有折叠</li><li><code>zm</code>：增加整个缓冲区的折叠级别</li><li><code>zM</code>：折叠所有内容</li><li><code>za</code>：打开光标所在的折叠</li><li><code>zA</code>：递归打开一个折痕</li><li><code>zc</code>：关闭光标所在的折痕</li><li><code>zC</code>：递归关闭折痕</li></ul><p>尝试<code>:help fold-expr</code>并<code>:help fold-commands</code>获取详细信息。</p><h3 id=光标-1><a href=#光标-1 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:光标-1 class=headings>光标</a></h3><ul><li>光标位置的规则与<code>gx</code>命令相同。</li><li><code>]]</code>：转到下一个标题。 <code>&lt;Plug>Markdown_MoveToNextHeader</code></li><li><code>[[</code>：转到上一个标题。与对比<code>]c</code>。<code>&lt;Plug>Markdown_MoveToPreviousHeader</code></li><li><code>][</code>：转到下一个同级标头（如果有）。 <code>&lt;Plug>Markdown_MoveToNextSiblingHeader</code></li><li><code>[]</code>：转到上一个同级标头（如果有）。 <code>&lt;Plug>Markdown_MoveToPreviousSiblingHeader</code></li><li><code>]c</code>：转到当前标题。 <code>&lt;Plug>Markdown_MoveToCurHeader</code></li><li><code>]u</code>：转到父标题（向上）。 <code>&lt;Plug>Markdown_MoveToParentHeader</code></li></ul><h2 id=iamccomarkdown-previewvim><a href=#iamccomarkdown-previewvim class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:iamccomarkdown-previewvim class=headings>iamcco/markdown-preview.vim</a></h2><p>如果需要预览数学公式，还需要安装 <code>mathjax-support-for-mkdp</code> 插件：</p><pre tabindex=0><code>Plug &#39;iamcco/mathjax-support-for-mkdp&#39;
+Plug &#39;iamcco/markdown-preview.vim&#39;
+</code></pre><h3 id=使用和设置><a href=#使用和设置 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:使用和设置 class=headings>使用和设置</a></h3><p><strong>命令：</strong></p><pre tabindex=0><code>    MarkdownPreview
+    &#34; 在打开 markdown 文件后，使用该命令可以打开预览窗口
+
+    MarkdownPreviewStop
+    &#34; 关闭 markdown 预览窗口，并停止开启的服务进程
+</code></pre><blockquote><p>在 MarkdownPreview 命令无效的情况下，可以先 MarkdownPreviewStop 再 MarkdownPreview</p></blockquote><p><strong>默认配置：</strong></p><pre tabindex=0><code>    let g:mkdp_path_to_chrome = &#34;&#34;
+    &#34; 设置 chrome 浏览器的路径（或是启动 chrome（或其他现代浏览器）的命令）
+    &#34; 如果设置了该参数, g:mkdp_browserfunc 将被忽略
+
+    let g:mkdp_browserfunc = &#39;MKDP_browserfunc_default&#39;
+    &#34; vim 回调函数, 参数为要打开的 url
+
+    let g:mkdp_auto_start = 0
+    &#34; 设置为 1 可以在打开 markdown 文件的时候自动打开浏览器预览，只在打开
+    &#34; markdown 文件的时候打开一次
+
+    let g:mkdp_auto_open = 0
+    &#34; 设置为 1 在编辑 markdown 的时候检查预览窗口是否已经打开，否则自动打开预
+    &#34; 览窗口
+
+    let g:mkdp_auto_close = 1
+    &#34; 在切换 buffer 的时候自动关闭预览窗口，设置为 0 则在切换 buffer 的时候不
+    &#34; 自动关闭预览窗口
+
+    let g:mkdp_refresh_slow = 0
+    &#34; 设置为 1 则只有在保存文件，或退出插入模式的时候更新预览，默认为 0，实时
+    &#34; 更新预览
+
+    let g:mkdp_command_for_global = 0
+    &#34; 设置为 1 则所有文件都可以使用 MarkdownPreview 进行预览，默认只有 markdown
+    &#34; 文件可以使用改命令
+
+    let g:mkdp_open_to_the_world = 0
+    &#34; 设置为 1, 在使用的网络中的其他计算机也能访问预览页面
+    &#34; 默认只监听本地（127.0.0.1），其他计算机不能访问
+</code></pre><h3 id=按键><a href=#按键 class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:按键 class=headings>按键</a></h3><p>按键绑定例子（<code>F8</code>打开预览窗口，<code>F9</code>关闭预览窗口）：</p><pre tabindex=0><code>nmap &lt;silent&gt; &lt;F8&gt; &lt;Plug&gt;MarkdownPreview        &#34; 普通模式
+imap &lt;silent&gt; &lt;F8&gt; &lt;Plug&gt;MarkdownPreview        &#34; 插入模式
+nmap &lt;silent&gt; &lt;F9&gt; &lt;Plug&gt;StopMarkdownPreview    &#34; 普通模式
+imap &lt;silent&gt; &lt;F9&gt; &lt;Plug&gt;StopMarkdownPreview    &#34; 插入模式
+</code></pre><h2 id=altercationvim-colors-solarized><a href=#altercationvim-colors-solarized class=anchor-link><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="icon anchor-icon"><path d="M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96.0-59.27-59.26-59.27-155.7.0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757.0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037.0 01-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482.0 0120.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96.0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454.0 0020.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037.0 00-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639.0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z"/></svg></a><a href=#contents:altercationvim-colors-solarized class=headings>altercation/vim-colors-solarized</a></h2></div></article><footer class=minimal-footer><div class=post-tag><a href=../../linux/ rel=tag class=post-tag-link>#linux</a> <a href=../../vim/ rel=tag class=post-tag-link>#vim</a> <a href=../../tool/ rel=tag class=post-tag-link>#tool</a></div><div class=post-category><a href=../../tech/ class="post-category-link active">信息技术</a> | <a href=../../app/ class=post-category-link>站内软件</a> | <a href=../../life/ class=post-category-link>生活涂鸦</a></div></footer></div></main><div id=back-to-top class=back-to-top><a href=#><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon arrow-up"><path d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6.0-33.9L207 39c9.4-9.4 24.6-9.4 33.9.0l194.3 194.3c9.4 9.4 9.4 24.6.0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3.0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/></svg></a></div></div><script src=//npm/medium-zoom@latest/dist/medium-zoom.min.js></script>
+<script>let imgNodes=document.querySelectorAll("div.post-body img");imgNodes=Array.from(imgNodes).filter(e=>e.parentNode.tagName!=="A"),mediumZoom(imgNodes,{background:"hsla(var(--color-bg-h), var(--color-bg-s), var(--color-bg-l), 0.95)"})</script></body></html>

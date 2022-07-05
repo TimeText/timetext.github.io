@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>qrcode二维码生成</title>
+    <style type="text/css">
+        #text {
+            /*textarea无法使用margin进行操作，因其为行内元素，需要使用display:block;之后才可以使用margin进行操作。*/
+            display: block;
+            color: black;
+            width: 95%;
+            height: 200px;
+            font-size: 1em;
+            border: 0;
+            margin: 2em auto 0em auto;
+            border-radius: 12px;
+            background-color: #f0f0f0;
+            padding: 1em;
+        }
+
+        #btn {
+            display: block;
+            color: black;
+            width: 6em;
+            height: 3em;
+            font-size: 1.1em;
+            border: 0;
+            margin: 1em auto 1em auto;
+            border-radius: 12px;
+            background-color: #f0f0f0;
+        }
+
+        #qrcode {
+            color: black;
+            width: 95%;
+            height: auto;
+            font-size: 1em;
+            margin: 0em auto 0em auto;
+            border-radius: 12px;
+            background-color: #f0f0f0;
+            padding: 1em;
+        }
+    </style>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./qrcode.min.js"></script>
+</head>
+
+<body>
+    <h1>文字转二维码</h1>输入文本转换为二维码，使用扫码设备识别可快速在不同设备间传递信息。
+    <textarea id="text">在这里输入内容</textarea>
+    <input id="btn" type="button" value="生成二维码" />
+
+    <div id="qrcode" style="width:300px; height:300px; "></div>
+
+    <script type="text/javascript">
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width: 300,
+            height: 300,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        function makeCode() {
+            var elText = document.getElementById("text");
+            // 判断是否为空
+            if (!elText.value) {
+                alert("Input a text");
+                elText.focus();
+                return;
+            }
+            qrcode.makeCode(elText.value);
+        }
+        makeCode();
+        document.getElementById("btn").onclick = function () {
+            makeCode();
+        }
+        $("#text").
+            /*
+            // 失去焦点时候执行
+            on("blur", function() {
+                makeCode();
+            }).
+            */
+            // 按下回车执行
+            on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    makeCode();
+                }
+            });
+    </script>
+
+</body>
+
+</html>
