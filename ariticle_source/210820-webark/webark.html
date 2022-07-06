@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>webark在线</title>
+    <script type="text/javascript" src="./jquery.js"></script>
+</head>
+
+<body>
+    <h1>webark</h1>
+    <br>服务器地址：<input type="text" id="server_addr" value="http://8.8.8.8:8080/" />
+    <input type="button" class="btn" id="SAVEserver_addr" name="server_addr" value="保存" />
+    <br>唯一的编码：<input type="text" id="only_id" value="XXXXXXXXXX" />
+    <input type="button" class="btn" id="SAVEonly_id" name="only_id" value="保存" />
+    <br>发送的内容：
+
+    <br><textarea rows="5" cols="40" id="senddata" value="在这里输入内容"></textarea>
+
+    <br>
+    <input type="button" class="btn" id="ordinary" name="/" value="普通推送" />
+    <input type="button" class="btn" id="title" name="/" value="推送标题" />
+    <input type="button" class="btn" id="url" name="/点击推送打开URL?url=" value="点击推送打开URL" />
+    <input type="button" class="btn" id="clickcopy" name="?copy=" value="点击推送手动复制" />
+    <input type="button" class="btn" id="autocopy" name="?autoCopy=1&copy=" value="自动复制到剪贴板" />
+    <input type="button" class="btn" id="save" name="?isArchive=1" value="自动保存推送消息" />
+
+    <br>
+    <br>指定分组：<input type="text" id="group" value="这是一个分组" />
+    <input type="button" class="btn" id="btngroup" name="?group=" value="推送消息到指定分组" />
+    <br>
+
+    <br>推送铃声：
+    <select name="cars" id="soundname">
+        <option value="alarm">alarm</option>
+        <option value="saab">anticipate</option>
+        <option value="fiat">bell</option>
+        <option value="birdsong">birdsong</option>
+        <option value="bloom">bloom</option>
+        <option value="calypso">calypso</option>
+        <option value="chime">chime</option>
+        <option value="choo">choo</option>
+        <option value="descent">descent</option>
+        <option value="electronic">electronic</option>
+        <option value="fanfare">fanfare</option>
+        <option value="glass">glass</option>
+        <option value="gotosleep">gotosleep</option>
+        <option value="healthontification">healthontification</option>
+        <option value="horn">horn</option>
+        <option value="ladder">ladder</option>
+        <option value="amailsent">mailsent</option>
+        <option value="minuet">minuet</option>
+        <option value="multiwayinviation">multiwayinviation</option>
+        <option value="newmail">newmail</option>
+        <option value="noir">noir</option>
+        <option value="paymentsuccess">paymentsuccess</option>
+        <option value="shake">shake</option>
+        <option value="sherwoodforest">sherwoodforest</option>
+        <option value="silence">silence</option>
+        <option value="spell">spell</option>
+        <option value="suspense">suspense</option>
+        <option value="telegraph">telegraph</option>
+        <option value="tiptoes">tiptoes</option>
+        <option value="typewriters">typewriters</option>
+        <option value="update">update</option>
+    </select>
+    <input type="button" class="btn" id="sound" name="/推送铃声?sound=" value="推送铃声" />
+
+    <hr>
+    <br>快捷操作：
+    <!-- URL Schemes  -->
+    <!-- https://www.jianshu.com/p/85aeae988443 -->
+    <br>
+    <br>系统操作：
+    <select name="cars1" id="system">
+        <option value="sms://">短信</option>
+        <option value="itms-apps://">App Store</option>
+        <option value="tel://">电话</option>
+        <option value="mobilenotes://">备忘录</option>
+    </select>
+    <input type="button" class="btn" vbtnid="URLScheme" name="system" value="立即执行" />
+    <br>
+    <br>阿里系列：
+    <select name="cars2" id="alipay">
+        <option value="alipay://">打开支付宝</option>
+        <option value="alipays://platformapi/startapp?appId=20000056">付款码</option>
+        <option value="alipays://platformapi/startapp?appId=10000007">扫一扫</option>
+        <option value="alipays://platformapi/startapp?appId=20000123">收款</option>
+        <option value="alipays://platformapi/startapp?appId=20000263">AA收款</option>
+        <option value="alipays://platformapi/startapp?appId=88886666">发红包</option>
+        <option value="alipays://platformapi/startapp?appId=20000221">转账</option>
+        <option value="alipays://platformapi/startapp?appId=20000754">查快递</option>
+        <option value="alipays://platformapi/startapp?appId=10000011">彩票</option>
+        <option value="alipays://platformapi/startapp?appId=20000134">股票</option>
+        <option value="alipays://platformapi/startapp?appId=20000131">淘票票</option>
+        <option value="alipays://platformapi/startapp?appId=20000193">生活缴费</option>
+        <option value="alipays://platformapi/startapp?appId=10000003">手机充值</option>
+        <option value="alipays://platformapi/startapp?appId=09999999">还信用卡</option>
+        <option value="alipays://platformapi/startapp?appId=66666674">蚂蚁庄园</option>
+        <option value="alipays://platformapi/startapp?appId=60000002">蚂蚁森林</option>
+        <option value="alipays://platformapi/startapp?appId=60000057">蚂蚁宝卡</option>
+        <option value="dingtalk://">钉钉</option>
+        <option value="	taobao://">淘宝网</option>
+        <option value="taobaotravel://">淘宝旅行</option>
+        <option value="tmall://">天猫</option>
+    </select>
+    <input type="button" class="btn" id="URLScheme" name="alipay" value="立即执行" />
+    <br>
+    <br>腾讯系列：
+    <select name="cars2" id="QQ">
+        <option value="mqq://">打开QQ</option>
+        <option value="qqmail://">QQ邮箱</option>
+        <option value="qqmusic://">QQ音乐</option>
+        <option value="qqmusic://today?mid=31&k1=2&k4=0">QQ音乐最近播放</option>
+        <option value="qqbrowser://">QQ浏览器</option>
+        <option value="mqqiapi://">QQ国际版</option>
+        <option value="tencent382://">QQ斗地主</option>
+        <option value="mttbrowser://">QQ浏览器</option>
+        <option value="qmtoken://">QQ安全中心</option>
+        <option value="tenvideo3://">腾讯视频</option>
+        <option value="qqnews://">腾讯新闻</option>
+        <option value="weiyun://">腾讯微云</option>
+        <option value="sosomap://">腾讯地图</option>
+        <option value="tenvideo://">腾讯视频</option>
+        <option value="TencentWeibo://">腾讯微博</option>
+        <option value="qqbizmailDistribute2://">腾讯企业邮箱</option>
+        <option value="mqqsecure://">腾讯手机管家</option>
+        <option value="tencentrm://">节奏大师</option>
+        <option value="tencent100692648://">天天酷跑</option>
+        <option value="tencent100695850://">天天飞车</option>
+        <option value="tencent100689806://">天天星连萌</option>
+        <option value="tencent100689805://">天天爱消除</option>
+    </select>
+    <input type="button" class="btn" id="URLScheme" name="QQ" value="立即执行" />
+    <br>
+    <br>微信操作：
+    <select name="cars2" id="wechat">
+        <option value="	weixin://">打开微信</option>
+        <option value="	weixin://dl/scan">微信-扫一扫</option>
+        <option value="	weixin://dl/settings">微信-设置</option>
+        <option value="	weixin://dl/moments">微信-朋友圈</option>
+        <option value="weixin://dl/officialaccounts">微信-公众号</option>
+        <option value="weixin://dl/profile">微信-个人信息</option>
+        <option value="weixin://dl/chat">微信-聊天设置</option>
+        <option value="	weixin://dl/general">微信-通用设置</option>
+        <option value="weixin://dl/notifications">微信-通知设置</option>
+        <option value="weixin://dl/features">微信-功能插件</option>
+        <option value="	weixin://dl/feedback">微信-反馈</option>
+        <option value="weixin://dl/games">微信-游戏</option>
+        <option value="weixin://dl/help">微信-帮助</option>
+        <option value="weixin://dl/feedback">微信-反馈</option>
+    </select>
+    <input type="button" class="btn" id="URLScheme" name="wechat" value="立即执行" />
+    <!--
+    <br>
+    <br>系列：
+    <select name="cars2" id="QQ">
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+    <input type="button" class="btn"  id="URLScheme" name="QQ" value="立即执行" />
+
+    <br>
+    <br>系列：
+    <select name="cars2" id="QQ">
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+        <option value=""></option>
+    </select>
+    <input type="button" class="btn"  id="URLScheme" name="QQ" value="立即执行" />
+    -->
+</body>
+
+<script type="text/javascript">
+    if (localStorage.hasOwnProperty('server_addr')) {
+        document.getElementById("server_addr").value = localStorage.getItem("server_addr");
+    }
+    if (localStorage.hasOwnProperty('only_id')) {
+        document.getElementById("only_id").value = localStorage.getItem("only_id");
+    }
+
+    $(document).ready(function () {
+        $(".btn").bind("click", function () {
+            var vserver_addr = document.getElementById("server_addr").value;
+            var vonly_id = document.getElementById("only_id").value;
+            var vsenddata = document.getElementById("senddata").value;
+            // 分别根据html中的ID获取输入的值：服务器、唯一ID、发送的数据
+
+            var vbtnid = $(this).attr('id');
+            var vtype = $(this).attr('name');
+            // 获取点下的哪个按钮 以及 类型数据格式
+
+            var url;
+            if (vbtnid == "ordinary" || vbtnid == "url") {
+                url = vserver_addr + vonly_id + vtype + vsenddata;
+            } else if (vbtnid == "title") {
+                alert("格式为：标题/内容")
+                url = vserver_addr + vonly_id + vtype + vsenddata;
+            } else if (vbtnid == "clickcopy") {
+                url = vserver_addr + vonly_id + "/点击推送手动复制:" + vsenddata + vtype + vsenddata;
+            } else if (vbtnid == "autocopy") {
+                url = vserver_addr + vonly_id + "/自动复制到剪贴板:" + vsenddata + vtype + vsenddata;
+            } else if (vbtnid == "save") {
+                url = vserver_addr + vonly_id + "/" + vsenddata + vtype;
+            } else if (vbtnid == "btngroup") {
+                var vgroup = document.getElementById("group").value;
+                url = vserver_addr + vonly_id + "/" + vsenddata + vtype + vgroup;
+            } else if (vbtnid == "sound") {
+                var vsoundname = document.getElementById("soundname").value;
+                url = vserver_addr + vonly_id + "/" + vsenddata + vtype + vsoundname;
+            } else if (vbtnid == "URLScheme") {
+                //URL Schemes
+                var us = document.getElementById(vtype).value;
+                url = vserver_addr + vonly_id + "/URL Schemes?url=" + us;
+            } else if (vbtnid == "SAVEserver_addr" || vbtnid == "SAVEonly_id") {
+                value = document.getElementById(vtype).value;
+                key = document.getElementById(vtype).id;
+                localStorage.setItem(key, value)
+                alert("保存成功")
+                return;
+            } else { }
+
+            window.open(url, '_blank');
+            return true;
+        })
+    })
+</script>
+
+</html>

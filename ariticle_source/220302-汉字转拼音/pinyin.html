@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pinyin</title>
+  <script src="./hz2py.min.js"></script>
+  <script src="./vue.js"></script>
+  <style>
+    body {
+      padding: 30px
+    }
+
+    textarea {
+      width: 100%;
+      font-size: 20px;
+    }
+
+    button {
+      margin: 20px 0;
+    }
+  </style>
+  <script>
+    function transform() {
+      if (onlyInitials.checked) {
+        py.value = JSON.stringify(hz2py.getInitials(hz.value));
+      } else {
+        py.value = hz2py.default(hz.value, {
+          tone: withTones.checked,
+          delimiter: delimiter.value === '空格/SPACE' ? ' ' : delimiter.value
+        });
+      }
+    }
+  </script>
+</head>
+
+
+<body>
+  <div class="app">
+    <h1 align="center">{{lang.BiaoTi}}</h1>
+
+    {{lang.YuYan}}
+    <input type="button" value="中文" @click="changeLang('cn')" />
+    <input type="button" value="English" @click="changeLang('en')" />
+    <hr>
+    {{lang.ShuRu}}
+    <textarea id="hz" rows="5" placeholder="这里输入汉字/Enter Chinese characters here"></textarea>
+
+    <button onclick="transform()">{{lang.ZhuanHuan}}</button>{{lang.help}}
+
+    <br>{{lang.ShuChu}}
+    <textarea id="py" rows="5" placeholder="zhè lǐ shū rù hàn zì /The conversion results are shown here"></textarea>
+    <hr>
+    {{lang.GengDuo}}<br>
+    {{lang.FenGe}}<input id="delimiter" type="text" style="width: 6em;" value="空格/SPACE"></input><br>
+    <input id="withTones" type="checkbox" checked="checked"></input><label
+    for="withTones">{{lang.YinDiao}}</label><br>
+  <input id="onlyInitials" type="checkbox"></input><label for="onlyInitials">{{lang.ShouZiMu}}</label>
+
+    
+  </div>
+
+  <script type="text/javascript">
+
+    var cn = {
+      "BiaoTi":"汉字转拼音",
+      "YuYan": "语言选择：",
+      "ShuRu": "在这里输入汉字：",
+      "FenGe": "设置分隔符: ",
+      "YinDiao": "是否带声调",
+      "ShouZiMu": "只有首字母",
+      "ZhuanHuan": "转换",
+      "ShuChu": "这里是转换结果",
+      "GengDuo": "转换选项：",
+      "helptitle": "使用帮助：",
+      "help": "  (←进行转换，例如：你好 ==>> nǐ hǎo)  ",
+      "code": "开源代码：",
+    };
+    var en = {
+      "BiaoTi":"Chinese characters to pinyin",
+      "YuYan": "language selection:",
+      "ShuRu": "Enter the Kanji here:",
+      "FenGe": "Set Delimiter: ",
+      "YinDiao": "shēng diào or not",
+      "ShouZiMu": "Only the first letter",
+      "ZhuanHuan": "conversion",
+      "ShuChu": "Here is the conversion result:",
+      "GengDuo": "Transformation options:",
+      "help": "  (← Translation, for example: 你好 ==>> nǐ hǎo)  ",
+      "code": "Open source code:",
+    };
+    var vm = new Vue({
+      el: '.app',
+      data: {
+        cn: cn,
+        en: en,
+        lang: {},
+      },
+      created: function () {
+        this.lang = localStorage.lang == "en" ? this.en : this.cn;
+      },
+      methods: {
+        changeLang: function (name) {
+          localStorage.lang = name;
+          this.lang = name == "en" ? this.en : this.cn;
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

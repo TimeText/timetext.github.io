@@ -1,4 +1,203 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description/><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Tue, 05 Jul 2022 16:01:12 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>解决Github设置邮箱隐私后无法push的问题</title><link>https://timetext.github.io/tech/%E8%A7%A3%E5%86%B3github%E8%AE%BE%E7%BD%AE%E9%82%AE%E7%AE%B1%E9%9A%90%E7%A7%81%E5%90%8E%E6%97%A0%E6%B3%95push%E7%9A%84%E9%97%AE%E9%A2%98/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E8%A7%A3%E5%86%B3github%E8%AE%BE%E7%BD%AE%E9%82%AE%E7%AE%B1%E9%9A%90%E7%A7%81%E5%90%8E%E6%97%A0%E6%B3%95push%E7%9A%84%E9%97%AE%E9%A2%98/</guid><pubDate>Tue, 05 Jul 2022 21:14:14 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>在github个人设置中开启【Keep my email addresses private】和【Block command line pushes that expose my email】后，push时候提示“error: failed to push some refs to 'https://github.com/xxxx/xxxx.git'”的解决方法。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description/><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Wed, 06 Jul 2022 08:49:01 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>python脚本批量修改本地md文件名称</title><link>https://timetext.github.io/tech/python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0md%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</link><guid isPermaLink="true">https://timetext.github.io/tech/python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0md%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</guid><pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>想要博客本地MarkDown文件名称按照“年月日-标题”的格式排列，可是每次创建或修改博客或标题之后都要手动修改，很是不开心，继而，写了个脚本一劳永逸。&lt;/p>
+&lt;details>
+&lt;summary>点此展开python脚本代码&lt;/summary>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="ch">#!/usr/bin/env python&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># -*- coding:utf-8 -*-&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">genericpath&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">isdir&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">os&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">re&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="nn">time&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">tkinter&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">E&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">from&lt;/span> &lt;span class="nn">turtle&lt;/span> &lt;span class="kn">import&lt;/span> &lt;span class="n">done&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 获取新文件名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">get_new_name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">with&lt;/span> &lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s1">&amp;#39;r&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;utf8&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="k">as&lt;/span> &lt;span class="n">md&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">line&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">md&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">readlines&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">obtitle&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">obdate&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">obslug&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">i&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="nb">range&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="mi">11&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;title:&amp;#34;&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">obtitle&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;-&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">6&lt;/span>&lt;span class="p">:]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;date:&amp;#34;&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">obdate&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">re&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">search&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s2">&amp;#34;(\d&lt;/span>&lt;span class="si">{2}&lt;/span>&lt;span class="s2">-\d{1,2}-\d{1,2})&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">])&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">group&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;-&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;slug:&amp;#34;&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">line&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">]):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">obslug&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;-&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">line&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="n">i&lt;/span>&lt;span class="p">][&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">:]&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34; &amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">replace&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\&amp;#34;&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">continue&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">recname&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">obdate&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">obtitle&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">obslug&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">recname&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 对文件进行更名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">rename_of_file&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">newname&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">get_new_name&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">3&lt;/span>&lt;span class="p">:]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">newfullname&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">dirname&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">altsep&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">newname&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="n">newname&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;无需更改：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;无需更改：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="n">newname&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">try&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">rename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">newfullname&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">except&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">此处更改文件名发生错误，请处理:&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">此处更改文件名发生错误，请处理:&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">system&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;pause&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">strftime&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;%Y-%m-&lt;/span>&lt;span class="si">%d&lt;/span>&lt;span class="s2"> %H:%M:%S&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">localtime&lt;/span>&lt;span class="p">()))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">原名称：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">新名称：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">newname&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">20&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;原名称：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">file&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;新名称：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">newname&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">20&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 从md文件中获取相关内容更改文件名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">def&lt;/span> &lt;span class="nf">sync_file_name_from_md&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ignore&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">newdir&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nb">dir&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">isfile&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">basename&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="ow">not&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">ignore&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">try&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nb">dir&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">split&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;.&amp;#39;&lt;/span>&lt;span class="p">)[&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="mi">1&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s1">&amp;#39;md&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">rename_of_file&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">except&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">此处更改判断文件类型时发生错误，请处理:&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">此处更改判断文件类型时发生错误，请处理:&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;!!!——&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">5&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">system&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;pause&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">isdir&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="n">s&lt;/span> &lt;span class="ow">in&lt;/span> &lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">listdir&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">newdir&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="n">os&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">path&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">join&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">sync_file_name_from_md&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">newdir&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ignore&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="vm">__name__&lt;/span>&lt;span class="o">==&lt;/span>&lt;span class="s1">&amp;#39;__main__&amp;#39;&lt;/span>&lt;span class="p">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">dir&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="sa">r&lt;/span>&lt;span class="s1">&amp;#39;./&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 指定工作目录，&amp;#39;r&amp;#39;是防止字符转义&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ignore&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;_index.md&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="s2">&amp;#34;index.md&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 指定忽略的文件名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">logname&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;log_sync_file_name_from_md.txt&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 指定保存日志的文件名&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">logname&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;a+&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">40&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">40&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;更名脚本日志开始记录时间：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">strftime&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;%Y-%m-&lt;/span>&lt;span class="si">%d&lt;/span>&lt;span class="s2"> %H:%M:%S&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">localtime&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">sync_file_name_from_md&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nb">dir&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">ignore&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">更名脚本日志结束记录时间：&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">strftime&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;%Y-%m-&lt;/span>&lt;span class="si">%d&lt;/span>&lt;span class="s2"> %H:%M:%S&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">time&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">localtime&lt;/span>&lt;span class="p">())&lt;/span> &lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">40&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;=&amp;#34;&lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="mi">40&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">fplog&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">close&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">print&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n\n&lt;/span>&lt;span class="s2">脚本执行完毕，相关日志保存在&amp;#34;&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="n">logname&lt;/span>&lt;span class="o">+&lt;/span>&lt;span class="s2">&amp;#34;,请留意&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">：）&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">：）&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details>
+&lt;p>执行完脚本后会在同目录下创建一个日志保存修改记录，防止误操作。&lt;/p>
+&lt;details>
+&lt;summary>点此展开日志格式&lt;/summary>
+&lt;pre tabindex="0">&lt;code>========================================
+========================================
+更名脚本日志开始记录时间：2022-07-06 15:56:58
+原名称：2022-07-04-Markdown在线编辑渲染单页.md
+新名称：220704-Markdown编辑渲染-markdown.md
+====================
+原名称：webark.md
+新名称：210820-webark推送消息通知-webark.md
+====================
+!!!——!!!——!!!——!!!——!!!——
+此处更改判断文件类型时发生错误，请处理:
+./dd.md
+!!!——!!!——!!!——!!!——!!!——
+更名脚本日志结束记录时间：2022-07-06 15:56:59
+&lt;/code>&lt;/pre>&lt;/details>
+&lt;details>
+&lt;summary>展开小Tips:python写入到文本文件&lt;/summary>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="n">fo&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nb">open&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;test_log.txt&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s2">&amp;#34;a+&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="n">encoding&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;utf-8&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">fo&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">write&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="se">\n&lt;/span>&lt;span class="s2">hello world&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">fo&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="n">close&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/details>
+&lt;details>
+&lt;summary>展开小Tips:python打开文件模式说明&lt;/summary>
+&lt;p>&lt;a href="https://www.runoob.com/python/python-func-open.html">copy from runoob&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:left">模式&lt;/th>
+&lt;th style="text-align:left">描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:left">t&lt;/td>
+&lt;td style="text-align:left">文本模式 (默认)。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">x&lt;/td>
+&lt;td style="text-align:left">写模式，新建一个文件，如果该文件已存在则会报错。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">b&lt;/td>
+&lt;td style="text-align:left">二进制模式。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">+&lt;/td>
+&lt;td style="text-align:left">打开一个文件进行更新(可读可写)。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">U&lt;/td>
+&lt;td style="text-align:left">通用换行模式（不推荐）。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">r&lt;/td>
+&lt;td style="text-align:left">以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">rb&lt;/td>
+&lt;td style="text-align:left">以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。一般用于非文本文件如图片等。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">r+&lt;/td>
+&lt;td style="text-align:left">打开一个文件用于读写。文件指针将会放在文件的开头。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">rb+&lt;/td>
+&lt;td style="text-align:left">以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。一般用于非文本文件如图片等。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">w&lt;/td>
+&lt;td style="text-align:left">打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">wb&lt;/td>
+&lt;td style="text-align:left">以二进制格式打开一个文件只用于写入。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">w+&lt;/td>
+&lt;td style="text-align:left">打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">wb+&lt;/td>
+&lt;td style="text-align:left">以二进制格式打开一个文件用于读写。如果该文件已存在则打开文件，并从开头开始编辑，即原有内容会被删除。如果该文件不存在，创建新文件。一般用于非文本文件如图片等。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">a&lt;/td>
+&lt;td style="text-align:left">打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">ab&lt;/td>
+&lt;td style="text-align:left">以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">a+&lt;/td>
+&lt;td style="text-align:left">打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:left">ab+&lt;/td>
+&lt;td style="text-align:left">以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/details></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/python/">python</category><category domain="https://timetext.github.io/script/">script</category><category domain="https://timetext.github.io/blog/">blog</category><category domain="https://timetext.github.io/markdown/">markdown</category></item><item><title>解决Github设置邮箱隐私后无法push的问题</title><link>https://timetext.github.io/tech/%E8%A7%A3%E5%86%B3github%E8%AE%BE%E7%BD%AE%E9%82%AE%E7%AE%B1%E9%9A%90%E7%A7%81%E5%90%8E%E6%97%A0%E6%B3%95push%E7%9A%84%E9%97%AE%E9%A2%98/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E8%A7%A3%E5%86%B3github%E8%AE%BE%E7%BD%AE%E9%82%AE%E7%AE%B1%E9%9A%90%E7%A7%81%E5%90%8E%E6%97%A0%E6%B3%95push%E7%9A%84%E9%97%AE%E9%A2%98/</guid><pubDate>Tue, 05 Jul 2022 21:14:14 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>在github个人设置中开启【Keep my email addresses private】和【Block command line pushes that expose my email】后，push时候提示“error: failed to push some refs to 'https://github.com/xxxx/xxxx.git'”的解决方法。&lt;/p>
 &lt;hr>
 &lt;details>
 &lt;summary>点此展开网页英语原文&lt;/summary>
@@ -3084,8 +3283,8 @@ e(&amp;#39;#id-content&amp;#39;).innerHTML = content
 &amp;lt;/script&amp;gt;
 &amp;lt;/body&amp;gt;
 &amp;lt;/html&amp;gt;
-&lt;/code>&lt;/pre>&lt;/details></description><category domain="https://timetext.github.io/app/">app</category><category domain="https://timetext.github.io/tool/">tool</category><category domain="https://timetext.github.io/app/">app</category><category domain="https://timetext.github.io/markdown/">markdown</category></item><item><title>中文汉字转汉语拼音带声调</title><link>https://timetext.github.io/app/pinyin/</link><guid isPermaLink="true">https://timetext.github.io/app/pinyin/</guid><pubDate>Wed, 02 Mar 2022 22:17:49 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description> &lt;script src="https://timetext.github.io/ariticle_source/2022-03-02-汉字转拼音/hz2py.min.js">&lt;/script>
-&lt;script src="https://timetext.github.io/ariticle_source/2022-03-02-汉字转拼音/vue.js">&lt;/script>
+&lt;/code>&lt;/pre>&lt;/details></description><category domain="https://timetext.github.io/app/">app</category><category domain="https://timetext.github.io/tool/">tool</category><category domain="https://timetext.github.io/app/">app</category><category domain="https://timetext.github.io/markdown/">markdown</category></item><item><title>中文汉字转汉语拼音带声调</title><link>https://timetext.github.io/app/pinyin/</link><guid isPermaLink="true">https://timetext.github.io/app/pinyin/</guid><pubDate>Wed, 02 Mar 2022 22:17:49 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description> &lt;script src="https://timetext.github.io/ariticle_source/220302-汉字转拼音/hz2py.min.js">&lt;/script>
+&lt;script src="https://timetext.github.io/ariticle_source/220302-汉字转拼音/vue.js">&lt;/script>
 &lt;style>
 body {
 padding: 30px
@@ -3172,7 +3371,7 @@ this.lang = name == "en" ? this.en : this.cn;
 });
 &lt;/script>
 &lt;hr>
-&lt;p>&lt;a href="https://timetext.github.io/ariticle_source/2022-03-02-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3/pinyin.html">HTML单独版本&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://timetext.github.io/ariticle_source/220302-%E6%B1%89%E5%AD%97%E8%BD%AC%E6%8B%BC%E9%9F%B3/pinyin.html">HTML单独版本&lt;/a>&lt;/p>
 &lt;details>
 &lt;summary>点此展开了解更多&lt;/summary>
 &lt;h2 id="感谢前辈们的耕耘">感谢前辈们的耕耘&lt;/h2>
@@ -4882,7 +5081,7 @@ a标签rel=&amp;quot;noopener noreferrer&amp;quot;属性&lt;/p>
 &lt;p>普通cmd模式下使用命令切换成管理员权限的cmd
 runas /user:[管理员名称] cmd&lt;/p>
 &lt;p>CSDN不登陆不能复制
-[...document.getElementsByClassName(&amp;quot;prism&amp;quot;)].forEach(i=&amp;gt;console.log(i.innerText))&lt;/p></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/mote/">mote</category><category domain="https://timetext.github.io/webdav/">webdav</category><category domain="https://timetext.github.io/linux/">linux</category></item><item><title>webark推送消息通知</title><link>https://timetext.github.io/app/webark/</link><guid isPermaLink="true">https://timetext.github.io/app/webark/</guid><pubDate>Fri, 20 Aug 2021 22:17:49 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;script type="text/javascript" src="https://timetext.github.io/ariticle_source/2021-08-20-webark/jquery.js">&lt;/script>
+[...document.getElementsByClassName(&amp;quot;prism&amp;quot;)].forEach(i=&amp;gt;console.log(i.innerText))&lt;/p></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/mote/">mote</category><category domain="https://timetext.github.io/webdav/">webdav</category><category domain="https://timetext.github.io/linux/">linux</category></item><item><title>webark推送消息通知</title><link>https://timetext.github.io/app/webark/</link><guid isPermaLink="true">https://timetext.github.io/app/webark/</guid><pubDate>Fri, 20 Aug 2021 22:17:49 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;script type="text/javascript" src="https://timetext.github.io/ariticle_source/210820-webark/jquery.js">&lt;/script>
 &lt;p>&lt;br>服务器地址：&lt;input type="text" id="server_addr" value="http://8.8.8.8:8080/" />
 &lt;input type="button" class="btn" id="SAVEserver_addr" name="server_addr" value="保存" />
 &lt;br>唯一的编码：&lt;input type="text" id="only_id" value="XXXXXXXXXX" />
@@ -5098,7 +5297,7 @@ return true;
 })
 &lt;/script>
 &lt;hr>
-&lt;p>&lt;a href="https://timetext.github.io/ariticle_source/2021-12-19-webark/webark.html">HTML单独版本&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://timetext.github.io/ariticle_source/210820-webark/webark.html">HTML单独版本&lt;/a>&lt;/p>
 &lt;details>
 &lt;summary>点此展开关于Bark&lt;/summary>
 &lt;ul>
@@ -5115,196 +5314,4 @@ ProxyPass /bark http://127.0.0.1:8080
 &amp;lt;/VirtualHost&amp;gt;
 &lt;/code>&lt;/pre>&lt;/li>
 &lt;/ul>
-&lt;/details></description><category domain="https://timetext.github.io/app/">app</category><category domain="https://timetext.github.io/tool/">tool</category><category domain="https://timetext.github.io/app/">app</category></item><item><title>虚拟机容器Docker的学习笔记</title><link>https://timetext.github.io/tech/docker/</link><guid isPermaLink="true">https://timetext.github.io/tech/docker/</guid><pubDate>Sun, 20 Jun 2021 18:50:54 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;h2 id="理论知识">理论知识&lt;/h2>
-&lt;ul>
-&lt;li>
-&lt;p>什么是docker：是基于 Go 语言实现的开源项目，提供高效、敏捷、轻量级的容器方案，支持在多种云平台和本地系统上部署。Docker 引擎的基础是 Linux 容器（Linux Containers，LXC）技术。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>docker对比虚拟机：&lt;/p>
-&lt;ul>
-&lt;li>Docker 的启动和停止可以在秒级实现，比传统的虚拟机方式要快得多。&lt;/li>
-&lt;li>Docker 容器对系统资源的需求很少，一台主机上可以同时运行上千个 Docker 容器。&lt;/li>
-&lt;li>Docker 通过类似 Git 的操作来获取、分发和更新应用镜像，指令简明，学习成本较低。&lt;/li>
-&lt;li>Docker 通过 Docker file 配置文件来支持灵活的自动化创建和部署机制，提高工作效率。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>docker镜像：Docker 镜像是一个只读的 Docker 容器模板，含有启动 Docker 容器所需的文件系统结构及其内容。Docker 镜像是 Docker 容器的静态视角，Docker 容器是 Docker 镜像的运行状态。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>docker仓库Repository：集中存放镜像文件的场所。分为公开/私有仓库。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>注册服务器Registry：存放着多个仓库，每个仓库集中存放某一类镜像，使用不同的标签（Tag）来进行区分。目前最大的公开 Registry 是 Docker Hub（https://hub.docker.com）&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>docker容器Container：从镜像创建的相互隔离的应用的运行实例。镜像是只读的。容器从镜像启动时，Docker 会在镜像的最上层创建一个可写层，镜像本身保持不变。&lt;/p>
-&lt;/li>
-&lt;li>&lt;/li>
-&lt;/ul>
-&lt;h2 id="命令">命令&lt;/h2>
-&lt;h3 id="安装">安装&lt;/h3>
-&lt;ul>
-&lt;li>安装：yum -y install docker&lt;/li>
-&lt;li>启动：systemctl start docker&lt;/li>
-&lt;li>开机自启：systemctl enable docker&lt;/li>
-&lt;/ul>
-&lt;h3 id="镜像">镜像&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>搜索镜像：docker search [OPTIONS] TERM&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>拉取镜像：docker pull [OPTIONS] NAME[:TAG|@DIGEST]&lt;/p>
-&lt;ul>
-&lt;li>默认镜像仓库：Docker Hub 公共注册服务器中的仓库&lt;/li>
-&lt;li>不显式地指定 Tag，则默认会下载 latest 标签，即仓库中最新版本的镜像&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>查看本地镜像：docker images&lt;/p>
-&lt;ul>
-&lt;li>IMAGE ID 唯一标识了镜像&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>查看镜像详细信息：docker inspect [OPTIONS] NAME|ID [NAME|ID...]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>使用镜像创建一个新的容器并运行一个命令：docker run [OPTIONS] IMAGE [COMMAND] [ARG...]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS
-&lt;ul>
-&lt;li>-d：后台运行容器，并返回容器ID&lt;/li>
-&lt;li>-i：以交互模式运行容器，通常与 -t 同时使用&lt;/li>
-&lt;li>-t：为容器重新分配一个伪输入终端，通常与 -i 同时使用&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>将指定镜像保存成 tar 归档文件：docker save [OPTIONS] IMAGE [IMAGE...]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS：-o 输出到指定文件名称&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>导入使用docker save命令导出的镜像：docker load [OPTIONS]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS：
-&lt;ul>
-&lt;li>--input , -i : 指定导入的文件，代替 STDIN；&lt;/li>
-&lt;li>--quiet , -q : 精简输出信息；&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>删除本地一个或多少镜像：docker rmi [OPTIONS] IMAGE [IMAGE...]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS：
-&lt;ul>
-&lt;li>-f :强制删除；&lt;/li>
-&lt;li>--no-prune :不移除该镜像的过程镜像，默认移除；&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;h3 id="容器">容器&lt;/h3>
-&lt;ul>
-&lt;li>
-&lt;p>创建一个新的容器并运行一个命令：docker run [OPTIONS] IMAGE [COMMAND] [ARG...]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS
-&lt;ul>
-&lt;li>-d：后台运行容器，并返回容器ID&lt;/li>
-&lt;li>-i：以交互模式运行容器，通常与 -t 同时使用&lt;/li>
-&lt;li>-t：为容器重新分配一个伪输入终端，通常与 -i 同时使用&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>创建一个新的容器但不启动它：docker create [OPTIONS] IMAGE [COMMAND] [ARG...]&lt;/p>
-&lt;ul>
-&lt;li>语法同docker run&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>列出容器：docker ps [OPTIONS]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>OPTIONS&lt;/p>
-&lt;ul>
-&lt;li>-a :显示所有的容器，包括未运行的。&lt;/li>
-&lt;li>-l :显示最近创建的容器。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>容器启动/停止/重启：docker [start/stop/restart]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>查看容器详细信息：docker inspect [OPTIONS] NAME|ID [NAME|ID...]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>获取容器的日志：docker logs [OPTIONS] CONTAINER&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS
-&lt;ul>
-&lt;li>-f :跟踪日志输出&lt;/li>
-&lt;li>-t :显示时间戳&lt;/li>
-&lt;li>--tail :仅列出最新N条容器日志&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>连接到正在运行中的容器：docker attach [OPTIONS] CONTAINER&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>查看容器中运行的进程信息：docker top [OPTIONS] CONTAINER [ps OPTIONS]&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>在运行的容器中执行命令：docker exec [OPTIONS] CONTAINER COMMAND [ARG...]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS
-&lt;ul>
-&lt;li>-d：分离模式: 在后台运行&lt;/li>
-&lt;li>-i：即使没有附加也保持STDIN 打开&lt;/li>
-&lt;li>-t：分配一个伪终端&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>删除一个或多个容器：docker rm [OPTIONS] CONTAINER [CONTAINER...]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS
-&lt;ul>
-&lt;li>-f：通过 SIGKILL 信号强制删除一个运行中的容器。&lt;/li>
-&lt;li>-l：移除容器间的网络连接，而非容器本身。&lt;/li>
-&lt;li>-v：删除与容器关联的卷。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>导出容器，将文件系统作为一个tar归档文件导出到STDOUT：docker export [OPTIONS] CONTAINER&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS：-o 输出到指定文件名称&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>导入容器，从归档文件中创建镜像：docker import [OPTIONS] file|URL|- [REPOSITORY[:TAG]]&lt;/p>
-&lt;ul>
-&lt;li>OPTIONS
-&lt;ul>
-&lt;li>-c：应用docker 指令创建镜像；&lt;/li>
-&lt;li>-m：提交时的说明文字；&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description><category domain="https://timetext.github.io/tech/">tech</category></item></channel></rss>
+&lt;/details></description><category domain="https://timetext.github.io/app/">app</category><category domain="https://timetext.github.io/tool/">tool</category><category domain="https://timetext.github.io/app/">app</category></item></channel></rss>
