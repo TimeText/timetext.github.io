@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description/><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Wed, 06 Jul 2022 18:17:14 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>编写sh脚本助力hugo博客管理</title><link>https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</guid><pubDate>Wed, 06 Jul 2022 23:55:16 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>最终意图：自定义指令bk，&lt;code>bk new&lt;/code>实现新建博客；&lt;code>bk push&lt;/code>实现推送到仓库.....等操作。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description/><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Wed, 06 Jul 2022 18:23:09 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>编写sh脚本助力hugo博客管理</title><link>https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</guid><pubDate>Wed, 06 Jul 2022 23:55:16 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>最终意图：自定义指令bk，&lt;code>bk new&lt;/code>实现新建博客；&lt;code>bk push&lt;/code>实现推送到仓库.....等操作。&lt;/p>
 &lt;p>流程概览：编写本地sh脚本用于完成各种操作；指令别名用于实现在任何位置执行脚本；&lt;/p>
 &lt;h3 id="mac-终端设置指令别名">Mac 终端设置指令别名&lt;/h3>
 &lt;p>由于Mac终端使用时是zsh，所有需要在zsh的配置文件中引入bash的配置文件&lt;/p>
@@ -173,7 +173,98 @@ test -f ~/.bash_profile &amp;amp;&amp;amp; source ~/.bash_profile
 &lt;pre tabindex="0">&lt;code>#!/bin/bash
 cd /bin/
 &lt;/code>&lt;/pre>&lt;p>完成后使用 &lt;code>source ~/.bash_profile&lt;/code>刷新。&lt;/p>
-&lt;p>测试：任意位置打开终端，输入&lt;code>tob&lt;/code>回车后当前目录会跳转到&lt;code>/bin&lt;/code>目录中。&lt;/p></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/sh/">sh</category><category domain="https://timetext.github.io/linux/">linux</category><category domain="https://timetext.github.io/macos/">macos</category></item><item><title>python脚本批量修改本地md文件名称</title><link>https://timetext.github.io/tech/python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0md%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</link><guid isPermaLink="true">https://timetext.github.io/tech/python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0md%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</guid><pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>想要博客本地MarkDown文件名称按照“年月日-标题”的格式排列，可是每次创建或修改博客或标题之后都要手动修改，很是不开心，继而，写了个脚本一劳永逸。&lt;/p>
+&lt;p>测试：任意位置打开终端，输入&lt;code>tob&lt;/code>回车后当前目录会跳转到&lt;code>/bin&lt;/code>目录中。&lt;/p>
+&lt;h3 id="sh数字比较">sh数字比较&lt;/h3>
+&lt;p>copy：&lt;a href="https://blog.csdn.net/w7904116/article/details/103353553">bash shell数字/字符串比较&lt;/a>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>比较&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>n1 -eq n2&lt;/td>
+&lt;td>检查n1是否与n2相等&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>n1 -ge n2&lt;/td>
+&lt;td>检查n1是否大于或等于n2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>n1 -gt n2&lt;/td>
+&lt;td>检查n1是否大于n2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>n1 -le n2&lt;/td>
+&lt;td>检查n1是否小于或等于n2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>n1 -lt n2&lt;/td>
+&lt;td>检查n1是否小于n2&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>n1 -ne n2&lt;/td>
+&lt;td>检查n1是否不等于n2&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h3 id="sh文件比较">sh文件比较&lt;/h3>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>比较&lt;/th>
+&lt;th>描述&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>-d file&lt;/td>
+&lt;td>检查file是否存在并是一个目录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-e file&lt;/td>
+&lt;td>检查file是否存在&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-f file&lt;/td>
+&lt;td>检查file是否存在并是一个文件&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-r file&lt;/td>
+&lt;td>检查file是否存在并可读&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-s fil&lt;/td>
+&lt;td>检查file是否存在并非空&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-w file&lt;/td>
+&lt;td>检查file是否存在并可写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-x file&lt;/td>
+&lt;td>检查file是否存在并可执行&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-O file&lt;/td>
+&lt;td>检查file是否存在并属当前用户所有&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>-G file&lt;/td>
+&lt;td>检查file是否存在并且默认组与当前用户相同&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>file1 -nt file2&lt;/td>
+&lt;td>检查file1是否比file2新&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>file1 -ot file2&lt;/td>
+&lt;td>检查file1是否比file2旧&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/sh/">sh</category><category domain="https://timetext.github.io/linux/">linux</category><category domain="https://timetext.github.io/macos/">macos</category></item><item><title>python脚本批量修改本地md文件名称</title><link>https://timetext.github.io/tech/python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0md%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</link><guid isPermaLink="true">https://timetext.github.io/tech/python%E8%84%9A%E6%9C%AC%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0md%E6%96%87%E4%BB%B6%E5%90%8D%E7%A7%B0/</guid><pubDate>Wed, 06 Jul 2022 00:00:00 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>想要博客本地MarkDown文件名称按照“年月日-标题”的格式排列，可是每次创建或修改博客或标题之后都要手动修改，很是不开心，继而，写了个脚本一劳永逸。&lt;/p>
 &lt;details>
 &lt;summary>点此展开python脚本代码&lt;/summary>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-python" data-lang="python">&lt;span class="line">&lt;span class="cl">&lt;span class="ch">#!/usr/bin/env python&lt;/span>
