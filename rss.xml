@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description>时间文本TimeText记录热爱且忠诚的生活与灵魂</description><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Thu, 07 Jul 2022 14:22:33 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>MacOS的Launchpad布局修改</title><link>https://timetext.github.io/tech/macos%E7%9A%84launchpad%E5%B8%83%E5%B1%80%E4%BF%AE%E6%94%B9/</link><guid isPermaLink="true">https://timetext.github.io/tech/macos%E7%9A%84launchpad%E5%B8%83%E5%B1%80%E4%BF%AE%E6%94%B9/</guid><pubDate>Thu, 07 Jul 2022 20:12:40 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>Launchpad就是类似ios、ipad os上面资源库的页面一样，随着应用程序的增多，每页的app越来越慢，不想多划一下鼠标切换到下一页，所以修改每页的图标数量，一页中有几行几列。&lt;/p>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description>时间文本TimeText记录热爱且忠诚的生活与灵魂</description><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Thu, 07 Jul 2022 14:32:11 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>MacOS的Launchpad布局修改</title><link>https://timetext.github.io/tech/macos%E7%9A%84launchpad%E5%B8%83%E5%B1%80%E4%BF%AE%E6%94%B9/</link><guid isPermaLink="true">https://timetext.github.io/tech/macos%E7%9A%84launchpad%E5%B8%83%E5%B1%80%E4%BF%AE%E6%94%B9/</guid><pubDate>Thu, 07 Jul 2022 20:12:40 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>Launchpad就是类似ios、ipad os上面资源库的页面一样，随着应用程序的增多，每页的app越来越慢，不想多划一下鼠标切换到下一页，所以修改每页的图标数量，一页中有几行几列。&lt;/p>
 &lt;p>修改行列数量命令：&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 有几列&lt;/span>
@@ -1519,16 +1519,55 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;/details></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/markdown/">markdown</category></item><item><title>Github代理设置</title><link>https://timetext.github.io/tech/github%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link><guid isPermaLink="true">https://timetext.github.io/tech/github%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid><pubDate>Thu, 07 Jul 2022 09:53:25 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>设置代理&lt;/p>
-&lt;pre tabindex="0">&lt;code>git config --global http.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39;
-git config --global https.proxy &amp;#39;socks5://127.0.0.1:1080&amp;#39;
-&lt;/code>&lt;/pre>&lt;p>查看代理&lt;/p>
-&lt;pre tabindex="0">&lt;code>git config --global --get http.proxy
-git config --global --get https.proxy
-&lt;/code>&lt;/pre>&lt;p>取消代理&lt;/p>
-&lt;pre tabindex="0">&lt;code>git config --global --unset http.proxy
-git config --global --unset https.proxy
-&lt;/code>&lt;/pre></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/proxy/">proxy</category><category domain="https://timetext.github.io/github/">github</category></item><item><title>编写sh脚本助力hugo博客管理</title><link>https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</guid><pubDate>Wed, 06 Jul 2022 23:55:16 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>最终意图：自定义指令bk，&lt;code>bk new&lt;/code>实现新建博客；&lt;code>bk push&lt;/code>实现推送到仓库.....等操作。&lt;/p>
+&lt;/details></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/markdown/">markdown</category></item><item><title>Github代理设置</title><link>https://timetext.github.io/tech/github%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link><guid isPermaLink="true">https://timetext.github.io/tech/github%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid><pubDate>Thu, 07 Jul 2022 09:53:25 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;h2 id="代理相关">代理相关&lt;/h2>
+&lt;h3 id="设置代理">设置代理&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global http.proxy &lt;span class="s1">&amp;#39;socks5://127.0.0.1:1080&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global https.proxy &lt;span class="s1">&amp;#39;socks5://127.0.0.1:1080&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="查看代理">查看代理&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global --get http.proxy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --get https.proxy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="取消代理">取消代理&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global --unset http.proxy
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --unset https.proxy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置文件">配置文件&lt;/h2>
+&lt;h3 id="查看本地配置">查看本地配置&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看所有配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看本地全局配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global -l
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看本地仓库配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local -l
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改本地配置">修改本地配置&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 方式一&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地全局配置global&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s1">&amp;#39;test@test.com&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地仓库配置local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local user.name &lt;span class="nb">test&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local user.email &lt;span class="s1">&amp;#39;test@test.com&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 方式二&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地全局配置global&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim ~/.gitconfig
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地仓库配置local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim .git/config
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 方式三&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地全局配置global&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global -e
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地仓库配置local&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local -e
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/proxy/">proxy</category><category domain="https://timetext.github.io/github/">github</category></item><item><title>编写sh脚本助力hugo博客管理</title><link>https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</guid><pubDate>Wed, 06 Jul 2022 23:55:16 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>最终意图：自定义指令bk，&lt;code>bk new&lt;/code>实现新建博客；&lt;code>bk push&lt;/code>实现推送到仓库.....等操作。&lt;/p>
 &lt;p>流程概览：编写本地sh脚本用于完成各种操作；指令别名用于实现在任何位置执行脚本；&lt;/p>
 &lt;h3 id="mac-终端指令别名">Mac 终端指令别名&lt;/h3>
 &lt;p>由于Mac终端使用时是zsh，所有需要在zsh的配置文件中引入bash的配置文件&lt;/p>
