@@ -1,4 +1,487 @@
-<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description>时间文本TimeText记录热爱且忠诚的生活与灵魂</description><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Fri, 08 Jul 2022 18:28:50 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>GitHub Actions云编译openwrt</title><link>https://timetext.github.io/tech/openwrt/</link><guid isPermaLink="true">https://timetext.github.io/tech/openwrt/</guid><pubDate>Fri, 08 Jul 2022 03:22:54 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;h2 id="概念科普">概念科普&lt;/h2>
+<?xml version="1.0" encoding="utf-8"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>时间文本博客</title><link>https://timetext.github.io/</link><description>时间文本TimeText记录热爱且忠诚的生活与灵魂</description><generator>Hugo 0.101.0 https://gohugo.io/</generator><language>en</language><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><lastBuildDate>Tue, 12 Jul 2022 09:14:17 +0000</lastBuildDate><atom:link rel="self" type="application/rss+xml" href="https://timetext.github.io/rss.xml"/><item><title>文件压缩归档知识及WinRAR的使用</title><link>https://timetext.github.io/tech/winrar/</link><guid isPermaLink="true">https://timetext.github.io/tech/winrar/</guid><pubDate>Mon, 11 Jul 2022 12:22:54 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>相关资源&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>&lt;a href="https://www.win-rar.com/">WinRAR英文官网&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.win-rar.com/postdownload.html?&amp;amp;L=0">WinRAR英文下载&lt;/a>：免费试用40天&lt;/li>
+&lt;li>&lt;a href="https://www.winrar.com.cn/">WinRAR中文官网&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.winrar.com.cn/download.htm">WinRAR中文下载&lt;/a>：个人免费版&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;details>
+&lt;summary>个人方案&lt;/summary>
+&lt;p>最近在整理和归档电脑上的文件，被如何对文件分档归类备份存储困扰了很久，每每看到硬盘上散沙般的文件便头疼。&lt;/p>
+&lt;p>看日历表数了一下整理了四天，从刚开始的分类、归档，再到压缩、存储、备份，看了很多大佬分享的方案，也分享一下我最后的方案吧：&lt;/p>
+&lt;blockquote>
+&lt;p>硬盘存储：单个分区，用文件夹区分大类别：&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>生活-相机照片（手机拍摄相册备份）
+&lt;ul>
+&lt;li>2021年&lt;/li>
+&lt;li>2022年&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>生活-日常留存（日记、笔记、文档）&lt;/li>
+&lt;li>影音视听（mp3、mv、短片。电影暂不考虑备份，网上随手搜的到）&lt;/li>
+&lt;li>阅读记录（电子文字资源）
+&lt;ul>
+&lt;li>220701-程序员的自我修养&lt;/li>
+&lt;li>220705-软技能&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>时光归档（时间顺序存储杂七杂八的东西）
+&lt;ul>
+&lt;li>220610-数码-黑苹果安装相关&lt;/li>
+&lt;li>220701-资源-手机刷机镜像&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>应用软件（收藏的软件）&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>归档备份：单个分区、单个文件夹、多个压缩包，压缩包名称包括类别和日期区间&lt;/p>
+&lt;blockquote>
+&lt;p>生活-相机照片-210501-220501.rar&lt;/p>
+&lt;p>阅读记录-220101-220601.rar&lt;/p>
+&lt;p>.......&lt;/p>
+&lt;/blockquote>
+&lt;/blockquote>
+&lt;p>整理过程中也遇到了很多学到了很多，一直以为WinRAR这个软件收费且特贵，所以一直用了一个所谓破解版，今天去了官网才发现有针对个人用户推出的免费版本，所谓破解版只是没有了广告而已。权衡利弊还是选择了有广告的官方免费正版。&lt;/p>
+&lt;/details>
+&lt;h2 id="压缩知识">压缩知识&lt;/h2>
+&lt;h3 id="压缩原理">压缩原理&lt;/h3>
+&lt;blockquote>
+&lt;p>原理很简单，就是用简单的数字表示复杂的内容，极端情况下，1后面跟5000个0，你如果不压缩，需要先写一个1然后画5000个0，你需要5001个字符表示，需要的存储空间很大，如果你写个5然后写个05000表示有5000个0只需要105000六个字符就可以表示，这就是压缩。解压就是反向解析。&lt;/p>
+&lt;p>只是现在算法更加复杂，分有损和无损以及各种优化等等。&lt;/p>
+&lt;p>&lt;a href="https://www.zhihu.com/question/25681453/answer/1186454493">知乎用户@知乎&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="7zgzrarzip">7z、gz、rar、zip&lt;/h3>
+&lt;blockquote>
+&lt;p>tar是Linux常见的一种归档文件（原生不包括压缩功能）&lt;/p>
+&lt;p>gzip是gnu/Linux的一种压缩文件工具，算法是基于 DEFLATE，文件是gz，可以和tar组合。&lt;/p>
+&lt;p>zip是一种规范开放的压缩文件，算法不定，但主要是用 DEFLATE&lt;/p>
+&lt;p>rar的算法专有，但发行时附送解码器允许解码器再开发，编码器专有&lt;/p>
+&lt;p>7zip和zip差不多，算法不定，主要用bzip2和lzma，而且完全开源。&lt;/p>
+&lt;p>zip和7z更像是压缩容器，因为算法不是格式固定，允许支持其他压缩算法&lt;/p>
+&lt;p>&lt;a href="https://www.zhihu.com/question/26026741/answer/31869734">陈肖恩@知乎&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>网上通俗简单说是：zip最普及、rar最安全、7z压缩率最高&lt;/p>
+&lt;blockquote>
+&lt;p>tar本身是一个文件打包备份的工具，没有自身的压缩功能。通常的使用方式为打包后再调用其他压缩库进行文件压缩。比较适合linux系统，保持文件权限状态、软硬链接能力强。&lt;/p>
+&lt;p>zip是公开的一种压缩算法，压缩比目前相对不太高。gz是zip算法的一个GNU实现。&lt;/p>
+&lt;p>rar是带专利的商业算法，压缩比目前比较高。&lt;/p>
+&lt;p>7-zip是兼具压缩和打包封装功能的软件。7z和zip、rar封装格式一样，是压缩后再加入打包封装容器的，比较灵活。7z现在默认的压缩格式是lzma，压缩比非常高。&lt;/p>
+&lt;p>&lt;a href="https://www.zhihu.com/question/26026741/answer/338004601">王旭竞@知乎&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="winrar">WinRAR&lt;/h2>
+&lt;p>内容摘录自WinRAR帮助文档&lt;/p>
+&lt;ul>
+&lt;li>WinRAR 是什么：WinRAR 是 Windows 版本的 RAR 压缩文件管理器 - 一个允许您创建、管理和控制压缩文件的强大工具。我们提供一系列的 RAR 版本，可用于不同的操作系统：Windows、Linux、FreeBSD 、macOS。&lt;/li>
+&lt;li>除了完整的支持 RAR 和 ZIP 之外，WinRAR 提供了一些其它压缩工具所创建的 7Z、ARJ、BZ2、CAB、GZ、ISO、JAR、LZ、LZH、TAR、UUE、XZ、Z 和 ZST 文件的基本功能 : 查看内容、解压文件、显示注释和压缩文件信息，您不需要有任何的外部程序来管理这些格式。支持几种类型的 ZIPX 压缩文件&lt;/li>
+&lt;li>运行于 Windows 下的 RAR 有两个版本: 图形用户界面、控制台版本&lt;/li>
+&lt;/ul>
+&lt;h3 id="压缩方式">压缩方式&lt;/h3>
+&lt;blockquote>
+&lt;p>姑且不论压缩文件格式的优劣，下一个步骤是选择压缩的方法。您可以选择“存储”、“最快”、“快速”、“常规”、“较好”和“最好”模式。在“最好”方式提供了最高，但速度最慢的压缩，“最快”压缩性能最差，但速度最快，“存储”以尽可能快的速度把文件添加到压缩文件中，而没有任何压缩。“最快”可能适用于每日备份，“最好”用于 Internet 发布，“普通”用于日常使用，如压缩 Email 附件。&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>【储存】：‘不压缩的压缩包’，解压缩速度极快，文件大小和原文件相似；&lt;/p>
+&lt;p>【最快】：压缩少，解压缩速度快，文件大小比原文件小一点；&lt;/p>
+&lt;p>【较快】：压缩较少，解压缩速度次于[最快]，同上；&lt;/p>
+&lt;p>【标准】：压缩适中，解压缩速度适中，大小适中；&lt;/p>
+&lt;p>【较好】：压缩较多，解压缩速度略慢，文件大小较小；&lt;/p>
+&lt;p>【最好】：压缩多，解压缩速度慢，文件占用小。&lt;/p>
+&lt;p>&lt;a href="https://jingyan.baidu.com/article/6b1823097325e7fb58e159c3.html">@百度经验&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="字典大小">字典大小&lt;/h3>
+&lt;blockquote>
+&lt;ul>
+&lt;li>这是处理数据时用于查找和压缩重复数据模式所使用的内存区域的大小。较大的压缩字典有时会提高大文件的压缩率，特别是创建固实 压缩文件时。但是较大的字典也会降低压缩速度并增加内存的需求。&lt;/li>
+&lt;li>如果 固实 压缩文件的所有源文件的大小，或者非固实压缩文件的最大源文件的大小至少是字典大小的1/2，则 WinRAR 可以减少字典大小。这对减少内存使用率而不降低压缩率有帮助。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="更新模式">更新模式&lt;/h3>
+&lt;blockquote>
+&lt;ul>
+&lt;li>添加并替换文件 (默认) 当添加的文件有相同名称时，始终替换已压缩的文件。在压缩文件中不存在时，始终添加这些文件。&lt;/li>
+&lt;li>添加并更新文件 仅在添加的文件较新时才替换已压缩的文件。在压缩文件中不存在时，总是添加这些文件。&lt;/li>
+&lt;li>只刷新已存在的文件 仅在添加的文件较新时才替换已压缩的文件。在压缩文件中不存在时，不添加这些文件。&lt;/li>
+&lt;li>覆盖前询问。 添加的文件和压缩包中的文件同名，覆盖压缩包中的文件前询问。总是添加在压缩文件中不存在的文件。&lt;/li>
+&lt;li>跳过已存在的文件。 不替换压缩的文件中和要添加文件同名的文件。仅添加在压缩文件中不存在的文件。&lt;/li>
+&lt;li>同步压缩文件内容 仅在添加的文件较新时才替换已压缩的文件。在压缩文件中不存在时，总是添加这些文件。在添加的文件不存在于压缩文件中时，删除这些文件。这类似创建一个新压缩文件，但有个重要的不同 : 如果在上次备份后，没有文件被修改过，这项操作会比创建新压缩文件来的还要快。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h3 id="压缩选项">压缩选项&lt;/h3>
+&lt;p>压缩后删除文件：压缩成功后的删除原始文件&lt;/p>
+&lt;p>创建自解压文件：创建自解压文件 (exe 文件)，这是一种不使用任何其它程序便能解压的方式。您可以选择自解压模块的类型，并且可以在 高级选项 对话框内设置如目标文件夹等参数。&lt;/p>
+&lt;h4 id="创建固实压缩文件">创建固实压缩文件&lt;/h4>
+&lt;blockquote>
+&lt;ul>
+&lt;li>固实压缩文件是一种特殊压缩方式存储的压缩文件，它把压缩文件中的多个或全部文件都当成一个连续数据流来看待。WinRAR 只支持 RAR 格式的压缩文件使用固实模式，ZIP 压缩文件永远是非固实的。使用压缩对话框中的 创建固实压缩文件 选项或命令行的 -s 参数启用固实压缩。&lt;/li>
+&lt;li>固实压缩可增加压缩性能，特别是在添加大量的小文件的时候&lt;/li>
+&lt;li>缺点:
+&lt;ul>
+&lt;li>对已存在的固实压缩文件更新时较慢;&lt;/li>
+&lt;li>要从固实的压缩文件解压单个文件时，它之前的文件都需先经过分析。这造成当从固实的压缩文件内取出文件时会比一般压缩文件取出文件慢一些。但是，当从固实的压缩文件解压全部的文件时，解压速度并没有影响。&lt;/li>
+&lt;li>如果在固实压缩文件中的任何文件损坏了，要从损坏的范围中解压全部的文件是不可能的。因此，如果固实压缩文件是保存一个潜在的不可靠的媒体时，推荐您在制作时使用 恢复记录。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>适用场合为:
+&lt;ul>
+&lt;li>压缩文件很少更新的时候;&lt;/li>
+&lt;li>不需要经常从压缩文件中解压一个文件或是部分文件的时候;&lt;/li>
+&lt;li>压缩效率比压缩速度更为重要的时候。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="添加恢复记录">添加恢复记录&lt;/h4>
+&lt;blockquote>
+&lt;ul>
+&lt;li>RAR 压缩文件格式 支持一种特殊的附加数据类型，叫做 恢复记录。 中。恢复记录在增大压缩文件大小的同时，它能在磁盘错误或其它数据损坏的情况下帮助恢复存档的文件，只要损坏不是太严重。可以使用命令 &amp;quot;r&amp;quot;(repair) 处理这种损坏。ZIP 压缩文件格式是不支持恢复记录的。&lt;/li>
+&lt;li>虽然恢复记录提高了修复损坏压缩文件的机会，但它并不能保证成功恢复。因此要考虑将恢复记录功能与为重要数据制作多个归档副本，并保存到不同媒体的方式相结合。&lt;/li>
+&lt;li>您可以在 压缩文件名和参数设置对话框 设置“添加恢复记录”选项来添加恢复记录到压缩文件中。另一个方法是，在 压缩配置 对话框设置“添加恢复记录”选项。这种情况下，在任何压缩文件修改后均会添加恢复记录到压缩文件中。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>测试已压缩文件：压缩后测试。 这个参数在“压缩后删除”时非常有用，所以只有压缩文件已经被成功测试后，文件才会被删除。&lt;/p>
+&lt;h4 id="锁定压缩文件">锁定压缩文件&lt;/h4>
+&lt;p>锁定压缩文件，即压缩包内的文件不能增删；
+加密文件名，设置密码时选项，开启后的压缩包在打开前需要输入密码，不输入密码看不到里面的文件。&lt;/p>
+&lt;blockquote>
+&lt;p>RAR 压缩文件格式 支持压缩文件的锁定。 WinRAR 无法修改锁定的归档，因此锁定重要的归档可以防止 WinRAR 意外修改它们。如果 WinRAR 命令分组处理归档，这种保护可能特别有用。&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="其他">其他&lt;/h3>
+&lt;h4 id="分卷压缩文件拆分压缩文件">分卷压缩文件(拆分压缩文件)&lt;/h4>
+&lt;blockquote>
+&lt;ul>
+&lt;li>WinRAR 可以创建包含数个文件的压缩文件。这样的压缩文件被称为 &lt;em>多卷&lt;/em>，组成此压缩文件的单个文件被称为 &lt;em>卷&lt;/em>。通常分卷压缩是在将大型的压缩文件保存到数个可移动磁盘或通过 Email 传输的好办法。&lt;/li>
+&lt;li>要解压分卷时，您必须从第一个分卷开始解压(有 .rar 扩展名)。如果分卷存在例如硬盘等的非可移动磁盘时，在解压之前，您必须将全部的分卷放在同一个文件夹内。&lt;/li>
+&lt;li>和 RAR 卷不一样，ZIP 卷不能自解压。WinRAR 在创建或解压 ZIP 分卷时需要同时访问多卷 ZIP 文件的所有卷，所以不可能在多个移动磁盘上创建或解压 ZIP 卷。您需要在同一文件夹内创建它们然后把它们手动复制的到您的移动磁盘上。类似，在解压前，您需要把所有的 ZIP 卷放到同一个文件夹中。&lt;/li>
+&lt;li>对已存在的分卷是不可能添加、更新或删除文件的。您可以创新一个新的卷集。&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h4 id="自解压文件sfx">自解压文件(SFX)&lt;/h4>
+&lt;blockquote>
+&lt;ul>
+&lt;li>一个 SFX (&lt;strong>S&lt;/strong>el&lt;strong>F&lt;/strong>-e&lt;strong>X&lt;/strong>tracting)自解压文件是压缩文件的一种，它结合了可执行文件模块，一种用以运行从压缩文件解压文件的模块。这样的压缩文件不需要外部程序来解压自解压文件的内容，它自己便可以运行该项操作。然而 WinRAR 仍然可将自解压文件当成是任何其它的压缩文件处理。所以如果您不愿意运行所收到的自解压文件 (比如说，它可能含有病毒时)，您可以使用 WinRAR 来查看或是解压它的内容。&lt;/li>
+&lt;li>自解压文件通常与其它的可执行文件一样都有 .exe 的扩展名。&lt;/li>
+&lt;li>自解压文件是很方便的，如果您想要将压缩文件给某一个人时，但却不知道他们是否有该压缩程序可以解压文件的时候。您也可以使用自解压来发布您自己的软件，例如 WinRAR 的安装程序便是使用图形 GUI RAR 自解压模块 &lt;em>Default.sfx&lt;/em> 所制作的。&lt;/li>
+&lt;/ul>
+&lt;/blockquote></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/%E7%A7%91%E6%99%AE/">科普</category><category domain="https://timetext.github.io/winrar/">winrar</category></item><item><title>小米4A路由器千兆版R4A刷机相关</title><link>https://timetext.github.io/tech/%E5%B0%8F%E7%B1%B34a%E8%B7%AF%E7%94%B1%E5%99%A8%E5%8D%83%E5%85%86%E7%89%88r4a%E5%88%B7%E6%9C%BA%E7%9B%B8%E5%85%B3/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E5%B0%8F%E7%B1%B34a%E8%B7%AF%E7%94%B1%E5%99%A8%E5%8D%83%E5%85%86%E7%89%88r4a%E5%88%B7%E6%9C%BA%E7%9B%B8%E5%85%B3/</guid><pubDate>Sat, 09 Jul 2022 00:02:54 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>阅读须知：&lt;/p>
+&lt;blockquote>
+&lt;p>如没有特殊声明，本文中的R4A均指“小米路由器4A千兆版本”。&lt;/p>
+&lt;p>教程中用到的资源都在这里下载【&lt;a href="https://timetext.github.io/download/">链接直达&lt;/a>】&lt;/p>
+&lt;p>除教程用到资源外还包括：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>PuTTY.zip__size=2.02M&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>R4A千兆版的breed.zip__size=94.5KB&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>一键开启telnet和刷写breed脚本.zip__size=8.45M&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;h2 id="固件资源">固件资源&lt;/h2>
+&lt;blockquote>
+&lt;p>OpenWRTInvasion：用于路由器开启telnet。&lt;a href="https://github.com/acecilia/OpenWRTInvasion">链接直达&lt;/a>&lt;/p>
+&lt;p>Openwrt官网固件【&lt;a href="https://firmware-selector.openwrt.org/">链接直达&lt;/a>】&lt;/p>
+&lt;p>小婉儿数码博客【白嫖固件，可收费定制，&lt;a href="https://pan.xiaowansm.top/1/main/%F0%9F%94%A5OpenWrt_LEAN%E7%89%88%EF%BC%88%E7%9C%8B%E4%B8%8D%E6%87%82%E7%9A%84%E5%B0%B1%E7%82%B9%E5%BC%80%E6%AD%A4%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%89/%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A83GV2%E5%92%8C4A%E5%8D%83%E5%85%86%E7%89%88%EF%BC%88%E4%BF%A9%E5%9E%8B%E5%8F%B7%E7%9A%84%E5%9B%BA%E4%BB%B6%E9%80%9A%E7%94%A8%EF%BC%89">R4A网盘链接直达&lt;/a>】&lt;/p>
+&lt;details>
+&lt;summary>点击展开：R4A固件刷入说明&lt;/summary>
+&lt;blockquote>
+&lt;ul>
+&lt;li>===============&lt;/li>
+&lt;li>进入breed控制台，先备份eeprom.bin（首次刷固件需要刷入eeprom.bin）&lt;/li>
+&lt;li>再选下载好的固件和eeprom.bin，正常刷入即可&lt;/li>
+&lt;li>===============&lt;/li>
+&lt;li>管理ip：192.168.5.1&lt;/li>
+&lt;li>用户名和密码：root/password&lt;/li>
+&lt;li>无线wifi名称：OpenWrt&lt;/li>
+&lt;li>无线wifi密码：password&lt;/li>
+&lt;li>===============&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;/details>
+&lt;details>
+&lt;summary>点击展开：关于小婉儿数码博客的更多内容&lt;/summary>
+&lt;blockquote>
+&lt;p>因大佬站点较多，这里尽量全记录备份一下，防止迷路失联。&lt;/p>
+&lt;p>联系方式：&lt;a href="https://t.me/wwang8">telegram&lt;/a> &lt;a href="https://github.com/xiaowansm5/">github&lt;/a> &lt;a href="https://wpa.qq.com/msgrd?v=3&amp;amp;uin=85151535&amp;amp;site=qq&amp;amp;menu=yes">qq&lt;/a> &lt;a href="wwang.pw@gmail.com">email&lt;/a>&lt;/p>
+&lt;p>一些站点：&lt;a href="https://home.x-wan.top/">小婉儿数码博客&lt;/a> &lt;a href="https://pan.wwang.pw/">博客网盘1&lt;/a> &lt;a href="https://pan.xiaowansm.top/">博客网盘2&lt;/a> &lt;a href="https://n.x-wan.top/">网址导航&lt;/a> &lt;a href="https://blog.wwang.pw/">博客镜像&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;/details>
+&lt;p>其他下载地址：&lt;a href="https://breed.hackpascal.net/">breed&lt;/a> &lt;a href="http://opt.cn2qq.com/padavan/">hiboy老毛子&lt;/a> &lt;a href="http://pandorabox.tuuz.cc:8000/">潘多拉&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="备份原厂原系统">备份原厂原系统&lt;/h2>
+&lt;p>在刷机之前建议按照如下过程备份你的机器：进入MiWiFi管理界面，默认192.168.31.1&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>在路由状态界面截图，重点MAC地址、SN号&lt;/li>
+&lt;li>进行路由器备份，备份后下载本地后再拷贝2~3份&lt;/li>
+&lt;li>截图其他界面，小白建议全部截图，留着备用&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h2 id="刷入breed并直接刷写固件教程">刷入breed并直接刷写固件教程&lt;/h2>
+&lt;p>大致过程：开启路由器的telnet、刷入breed、刷入各种固件(openwrt)&lt;/p>
+&lt;p>参考教程&lt;/p>
+&lt;blockquote>
+&lt;p>小米路由4A千兆版安装openwrt教程（R4A）【&lt;a href="https://www.0412.cyou/type/xiaomi.html">链接直达&lt;/a>】（排版较清楚）&lt;/p>
+&lt;p>该教程参考自：[R4A] 小米R4A无脑刷breed及固件【&lt;a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;amp;tid=4056716">链接直达&lt;/a>】（排版较乱）&lt;/p>
+&lt;p>本教程中用到的资源列表包括：&lt;/p>
+&lt;ul>
+&lt;li>R4A千兆版路由备份.rar__size=13.2M&lt;/li>
+&lt;li>R4A千兆版刷入breed用到的工具集合.zip__size=45.6M&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>教程拙见&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>链接telnet后wget通过本地服务器获取breed时，可以使用&lt;code>python3 -m http.server &lt;/code> 在目录下运行python自带的web服务器。&lt;/li>
+&lt;li>在breed中备份和输入固件包没有详细说和图片。&lt;/li>
+&lt;/ol>
+&lt;p>仅为个人看法，无任何批评冒犯之意，感谢前人种树才能有我在这里乘凉。&lt;/p>
+&lt;/blockquote>
+&lt;p>教程总结&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>
+&lt;p>本地安装python3和requests包&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>检测python是否安装：本地终端输入python 或者 python3无报错且可以启动python&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>检测requests是否安装：本地终端输入&lt;code>pip show requests&lt;/code> 或者 &lt;code>pip3 show requests&lt;/code>无报错且输出request相关信息。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>若request未安装：&lt;code>pip install requests &lt;/code> 或者 &lt;code>pip3 install requests &lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>若pip或pip3未安装/未找到：python pip 安装与使用【&lt;a href="https://www.runoob.com/w3cnote/python-pip-install-usage.html">链接直达&lt;/a>】&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>若python3未安装：python3环境搭建【&lt;a href="https://www.runoob.com/python3/python3-install.html">链接直达&lt;/a>】&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>网线连接电脑和路由器使二者同一局域网，本地连接地址修改成192.168.31.88&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>运行本地web服务器&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>打开chfs-windows-x64-1.0文件夹中的chfs.exe（仅windows 64位支持）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>若为其他系统可以终端使用&lt;code>python3 -m http.server &lt;/code> 在chfs-windows-x64-1.0目录下运行python自带的web服务器。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>进入telnet&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>打开路由器管理页面192.168.31.1登录后在网页地址栏获取stok的值，&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>打开&lt;code>OpenWRTInvasion-0.0.3&lt;/code>文件夹并运行一个终端，&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>使用&lt;code>python remote_command_execution_vulnerability.py&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>或者&lt;code>python3 remote_command_execution_vulnerability.py&lt;/code>运行脚本，&lt;/p>
+&lt;p>看到终端输出“are u ok”时后输入以下命令&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-BASH" data-lang="BASH">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /tmp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">wget http://192.168.31.88/shared/breed-mt7621-pbr-m1.bin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">mtd -r write breed-mt7621-pbr-m1.bin Bootloader
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>输入完成后路由器会重启，路由器上的指示灯光会变暗，请不要担心，属正常现象。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>将本地连接地址获取方式改为自动&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>进入breed&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>网线连接路由器和电脑，浏览器输入192.168.1.1进入breed。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>若提示无法找到页面等进不去breed：拔下路由器电源，长按RESET按钮并插入电源，刷新网页知道进入breed再松手。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>在breed内备份eeprom&lt;/p>
+&lt;p>eeprom解释：其中包含路由器mac地址等信息，若mac地址与硬件不匹配可能会影响信号网速等。&lt;/p>
+&lt;p>备份方法：&lt;/p>
+&lt;ul>
+&lt;li>[固件备份]==&amp;gt;选择[EEPROM备份]、[编程器备份]等保存到本地；&lt;/li>
+&lt;li>找到[MAC地址修改]==&amp;gt;截图保存MAC地址；&lt;/li>
+&lt;li>关于其他选项卡也建议截图备份一下；&lt;/li>
+&lt;li>截图或者下载压缩包到本地后建议再创建2~3份副本。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>在breed内刷入固件&lt;/p>
+&lt;ul>
+&lt;li>[固件备份]选项==&amp;gt;选择[常规固件]==&amp;gt;选择你在网上下载的或者自己编译的[固件]，未完不待续。
+&lt;ul>
+&lt;li>若是第一次刷入固件：[EEPROM]选项==&amp;gt;选择你刚刚备份到本地的EEPROM备份；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>勾选自动重启；&lt;/li>
+&lt;li>点击[上传]按钮，会让你再确认一次，确认即可。&lt;/li>
+&lt;li>上传完成后会自动重启。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>连接路由器&lt;/p>
+&lt;ul>
+&lt;li>重启后找到WIFI名为编译固件时定义的名称，默认为openwrt，默认无连接密码；&lt;/li>
+&lt;li>连接后浏览器输入编译固件时定义的地址，默认192.168.1.1，账号root，密码password；&amp;lt;-密码时password不包括这个分号；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>进行配置&lt;/p>
+&lt;ul>
+&lt;li>设置WiFi名称，WiFi密码，各类插件等..........&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h2 id="通过breed间接刷写固件教程">通过breed间接刷写固件教程&lt;/h2>
+&lt;p>间接刷写的意思是不能在breed界面直接刷入固件，&lt;/p>
+&lt;p>例如我手里的小米R4A千兆版路由器，在openwrt官网下载编译的固件通过breed直接刷写后无限重启进不去openwrt系统，若要使breed直接刷入的系统可以正常使用，需要在编译时进行参数修改。&lt;/p>
+&lt;p>参考教程&lt;/p>
+&lt;blockquote>
+&lt;p>[R4A]终于解决了breed刷机后不能正常启动的问题 【&lt;a href="https://www.right.com.cn/forum/thread-4067036-1-1.html">链接直达&lt;/a>】&lt;/p>
+&lt;/blockquote>
+&lt;p>教程总结&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>
+&lt;p>原因分析&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>breed的作用是引导系统，即从某一个地址开始时系统，地址的分区称为[闪存布局]；&lt;/li>
+&lt;li>并没有R4A专属的breed，之前刷的breed是从其他地方搬过来给R4A用的，会有异常；&lt;/li>
+&lt;li>R4A和官方原版openwrt固件中的启动地址均为0x160000，但是breed并不知道，故循环重启；&lt;/li>
+&lt;li>解决方法：告诉breed从0x160000这个地址开始启动系统。&lt;/li>
+&lt;li>关于直刷：直刷固件是在固件编译时修改相关参数实现可以通过breed直接刷入。&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>准备阶段&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>路由器进入breed并网线连接电脑，教程参上；&lt;/li>
+&lt;li>进入固件目录并打开终端输入&lt;code>python3 -m http.server &lt;/code> 启动本地web服务器；&lt;/li>
+&lt;li>获取本机和路由器同网段的ip地址，即应为192.168.1.X，通常为192.168.1.2；&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>刷入阶段&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>&lt;code>telnet 192.168.1.1&lt;/code>：打开终端使用telnet连接breed；&lt;/li>
+&lt;li>&lt;code>wget http://本地web服务器/固件资源名称&lt;/code>：从本地web服务器下载固件到路由器；&lt;/li>
+&lt;li>&lt;code>flash erase 0x160000 0x微大于固件大小的地址&lt;/code>：为新固件腾出空间；&lt;/li>
+&lt;li>&lt;code>flash write 0x160000 0x固件存储地址 0x微大于固件大小的地址&lt;/code>：刷写固件数据到内存中：&lt;/li>
+&lt;li>&lt;code>boot flash 0x160000&lt;/code>：在0x160000地址块重启系统；&lt;/li>
+&lt;li>恭喜您：重启进入新系统，断电重启仍然无限重启，因为breed还不知要在0x160000地址块重启系统。&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>完善阶段&lt;/p>
+&lt;blockquote>
+&lt;ol>
+&lt;li>重启进入breed&lt;/li>
+&lt;li>设置环境变量
+&lt;ul>
+&lt;li>字段=&lt;code>autoboot.command&lt;/code>&lt;/li>
+&lt;li>值=&lt;code> boot flash 0x160000&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>保存、断电、重启
+&lt;ul>
+&lt;li>若成功进入系统，恭喜您；&lt;/li>
+&lt;li>若仍然无限重启，同情你；&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>示例&lt;/p>
+&lt;p>因手里机器暂不可复现，仅提供部分代码&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-BASH" data-lang="BASH">&lt;span class="line">&lt;span class="cl">Starting breed built-in shell
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">breed&amp;gt; wget http://192.168.1.2:8000/openwrt-21.02.3-ramips-mt7621-xiaomi_mi-router-4a-gigabit-squashfs-sysupgrade.bin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Connecting to 192.168.1.2:8000... connected.
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP request sent, awaiting response... &lt;span class="m">200&lt;/span> OK
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Length: 5767792/0x580270 &lt;span class="o">(&lt;/span>5MB&lt;span class="o">)&lt;/span> &lt;span class="o">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Saving to address 0x80001000
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[========================================================================]&lt;/span> 100%
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Transmission completed in 1.9s.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>其中：&lt;/p>
+&lt;p>&lt;code>Length: 5767792/0x580270 (5MB) []&lt;/code>:是所下载固件的大小，即固件大小所占的地址&lt;/p>
+&lt;p>&lt;code>Saving to address 0x80001000&lt;/code>:是固件保存到了哪里，保存到了0x80001000这个地址开头的，往后推固件大小个地址就是保存的固件地址区域了。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;/blockquote>
+&lt;h2 id="恢复原厂">恢复原厂&lt;/h2>
+&lt;p>参考教程&lt;/p>
+&lt;blockquote>
+&lt;p>[R4A]小米4a千兆版/R4A修复SN，MAC地址！！！winhex简单操作【&lt;a href="https://www.right.com.cn/forum/thread-8240051-1-1.html">链接直达&lt;/a>】&lt;/p>
+&lt;p>[R4A] 小米4a千兆版，R4A,根本上修复SN，winhex，breed，telnet【&lt;a href="https://www.right.com.cn/forum/thread-8239607-1-1.html">链接直达&lt;/a>】&lt;/p>
+&lt;p>本教程中用到的资源列表包括：&lt;/p>
+&lt;ul>
+&lt;li>修复SN、MAC地址的工具和编程器固件.zip__size=28.9M&lt;/li>
+&lt;/ul>
+&lt;/blockquote>
+&lt;p>教程总结&lt;/p>
+&lt;blockquote>
+&lt;ul>
+&lt;li>
+&lt;p>使用breed刷入编程器固件以恢复官方系统时候 只勾选自动重启；&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>默认密码：提供的all.bin刷入后第一次启动是已经配置好的，WIFI连接密码和后台管理密码可能都是8个1：11111111，上次忘记验证了，可能是8个1，如果不正确，请长按REST按钮恢复出厂设置。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>异常：修改后在breed刷入后，重启进入官方ROM，但在管理页面点击[马上体验]按钮提示“Invalid nonce”和“not auth”&lt;/p>
+&lt;ul>
+&lt;li>解决：长按REST按钮恢复出厂设置，解决。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>异常：重启重置进入官方配置页面后，MAC地址正确但是SN号不正确。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>解决：telnet连接后进行修改，连接方式见上文。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-BASH" data-lang="BASH">&lt;span class="line">&lt;span class="cl">bdata &lt;span class="nb">set&lt;/span> &lt;span class="nv">CountryCode&lt;/span>&lt;span class="o">=&lt;/span>CN &lt;span class="c1">#设置地区代码&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bdata &lt;span class="nb">set&lt;/span> &lt;span class="nv">SN&lt;/span>&lt;span class="o">=&lt;/span>XXXXXX/XXXXXXX &lt;span class="c1">#修改路由器SN&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">bdata sync &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> bdata commit &lt;span class="c1">#保存修改&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#再次依次输入&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nvram &lt;span class="nb">set&lt;/span> &lt;span class="nv">SN&lt;/span>&lt;span class="o">=&lt;/span>XXXXX/XXXXXXXX &lt;span class="c1">#修改路由器SN&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nvram commit &lt;span class="c1">#保存修改&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/blockquote></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/openwrt/">openwrt</category><category domain="https://timetext.github.io/xiaomi/">xiaomi</category><category domain="https://timetext.github.io/network/">network</category></item><item><title>GitHub Actions云编译openwrt</title><link>https://timetext.github.io/tech/openwrt/</link><guid isPermaLink="true">https://timetext.github.io/tech/openwrt/</guid><pubDate>Fri, 08 Jul 2022 03:22:54 +0000</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;h2 id="概念科普">概念科普&lt;/h2>
 &lt;details>
 &lt;summary>点此展开：关于GitHub Actions&lt;/summary>
 &lt;blockquote>
@@ -3433,451 +3916,4 @@ make -jn v=99 # 开始编译 n=线程数+1，例如4线程的i5填-j5
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
-&lt;/details></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/markdown/">markdown</category></item><item><title>Github代理设置</title><link>https://timetext.github.io/tech/github%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link><guid isPermaLink="true">https://timetext.github.io/tech/github%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid><pubDate>Thu, 07 Jul 2022 09:53:25 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;h2 id="代理相关">代理相关&lt;/h2>
-&lt;h3 id="设置代理">设置代理&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global http.proxy &lt;span class="s1">&amp;#39;socks5://127.0.0.1:1080&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global https.proxy &lt;span class="s1">&amp;#39;socks5://127.0.0.1:1080&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="查看代理">查看代理&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global --get http.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --get https.proxy
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="取消代理">取消代理&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global --unset http.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global --unset https.proxy
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="配置文件">配置文件&lt;/h2>
-&lt;h3 id="查看本地配置">查看本地配置&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看所有配置&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --list
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看本地全局配置&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global -l
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看本地仓库配置&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local -l
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="修改本地配置">修改本地配置&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 方式一&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地全局配置global&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="nb">test&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s1">&amp;#39;test@test.com&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地仓库配置local&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local user.name &lt;span class="nb">test&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local user.email &lt;span class="s1">&amp;#39;test@test.com&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 方式二&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地全局配置global&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim ~/.gitconfig
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地仓库配置local&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">vim .git/config
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 方式三&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地全局配置global&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global -e
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### 修改本地仓库配置local&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --local -e
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/proxy/">proxy</category><category domain="https://timetext.github.io/github/">github</category></item><item><title>编写sh脚本助力hugo博客管理</title><link>https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</link><guid isPermaLink="true">https://timetext.github.io/tech/%E7%BC%96%E5%86%99sh%E8%84%9A%E6%9C%AC%E5%8A%A9%E5%8A%9Bhugo%E5%8D%9A%E5%AE%A2%E7%AE%A1%E7%90%86/</guid><pubDate>Wed, 06 Jul 2022 23:55:16 +0800</pubDate><copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh) 原创内容 未经授权 禁止转载</copyright><description>&lt;p>最终意图：自定义指令bk，&lt;code>bk new&lt;/code>实现新建博客；&lt;code>bk push&lt;/code>实现推送到仓库.....等操作。&lt;/p>
-&lt;p>流程概览：编写本地sh脚本用于完成各种操作；指令别名用于实现在任何位置执行脚本；&lt;/p>
-&lt;h3 id="mac-终端指令别名">Mac 终端指令别名&lt;/h3>
-&lt;p>由于Mac终端使用时是zsh，所有需要在zsh的配置文件中引入bash的配置文件&lt;/p>
-&lt;p>~/.zshrc中引入~/.bash_profile&lt;/p>
-&lt;pre tabindex="0">&lt;code># ~/.zshrc
-# 当有 ~/.bash_profile 文件时，才加载这个文件
-test -f ~/.bash_profile &amp;amp;&amp;amp; source ~/.bash_profile
-&lt;/code>&lt;/pre>&lt;p>&lt;code>~/.bash_profile&lt;/code>中输入别名设置&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ~/.bash_profile&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">blog&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;xxxxx/xxxx/xxxx/auto_hugo.sh&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="编辑sh脚本">编辑sh脚本&lt;/h3>
-&lt;p>auto_hugo.sh所在位置应同&lt;code>~/.bash_profile&lt;/code>中的一样&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;hello&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="别名测试">别名测试&lt;/h3>
-&lt;p>任意位置打开终端输入blog回车，输出hello，则表示设置正常。&lt;/p>
-&lt;h3 id="脚本样例">脚本样例&lt;/h3>
-&lt;details>
-&lt;summary>我的sh脚本效果图&lt;/summary>
-&lt;p>&lt;img src="https://timetext.github.io/ariticle_source/220707-sh%E8%84%9A%E6%9C%AC%E6%B5%8B%E8%AF%95.png" alt="test">&lt;/p>
-&lt;/details>
-&lt;p>因我的hugo目录配置有较大diy改动，所以新增博文和修改博文部分请按需所取，关于git的push部分应该是不需要改动就可以使用的，放在这里也主要是为了进行备份。&lt;/p>
-&lt;details>
-&lt;summary>~/.zshrc&lt;/summary>
-&lt;pre tabindex="0">&lt;code># 当有 ~/.bash_profile 文件时，才加载这个文件
-test -f ~/.bash_profile &amp;amp;&amp;amp; source ~/.bash_profile
-&lt;/code>&lt;/pre> &lt;/details>
-&lt;details>
-&lt;summary>~/.bash_profile&lt;/summary>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#当前终端目录打开访达&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">cdd&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;open ./&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#typora=打开typora&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">typora&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;open /Applications/Typora.app&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># code=打开vscode&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">code&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;open /Applications/vscode.app&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># bk=hugo快捷相关&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">bk&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/xxxxx/xxxx/auto_hugo.sh&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div> &lt;/details>
-&lt;details>
-&lt;summary>/xxxxx/xxxxx/auto_hugo.sh&lt;/summary>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#!/bin/bash
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp">&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 配置博客根目录绝对路径，末尾必须带“/”&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">rootdir&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;/.../.../blog/&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 相关软件路径&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">vscodepath&lt;/span>&lt;span class="o">=&lt;/span>/Applications/vscode.app
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">typorapath&lt;/span>&lt;span class="o">=&lt;/span>/Applications/Typora.app
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 博客主页&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">blogwebindex&lt;/span>&lt;span class="o">=&lt;/span>https://xxxxx.github.io/
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#================================&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#================================&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$#&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">0&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> clear
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;=======帮助信息help======&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;博客相关&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; bk加上:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; run: 本地运行&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; add: 写新博文&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; edit: 改旧博文&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; save: 保存到本地&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; push: 推送到远端&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; proxy: 设置Github代理&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; index: 前往网络主页&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; 直接输入:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; bkroot: 前往博客根目录&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; bkbw: 前往博文根目录&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;————————————————————————&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;其他相关&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; bk加上:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34; pyweb: 本目录启动py-web服务器&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;=========================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">deftest&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;测试功能&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">recerror&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;|error|error|error|error|error|&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;错误:&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">1&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;|error|error|error|error|error|&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">exit&lt;/span> &lt;span class="m">9&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">defrun&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请输入启动端口(回车默认为1313):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> lowebport
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">lowebport&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">lowebport&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1313&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> open http://localhost:&lt;span class="si">${&lt;/span>&lt;span class="nv">lowebport&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;饿死了，请等我1秒去跑步运动一下，保命最重要&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hugo server -D -p&lt;span class="si">${&lt;/span>&lt;span class="nv">lowebport&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">defadd&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/zh-cn/ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> ls -d */ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请选择博文类别(回车默认为tech):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> categories
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">categories&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;tech&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> ! -d &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">content/zh-cn/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> recerror &lt;span class="s2">&amp;#34;类别输入错误，我被你气死了，若你感到自责就在上面选择正确分类并重启我。&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请输入博文标题:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> title
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> recerror &lt;span class="s2">&amp;#34;你好像并没有输入什么东西，我已经饿死了，若你感到自责请重启我&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> hugo new &lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span>.md
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;闭上眼睛～休息1秒钟吧&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep 1s
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> mv &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/zh-cn/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span>.md &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/zh-cn/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="k">$(&lt;/span>date &lt;span class="s2">&amp;#34;+%y%m%d&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>-&lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span>.md
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> sleep 1s
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;选择打开方式(1=VIM;2=vscode;3=typora;default=typora):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> selectopnewblog
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">selectopnewblog&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 设置默认打开方式&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">selectopnewblog&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;3&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">selectopnewblog&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> vim &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/zh-cn/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="k">$(&lt;/span>date &lt;span class="s2">&amp;#34;+%y%m%d&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>-&lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span>.md
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">selectopnewblog&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> open &lt;span class="si">${&lt;/span>&lt;span class="nv">vscodepath&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> open ./ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">selectopnewblog&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;3&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> open &lt;span class="si">${&lt;/span>&lt;span class="nv">typorapath&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/zh-cn/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="k">$(&lt;/span>date &lt;span class="s2">&amp;#34;+%y%m%d&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>-&lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span>.md
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;文件保存路径为:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/zh-cn/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="k">$(&lt;/span>date &lt;span class="s2">&amp;#34;+%y%m%d&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>-&lt;span class="si">${&lt;/span>&lt;span class="nv">title&lt;/span>&lt;span class="si">}&lt;/span>.md
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">defedit&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> ls -d */ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请选择博文语言(回车默认为zh-cn):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> language
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">language&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;zh-cn&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> ! -d &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">content/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">/&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> recerror &lt;span class="s2">&amp;#34;类别输入错误，我被你气死了，若你感到自责就在上面选择正确分类并重启我。&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>/ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> ls -d */ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请选择博文类别(回车默认为tech):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> categories
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">categories&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;tech&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> ! -d &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">content/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> recerror &lt;span class="s2">&amp;#34;类别输入错误，我被你气死了，若你感到自责就在上面选择正确分类并重启我。&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;打开目录方式(1=访达;2=vscode;默认=1)&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> howopenfolder
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">howopenfolder&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 设置默认打开方式&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">howopenfolder&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">howopenfolder&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;1&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> open ./ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">howopenfolder&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;2&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> open &lt;span class="si">${&lt;/span>&lt;span class="nv">vscodepath&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>content/&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>/&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> open ./ &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;*****************&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;cd &lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">content/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">language&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">/&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2"> &amp;amp;&amp;amp; ls&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;*****************&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;：）复制粘贴以上、按回车键「Enter」打开所在目录&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">#cd &lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">defsave&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git add .
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请输入commit(回车默认为“&lt;/span>&lt;span class="k">$(&lt;/span>date &lt;span class="s2">&amp;#34;+%y%m%d-%H%M%S&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>&lt;span class="s2">-&amp;#34;&lt;/span>update&lt;span class="s2">&amp;#34;”):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> categories
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">categories&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="k">$(&lt;/span>date &lt;span class="s2">&amp;#34;+%y%m%d-%H%M%S&amp;#34;&lt;/span>&lt;span class="k">)&lt;/span>-&lt;span class="s2">&amp;#34;update&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git commit -m &lt;span class="si">${&lt;/span>&lt;span class="nv">categories&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">defpush&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defsave
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git push
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">defproxy&lt;span class="o">(){&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;1.查看代理&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;2.设置代理&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;3.取消代理&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请相关相关序号(回车默认=1):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> checkproxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">checkproxy&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">checkproxy&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">checkproxy&lt;/span>&lt;span class="si">}&lt;/span> -eq &lt;span class="m">1&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --get http.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --get https.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">checkproxy&lt;/span>&lt;span class="si">}&lt;/span> -eq &lt;span class="m">2&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请输入代理ip地址(回车默认为127.0.0.1):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> ipproxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">ipproxy&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ipproxy&lt;/span>&lt;span class="o">=&lt;/span>127.0.0.1
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请输入代理端口(回车默认为1234):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> portproxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">portproxy&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">portproxy&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1234&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global http.http://github.com.proxy socks5://&lt;span class="si">${&lt;/span>&lt;span class="nv">ipproxy&lt;/span>&lt;span class="si">}&lt;/span>:&lt;span class="si">${&lt;/span>&lt;span class="nv">portproxy&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;git config --global http.http://github.com.proxy socks5://&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">ipproxy&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">:&lt;/span>&lt;span class="si">${&lt;/span>&lt;span class="nv">portproxy&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global http.https://github.com.proxy socks5://&lt;span class="si">${&lt;/span>&lt;span class="nv">ipproxy&lt;/span>&lt;span class="si">}&lt;/span>:&lt;span class="si">${&lt;/span>&lt;span class="nv">portproxy&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --get http.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --get https.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;为http和https设置代理完毕&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">checkproxy&lt;/span>&lt;span class="si">}&lt;/span> -eq &lt;span class="m">3&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --unset http.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git config --global --unset https.proxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#================================&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#================================&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$#&lt;/span> -gt &lt;span class="m">1&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> recerror &lt;span class="s2">&amp;#34;输入这么多参数，你想撑死我吗？感到自责就重启我&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$#&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="m">1&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">cd&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="nv">rootdir&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;run&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defrun
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;add&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defadd
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;edit&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defedit
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;save&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defsave
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;push&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defpush
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;test&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> deftest
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;proxy&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> defproxy
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;index&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> open &lt;span class="si">${&lt;/span>&lt;span class="nv">blogwebindex&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">elif&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="nv">$1&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s2">&amp;#34;pyweb&amp;#34;&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;====================&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> -n &lt;span class="s2">&amp;#34;请输入启动端口(回车默认为8000):&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">read&lt;/span> pywebport
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="o">[&lt;/span> -z &lt;span class="si">${&lt;/span>&lt;span class="nv">pywebport&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">pywebport&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">8000&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> open http://localhost:&lt;span class="si">${&lt;/span>&lt;span class="nv">pywebport&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="s2">&amp;#34;饿死了，请等我1秒去跑步运动一下，保命最重要&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> python3 -m http.server &lt;span class="si">${&lt;/span>&lt;span class="nv">pywebport&lt;/span>&lt;span class="si">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> recerror &lt;span class="s2">&amp;#34;输入这么多参数，你想撑死我吗？感到自责就重启我&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div> &lt;/details>
-&lt;h3 id="延伸使用sh脚本跳转其他目录">延伸：使用sh脚本跳转其他目录&lt;/h3>
-&lt;p>意图：通过&lt;code>tob&lt;/code>或者其他自定义命令前往blog的主目录或其他目录内。&lt;/p>
-&lt;p>问题：在sh脚本内编写&lt;code>cd dir&lt;/code>，执行sh脚本不能跳转。&lt;/p>
-&lt;p>原因：shell在执行sh脚本时候会fork一个子进程，子进程通过exec执行程序。&lt;/p>
-&lt;p>参考：&lt;a href="https://blog.csdn.net/han8040laixin/article/details/81268346">Linux下通过Shell脚本快速进入指定目录&lt;/a>，文章的方案是使用source执行脚本，例如&lt;code>source goto.sh&lt;/code>，但和我的意图还是有所距离，一个字母都不想多输入。&lt;/p>
-&lt;p>解决：使用给&lt;code>source goto.sh&lt;/code>加别名的方式解决&lt;/p>
-&lt;p>例如：&lt;/p>
-&lt;p>~/.bash_profile&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">alias&lt;/span> &lt;span class="nv">tob&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;source /home/user/to.sh&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>/home/user/to.sh&lt;/p>
-&lt;pre tabindex="0">&lt;code>#!/bin/bash
-cd /bin/
-&lt;/code>&lt;/pre>&lt;p>完成后使用 &lt;code>source ~/.bash_profile&lt;/code>刷新。&lt;/p>
-&lt;p>测试：任意位置打开终端，输入&lt;code>tob&lt;/code>回车后当前目录会跳转到&lt;code>/bin&lt;/code>目录中。&lt;/p>
-&lt;h3 id="扩展sh数字比较">扩展：sh数字比较&lt;/h3>
-&lt;p>copy：&lt;a href="https://blog.csdn.net/w7904116/article/details/103353553">bash shell数字/字符串比较&lt;/a>&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>比较&lt;/th>
-&lt;th>描述&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>n1 -eq n2&lt;/td>
-&lt;td>检查n1是否与n2相等&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>n1 -ge n2&lt;/td>
-&lt;td>检查n1是否大于或等于n2&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>n1 -gt n2&lt;/td>
-&lt;td>检查n1是否大于n2&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>n1 -le n2&lt;/td>
-&lt;td>检查n1是否小于或等于n2&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>n1 -lt n2&lt;/td>
-&lt;td>检查n1是否小于n2&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>n1 -ne n2&lt;/td>
-&lt;td>检查n1是否不等于n2&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;h3 id="扩展sh文件比较">扩展：sh文件比较&lt;/h3>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>比较&lt;/th>
-&lt;th>描述&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>-d file&lt;/td>
-&lt;td>检查file是否存在并是一个目录&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-e file&lt;/td>
-&lt;td>检查file是否存在&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-f file&lt;/td>
-&lt;td>检查file是否存在并是一个文件&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-r file&lt;/td>
-&lt;td>检查file是否存在并可读&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-s fil&lt;/td>
-&lt;td>检查file是否存在并非空&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-w file&lt;/td>
-&lt;td>检查file是否存在并可写&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-x file&lt;/td>
-&lt;td>检查file是否存在并可执行&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-O file&lt;/td>
-&lt;td>检查file是否存在并属当前用户所有&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>-G file&lt;/td>
-&lt;td>检查file是否存在并且默认组与当前用户相同&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>file1 -nt file2&lt;/td>
-&lt;td>检查file1是否比file2新&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>file1 -ot file2&lt;/td>
-&lt;td>检查file1是否比file2旧&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/sh/">sh</category><category domain="https://timetext.github.io/macos/">macos</category><category domain="https://timetext.github.io/script/">script</category></item></channel></rss>
+&lt;/details></description><category domain="https://timetext.github.io/tech/">tech</category><category domain="https://timetext.github.io/markdown/">markdown</category></item></channel></rss>
